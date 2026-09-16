@@ -9,4 +9,6 @@ export const colors = {
   card: "#ffffff",      // card background (white)
   grey: "#8a8a94",      // secondary text, labels
   line: "#ececf2",      // dividers and thin borders
+  green: "#1a7f4b",     // wins
+  red: "#b32d2d",       // losses
 };

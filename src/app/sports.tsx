@@ -1,22 +1,25 @@
 // SPORTS — past results with win/loss coloring, then upcoming games.
+// Data from lulions.com, Lincoln's official athletics site.
 
 import ScreenShell from "@/components/screen-shell";
 import { colors } from "@/constants/colors";
 import { StyleSheet, Text, View } from "react-native";
 
-// EDIT THE DATA: real opponents and real scores.
-// "outcome" is either "W" or "L" and drives the color.
+// Games already played. "outcome" is either "W" or "L" and drives the color.
+// Both games so far were losses, so the green badge won't appear until the
+// Lions win one — the code handles either case.
 const pastGames = [
-  { id: 1, date: "Sep 12", title: "Football vs Opponent", outcome: "W", score: "24 - 17" },
-  { id: 2, date: "Sep 9",  title: "Volleyball vs Opponent", outcome: "L", score: "1 - 3" },
-  { id: 3, date: "Sep 5",  title: "Soccer vs Opponent", outcome: "W", score: "2 - 0" },
-  { id: 4, date: "Aug 30", title: "Football vs Opponent", outcome: "L", score: "10 - 28" },
+  { id: 1, date: "Sep 12", title: "Football vs Mississippi Valley State", outcome: "L", score: "20 - 31" },
+  { id: 2, date: "Sep 5",  title: "Football vs West Chester", outcome: "L", score: "13 - 21" },
 ];
 
+// Games not yet played, so no score and no color.
 const upcoming = [
-  { id: 1, date: "Sep 19", title: "Football vs Opponent", detail: "1:00 PM — Home" },
-  { id: 2, date: "Sep 23", title: "Volleyball vs Opponent", detail: "6:00 PM — Away" },
-  { id: 3, date: "Oct 2",  title: "Basketball Scrimmage", detail: "7:00 PM — Home" },
+  { id: 1, date: "Sep 19", title: "Football at Shaw", detail: "1:00 PM — Away" },
+  { id: 2, date: "Sep 21", title: "Volleyball at Shaw", detail: "6:00 PM — Away" },
+  { id: 3, date: "Sep 24", title: "Volleyball vs Virginia State", detail: "6:00 PM — Home" },
+  { id: 4, date: "Sep 26", title: "Football vs Bluefield State", detail: "1:00 PM — Home" },
+  { id: 5, date: "Oct 3",  title: "Football vs Virginia State", detail: "1:00 PM — Home" },
 ];
 
 export default function SportsScreen() {
@@ -25,17 +28,18 @@ export default function SportsScreen() {
       <Text style={styles.sectionLabel}>RESULTS</Text>
 
       {pastGames.map((game) => {
-        // A win gets green, a loss gets red. We compute the color ONCE here
-        // instead of writing the same ternary three times in the JSX below.
+        // We need a variable before returning JSX, so this .map() uses curly
+        // braces and an explicit return. The shorter arrow-with-parentheses
+        // form only works when you return JSX immediately.
         const isWin = game.outcome === "W";
         const resultColor = isWin ? colors.green : colors.red;
+        // Computed once here rather than repeating the same ternary twice below.
 
         return (
           <View key={game.id} style={styles.card}>
-            {/* The colored badge. Note the style ARRAY: the first item is the
-                shared shape from StyleSheet, the second overrides just the
-                color. Later items win, so this is how you mix fixed styles
-                with values computed at render time. */}
+            {/* Style ARRAY: first item is the fixed shape from StyleSheet,
+                second overrides just the color. Later items win, which is how
+                you mix preset styles with values computed at render time. */}
             <View style={[styles.badge, { backgroundColor: resultColor }]}>
               <Text style={styles.badgeText}>{game.outcome}</Text>
             </View>
@@ -45,20 +49,18 @@ export default function SportsScreen() {
               <Text style={styles.meta}>{game.date}</Text>
             </View>
 
-            {/* Score also picks up the win/loss color. */}
+            {/* Score picks up the same win/loss color. */}
             <Text style={[styles.score, { color: resultColor }]}>
               {game.score}
             </Text>
           </View>
         );
       })}
-      {/* Because we needed a variable before returning JSX, this .map() uses
-          curly braces and an explicit "return". The arrow-with-parentheses
-          shortcut only works when you return JSX immediately. */}
 
       <Text style={styles.sectionLabel}>UPCOMING</Text>
 
       {upcoming.map((game) => (
+        // No variable needed here, so this map uses the short form.
         <View key={game.id} style={styles.card}>
           <View style={styles.dateBox}>
             <Text style={styles.dateText}>{game.date}</Text>
@@ -83,8 +85,8 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   card: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: "row",        // badge, text, and score sit in a row
+    alignItems: "center",        // vertically centered against each other
     backgroundColor: colors.card,
     borderRadius: 14,
     padding: 14,
@@ -93,19 +95,19 @@ const styles = StyleSheet.create({
   badge: {
     width: 30,
     height: 30,
-    borderRadius: 15,
+    borderRadius: 15,            // half the width makes a circle
     alignItems: "center",
     justifyContent: "center",
     marginRight: 12,
-    // no backgroundColor here — it's supplied inline per game
+    // no backgroundColor here on purpose — it's supplied inline per game
   },
   badgeText: {
-    color: colors.card,      // white letter on the colored circle
+    color: colors.card,          // white letter on the colored circle
     fontSize: 14,
     fontWeight: "700",
   },
   dateBox: {
-    width: 54,
+    width: 54,                   // fixed width so every date lines up
     marginRight: 12,
   },
   dateText: {
@@ -114,7 +116,8 @@ const styles = StyleSheet.create({
     color: colors.orange,
   },
   info: {
-    flex: 1,
+    flex: 1,                     // absorbs leftover width so long team names
+                                 // wrap instead of pushing the score off-screen
   },
   title: {
     fontSize: 15,
@@ -130,5 +133,6 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: "700",
     marginLeft: 8,
+    // no color here — supplied inline so it matches the badge
   },
 });
