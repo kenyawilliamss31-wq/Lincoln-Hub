@@ -1,23 +1,5 @@
-import { StyleSheet, Text, View } from "react-native";
-
-export default function QuickLinksScreen() {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.heading}>Quick Links</Text>
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-    paddingTop: 48,
-    backgroundColor: "#f4f4f7",
-  },
-  heading: {
-    fontSize: 30,
-    fontWeight: "700",
-    color: "#14213d",
-  },
-});
+import * as WebBrowser from "expo-web-browser";
+import { Pressable, Text } from "react-native";
+<Pressable onPress={() => WebBrowser.openBrowserAsync("https://login.microsoftonline.com/23744950-4732-43fd-b8f5-24069fc1934f/saml2?SAMLRequest=jZFRS8MwEMe%2FSsl72zTN1jWsG0MRhAmyOR98kZheNZBeZi4d%2Bu2thaJv%2BnAP4fLj%2Fve79fajd8kFAlmPDSsyzhJA41uLrw07PdykK7bdrEn37qx2Q3zDA7wPQDEZOSQ1NRo2BFRekyWFugdS0ajj7m6vRMbVOfjojXcs2RFBiOOgK4809BCOEC7WwOmwb9hbjGdSeW5bwGjjZwbODcZqNM4PbWZ8n4%2FVe9RjCpZcjxks6jjFnlnnXy1mvTXBk%2B%2BiR2cRJlSUlZT1gqeyKkUqy65NX1bdIhWSL%2BvOFHUpu%2Fx7GcGSGx8MTLs2rNOOgCW31w171iWYpZBa8lLUlV7JrjK8kxpMKdsC2vEb3Wsie4EfkGiAW6SoMTZMcLFMeZ0Wy4dipRa1Kous4vKJJY%2FzBUZjbPY9weH%2FpvXsl23%2BtrnOfw%2FZzM%2FfN958AQ%3D%3D&RelayState=023183d2-f868-4f4a-afc9-4a633e70df31")}>
+  <Text>Self Service</Text>
+</Pressable>
