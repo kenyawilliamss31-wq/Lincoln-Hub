@@ -1,6 +1,8 @@
-// HOME — greeting, advisor card, and the 8 section cards.
+// HOME — event banner, fun fact, greeting, sections, advisor at the bottom.
 
 import { colors } from "@/constants/colors";
+import { nextEvent } from "@/data/events";
+import { factOfTheDay } from "@/data/facts";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import * as WebBrowser from "expo-web-browser";
@@ -13,8 +15,6 @@ const advisor = {
   bookingUrl: "https://www.lincoln.edu/",
 };
 
-// Each section now carries an icon name alongside its title and route.
-// The icon strings are Ionicons names — browse them at icons.expo.fyi
 const sections = [
   { id: 1, title: "Events", href: "/events", icon: "calendar-outline" },
   { id: 2, title: "Digital ID", href: "/digital-id", icon: "card-outline" },
@@ -25,66 +25,57 @@ const sections = [
   { id: 7, title: "Calendar", href: "/academic-calendar", icon: "school-outline" },
   { id: 8, title: "Quick Links", href: "/quick-links", icon: "link-outline" },
 ] as const;
-// "as const" tells TypeScript these strings are exact fixed values, not just
-// any string. Ionicons only accepts names from its own list, so without this
-// TypeScript complains that "string" might not be a real icon name.
 
 export default function HomeScreen() {
   const router = useRouter();
 
-  // new Date() reads the actual clock on the phone. This is genuinely live —
-  // it updates every time the screen renders, no internet needed.
   const now = new Date();
-
-  // getHours() returns 0-23. We pick a greeting from it.
   const hour = now.getHours();
   const greeting =
     hour < 12 ? "Good morning" : hour < 18 ? "Good afternoon" : "Good evening";
-  // That's a NESTED TERNARY: condition ? valueIfTrue : valueIfFalse, where the
-  // false branch is another whole ternary. Reads as: if before noon, morning;
-  // otherwise if before 6pm, afternoon; otherwise evening.
-
-  // toLocaleDateString formats the date into readable text. The options object
-  // controls which parts appear and how long each one is.
   const dateText = now.toLocaleDateString("en-US", {
-    weekday: "long",   // "Wednesday" instead of "Wed"
-    month: "long",     // "September" instead of "Sep"
-    day: "numeric",    // "16" with no leading zero
+    weekday: "long",
+    month: "long",
+    day: "numeric",
   });
 
+  // Call the helpers from our data files. Both read the real clock, so this
+  // updates on its own as days pass — no server, no internet.
+  const upcoming = nextEvent();   // may be undefined once all events pass
+  const fact = factOfTheDay();
+
   return (
-    <ScrollView
-      style={styles.screen}
-      contentContainerStyle={styles.content}
-    >
+    <ScrollView style={styles.screen} contentContainerStyle={styles.content}>
+      {/* ---------- Event notification ---------- */}
+      {/* Only shows if there IS an upcoming event. Once every event is in the
+          past, nextEvent() returns undefined and this whole block disappears
+          instead of crashing. That's what the && guard is protecting against. */}
+      {upcoming && (
+        <Pressable style={styles.banner} onPress={() => router.push("/events")}>
+          <Ionicons name="notifications-outline" size={18} color={colors.card} />
+          <View style={styles.bannerInfo}>
+            <Text style={styles.bannerLabel}>COMING UP</Text>
+            <Text style={styles.bannerTitle} numberOfLines={1}>
+              {upcoming.title}
+            </Text>
+            {/* numberOfLines={1} truncates with "..." instead of letting a long
+                event name wrap and break the banner's height. */}
+          </View>
+          <Text style={styles.bannerDate}>{upcoming.date}</Text>
+        </Pressable>
+      )}
+
       {/* ---------- Greeting ---------- */}
       <Text style={styles.greeting}>{greeting}</Text>
       <Text style={styles.date}>{dateText}</Text>
 
-      {/* ---------- Advisor card ---------- */}
-      <View style={styles.advisorCard}>
-        <View style={styles.advisorTop}>
-          {/* Circle holding a person icon. */}
-          <View style={styles.advisorAvatar}>
-            <Ionicons name="person-outline" size={22} color={colors.navy} />
-          </View>
-
-          <View style={styles.advisorInfo}>
-            <Text style={styles.advisorLabel}>YOUR ADVISOR</Text>
-            <Text style={styles.advisorName}>{advisor.name}</Text>
-            <Text style={styles.advisorOffice}>{advisor.office}</Text>
-          </View>
+      {/* ---------- Fun fact ---------- */}
+      <View style={styles.factCard}>
+        <View style={styles.factHeader}>
+          <Ionicons name="bulb-outline" size={15} color={colors.orange} />
+          <Text style={styles.factLabel}>DID YOU KNOW</Text>
         </View>
-
-        {/* Booking button. Opens a real page in the phone's browser —
-            we can't create appointments inside their system. */}
-        <Pressable
-          style={styles.bookButton}
-          onPress={() => WebBrowser.openBrowserAsync(advisor.bookingUrl)}
-        >
-          <Ionicons name="calendar-outline" size={16} color={colors.card} />
-          <Text style={styles.bookText}>Make an appointment</Text>
-        </Pressable>
+        <Text style={styles.factText}>{fact}</Text>
       </View>
 
       {/* ---------- Section grid ---------- */}
@@ -102,6 +93,28 @@ export default function HomeScreen() {
           </Pressable>
         ))}
       </View>
+
+      {/* ---------- Advisor, now at the bottom ---------- */}
+      <View style={styles.advisorCard}>
+        <View style={styles.advisorTop}>
+          <View style={styles.advisorAvatar}>
+            <Ionicons name="person-outline" size={22} color={colors.navy} />
+          </View>
+          <View style={styles.advisorInfo}>
+            <Text style={styles.advisorLabel}>YOUR ADVISOR</Text>
+            <Text style={styles.advisorName}>{advisor.name}</Text>
+            <Text style={styles.advisorOffice}>{advisor.office}</Text>
+          </View>
+        </View>
+
+        <Pressable
+          style={styles.bookButton}
+          onPress={() => WebBrowser.openBrowserAsync(advisor.bookingUrl)}
+        >
+          <Ionicons name="calendar-outline" size={16} color={colors.card} />
+          <Text style={styles.bookText}>Make an appointment</Text>
+        </Pressable>
+      </View>
     </ScrollView>
   );
 }
@@ -113,11 +126,42 @@ const styles = StyleSheet.create({
   },
   content: {
     padding: 20,
-    paddingTop: 40,
+    paddingTop: 36,
     paddingBottom: 40,
     width: "100%",
     maxWidth: 480,
     alignSelf: "center",
+  },
+
+  banner: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
+    backgroundColor: colors.orange,
+    borderRadius: 12,
+    padding: 12,
+    marginBottom: 20,
+  },
+  bannerInfo: {
+    flex: 1,
+  },
+  bannerLabel: {
+    fontSize: 9,
+    fontWeight: "700",
+    color: colors.card,
+    letterSpacing: 1,
+    opacity: 0.85,          // slightly faded so it sits behind the title
+    marginBottom: 1,
+  },
+  bannerTitle: {
+    fontSize: 14,
+    fontWeight: "600",
+    color: colors.card,
+  },
+  bannerDate: {
+    fontSize: 13,
+    fontWeight: "700",
+    color: colors.card,
   },
 
   greeting: {
@@ -129,14 +173,69 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: colors.grey,
     marginTop: 2,
-    marginBottom: 20,
+    marginBottom: 16,
+  },
+
+  factCard: {
+    backgroundColor: colors.card,
+    borderRadius: 14,
+    padding: 14,
+    borderLeftWidth: 3,
+    borderLeftColor: colors.orange,
+    marginBottom: 24,
+  },
+  factHeader: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 6,
+    marginBottom: 6,
+  },
+  factLabel: {
+    fontSize: 10,
+    fontWeight: "700",
+    color: colors.grey,
+    letterSpacing: 1,
+  },
+  factText: {
+    fontSize: 14,
+    color: colors.navy,
+    lineHeight: 20,        // extra line spacing so multi-line text stays readable
+  },
+
+  eyebrow: {
+    fontSize: 13,
+    fontWeight: "600",
+    color: colors.grey,
+    letterSpacing: 1,
+    textTransform: "uppercase",
+    marginBottom: 10,
+  },
+  grid: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: 12,
+    marginBottom: 28,
+  },
+  card: {
+    width: "48%",
+    height: 96,
+    backgroundColor: colors.card,
+    borderRadius: 14,
+    padding: 14,
+    justifyContent: "space-between",
+    borderLeftWidth: 3,
+    borderLeftColor: colors.orange,
+  },
+  cardTitle: {
+    fontSize: 15,
+    fontWeight: "600",
+    color: colors.navy,
   },
 
   advisorCard: {
     backgroundColor: colors.card,
     borderRadius: 16,
     padding: 16,
-    marginBottom: 24,
   },
   advisorTop: {
     flexDirection: "row",
@@ -146,14 +245,14 @@ const styles = StyleSheet.create({
   advisorAvatar: {
     width: 46,
     height: 46,
-    borderRadius: 23,        // half of width/height makes a circle
+    borderRadius: 23,
     backgroundColor: colors.bg,
     alignItems: "center",
     justifyContent: "center",
     marginRight: 12,
   },
   advisorInfo: {
-    flex: 1,                 // takes the leftover width so text wraps cleanly
+    flex: 1,
   },
   advisorLabel: {
     fontSize: 10,
@@ -173,10 +272,10 @@ const styles = StyleSheet.create({
     marginTop: 1,
   },
   bookButton: {
-    flexDirection: "row",       // icon and label side by side
+    flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    gap: 8,                     // space between icon and label
+    gap: 8,
     backgroundColor: colors.navy,
     borderRadius: 10,
     paddingVertical: 12,
@@ -185,34 +284,5 @@ const styles = StyleSheet.create({
     color: colors.card,
     fontSize: 14,
     fontWeight: "600",
-  },
-
-  eyebrow: {
-    fontSize: 13,
-    fontWeight: "600",
-    color: colors.grey,
-    letterSpacing: 1,
-    textTransform: "uppercase",
-    marginBottom: 10,
-  },
-  grid: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    gap: 12,
-  },
-  card: {
-    width: "48%",
-    height: 96,                  // taller than before to fit icon above text
-    backgroundColor: colors.card,
-    borderRadius: 14,
-    padding: 14,
-    justifyContent: "space-between",  // icon at top, title at bottom
-    borderLeftWidth: 3,
-    borderLeftColor: colors.orange,
-  },
-  cardTitle: {
-    fontSize: 15,
-    fontWeight: "600",
-    color: colors.navy,
   },
 });
