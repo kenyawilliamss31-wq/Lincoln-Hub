@@ -1,56 +1,69 @@
-# Welcome to your Expo app 👋
+﻿# Lincoln Hub
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A mobile app that puts Lincoln University campus information in one place — events,
+dining, athletics, the academic calendar, campus directory, and quick links to the
+services students actually use.
 
-## Get started
+Built with React Native, Expo, and TypeScript.
 
-1. Install dependencies
+> **Not an official Lincoln University app.** This is an independent student project.
+> It is not affiliated with or endorsed by Lincoln University, and the Digital ID
+> screen is a display mockup, not a valid credential.
 
-   ```bash
-   npm install
-   ```
+## Screens
 
-2. Start the app
+| Screen | What it does |
+| --- | --- |
+| Home | Greeting with live date, next upcoming event, a rotating Lincoln fun fact, and navigation to every section |
+| Events | Upcoming campus events with dates and locations |
+| Sports | Past results color-coded by win or loss, plus the upcoming schedule |
+| Dining | Hall locations and serving hours |
+| Academic Calendar | Key dates for the term |
+| Campus Directory | Offices, phone numbers, and hours |
+| Campus Map | Building list with a link to the official campus map |
+| Digital ID | Student ID card mockup |
+| Quick Links | One-tap access to LU Self-Service, email, tutoring, and the registrar |
 
-   ```bash
-   npx expo start
-   ```
+## Screenshots
 
-In the output, you'll find options to open the app in a
+<!-- Add screenshots here. On GitHub you can drag images straight into this
+     file while editing and it will upload them for you. -->
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Tech
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+- **React Native** with **Expo** (SDK 57)
+- **TypeScript**
+- **expo-router** for file-based navigation
+- **expo-web-browser** for outbound links
+- **@expo/vector-icons** (Ionicons)
 
-## Get a fresh project
-
-When you're ready, run:
+## Running it locally
 
 ```bash
-npm run reset-project
+git clone https://github.com/kenyawilliamss31-wq/lincoln-hub.git
+cd lincoln-hub
+npm install
+npx expo start
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Scan the QR code with the Expo Go app, or press `w` to open it in a browser.
 
-### Other setup steps
+## How it is organized
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
 
-## Learn more
+Two components do most of the work. `ScreenShell` provides the scrollable page
+frame, heading, and padding that every screen shares. `InfoCard` renders a list
+row with an optional left column, a title, and detail lines. Eight screens use
+them, so a change to spacing or corner radius happens in one file.
 
-To learn more about developing your project with Expo, look at the following resources:
+## What is next
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+- [ ] Replace placeholder data with verified information from Lincoln
+- [ ] Real dining hours and directory phone numbers
+- [ ] Actual athletics results and schedule
+- [ ] Push notifications for upcoming events
+- [ ] Accessibility pass on color contrast and touch target sizes
 
-## Join the community
+## About
 
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Built by Kenya Williams, computer science student at Lincoln University.
