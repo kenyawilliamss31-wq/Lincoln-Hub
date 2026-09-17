@@ -106,6 +106,7 @@ export default function SportsScreen() {
 // exists in ONE place - adjust the padding here and both grids change.
 // { game }: { game: Game } destructures the props object and tells TypeScript
 // the shape, so autocomplete knows game.opponent exists.
+
 function GameTile({ game }: { game: Game }) {
   // Cross country is scored by team placement, not W/L, so a red or green ring
   // would be misleading. Navy is the neutral "this is just an event" color.
@@ -123,8 +124,13 @@ function GameTile({ game }: { game: Game }) {
     game.outcome === "L" ? colors.red :
     colors.grey;
 
-  // "at" for away games, "vs" for home and neutral sites.
-  const prefix = game.site === "Away" ? "at" : "vs";
+  // Where the game is played, as its own label instead of a "vs" / "at" prefix
+  // glued onto the opponent name. Neutral-site games are neither home nor away
+  // - the Chicago Classic and the CIAA roundups are played on other campuses.
+  const siteLabel =
+    game.site === "Home" ? "@ HOME" :
+    game.site === "Away" ? "AWAY" :
+    "NEUTRAL";
 
   return (
     <View style={styles.tile}>
@@ -143,12 +149,24 @@ function GameTile({ game }: { game: Game }) {
       <Text style={styles.date}>{game.date}</Text>
 
       {/* numberOfLines={2} caps this at two lines and adds "..." past that.
-          Without it, a long opponent name would make one tile taller than its
+          Without it a long opponent name would make one tile taller than its
           neighbors and break the row alignment. */}
       <Text style={styles.opponent} numberOfLines={2}>
-        {/* Cross country entries are meet names, not opponents, so "vs UMES
-            Invitational" would read wrong. Track skips the prefix entirely. */}
-        {isTrack ? "" : prefix + " "}{game.opponent}
+        {game.opponent}
+      </Text>
+
+      {/* Home games get the orange accent so they stand out - those are the
+          ones a student can actually walk to. Everything else stays grey. */}
+      <Text
+        style={[
+          styles.site,
+          game.site === "Home" && { color: colors.orange },
+        ]}
+      >
+        {/* Cross country entries are meets, and "@ HOME" under a meet name adds
+            nothing, so track hides this line. An empty string renders nothing
+            while still keeping the element in place. */}
+        {isTrack ? "" : siteLabel}
       </Text>
 
       {/* flex: 1 on this spacer pushes everything below it to the bottom of the
@@ -156,10 +174,9 @@ function GameTile({ game }: { game: Game }) {
           one opponent name wraps to two lines and another doesn't. */}
       <View style={styles.spacer} />
 
-      {/* Three cases for the bottom line, checked most specific first.
-          Order matters: a canceled game has no outcome, so if the outcome check
-          came first it would fall through to showing a start time for a game
-          that isn't happening. */}
+      {/* Three cases, checked most specific first. Order matters: a canceled
+          game has no outcome, so if the outcome check came first it would fall
+          through to showing a start time for a game that isn't happening. */}
       {isCanceled ? (
         <Text style={[styles.score, { color: colors.navy }]}>Canceled</Text>
       ) : game.outcome !== "" ? (
@@ -167,9 +184,6 @@ function GameTile({ game }: { game: Game }) {
           {game.outcome} {game.score}
         </Text>
       ) : (
-        // Everything left over hasn't been played yet, so show the start time.
-        // Every tile ends up with something on its bottom line, so none look
-        // truncated.
         <Text style={styles.time}>{game.time}</Text>
       )}
     </View>
@@ -256,6 +270,13 @@ const styles = StyleSheet.create({
     lineHeight: 14,
     marginTop: 2,
   },
+  site: {
+  fontSize: 9,
+  fontWeight: "800",
+  color: colors.grey,
+  letterSpacing: 0.6,   // wide spacing makes tiny uppercase text legible
+  marginTop: 2,
+},
   spacer: {
     flex: 1,              // absorbs leftover vertical space, pinning the score
                           // to the bottom of every tile
