@@ -1,138 +1,214 @@
-// SPORTS — past results with win/loss coloring, then upcoming games.
-// Data from lulions.com, Lincoln's official athletics site.
+﻿// SPORTS â€” full 2026 fall season. Results on top, schedule below,
+// with buttons to filter down to one sport.
 
 import ScreenShell from "@/components/screen-shell";
 import { colors } from "@/constants/colors";
-import { StyleSheet, Text, View } from "react-native";
-
-// Games already played. "outcome" is either "W" or "L" and drives the color.
-// Both games so far were losses, so the green badge won't appear until the
-// Lions win one — the code handles either case.
-const pastGames = [
-  { id: 1, date: "Sep 12", title: "Football vs Mississippi Valley State", outcome: "L", score: "20 - 31" },
-  { id: 2, date: "Sep 5",  title: "Football vs West Chester", outcome: "L", score: "13 - 21" },
-];
-
-// Games not yet played, so no score and no color.
-const upcoming = [
-  { id: 1, date: "Sep 19", title: "Football at Shaw", detail: "1:00 PM — Away" },
-  { id: 2, date: "Sep 21", title: "Volleyball at Shaw", detail: "6:00 PM — Away" },
-  { id: 3, date: "Sep 24", title: "Volleyball vs Virginia State", detail: "6:00 PM — Home" },
-  { id: 4, date: "Sep 26", title: "Football vs Bluefield State", detail: "1:00 PM — Home" },
-  { id: 5, date: "Oct 3",  title: "Football vs Virginia State", detail: "1:00 PM — Home" },
-];
+import {
+  pastGames,
+  record,
+  sportFilters,
+  upcomingGames,
+  type Game,
+} from "@/data/sports";
+import { useState } from "react";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 
 export default function SportsScreen() {
+  // useState gives us a value plus a function that changes it. When we call
+  // setSport, React re-runs this whole component with the new value, so the
+  // lists below redraw automatically. "All" is the starting value.
+  const [sport, setSport] = useState("All");
+
+  // These run again on every render, so they always reflect the current filter.
+  const results = pastGames(sport);
+  const upcoming = upcomingGames(sport);
+  const rec = record(sport);
+
   return (
-    <ScreenShell eyebrow="Lions Athletics" title="Sports">
-      <Text style={styles.sectionLabel}>RESULTS</Text>
+    <ScreenShell eyebrow="Lincoln Lions" title="Sports">
+      {/* FILTER ROW â€” wraps onto a second line on narrow phones. */}
+      <View style={styles.filterRow}>
+        {sportFilters.map((name) => {
+          // Comparing to the current state tells us which chip to highlight.
+          const active = name === sport;
 
-      {pastGames.map((game) => {
-        // We need a variable before returning JSX, so this .map() uses curly
-        // braces and an explicit return. The shorter arrow-with-parentheses
-        // form only works when you return JSX immediately.
-        const isWin = game.outcome === "W";
-        const resultColor = isWin ? colors.green : colors.red;
-        // Computed once here rather than repeating the same ternary twice below.
+          return (
+            <Pressable
+              key={name}
+              // The arrow function matters: onPress wants a function to call
+              // LATER. Writing onPress={setSport(name)} would call it during
+              // render and cause an infinite loop.
+              onPress={() => setSport(name)}
+              style={[styles.chip, active && styles.chipActive]}
+            >
+              <Text style={[styles.chipText, active && styles.chipTextActive]}>
+                {name}
+              </Text>
+            </Pressable>
+          );
+        })}
+      </View>
 
-        return (
-          <View key={game.id} style={styles.card}>
-            {/* Style ARRAY: first item is the fixed shape from StyleSheet,
-                second overrides just the color. Later items win, which is how
-                you mix preset styles with values computed at render time. */}
-            <View style={[styles.badge, { backgroundColor: resultColor }]}>
-              <Text style={styles.badgeText}>{game.outcome}</Text>
-            </View>
+      {/* RECORD LINE â€” only worth showing when games have actually been played. */}
+      {results.length > 0 && (
+        <Text style={styles.record}>
+          {rec.wins}-{rec.losses}
+          {/* Ties only appear in soccer, so we hide the third number when
+              there aren't any rather than printing a pointless "-0". */}
+          {rec.ties > 0 ? "-" + rec.ties : ""} this season
+        </Text>
+      )}
 
-            <View style={styles.info}>
-              <Text style={styles.title}>{game.title}</Text>
-              <Text style={styles.meta}>{game.date}</Text>
-            </View>
-
-            {/* Score picks up the same win/loss color. */}
-            <Text style={[styles.score, { color: resultColor }]}>
-              {game.score}
-            </Text>
-          </View>
-        );
-      })}
-
-      <Text style={styles.sectionLabel}>UPCOMING</Text>
-
-      {upcoming.map((game) => (
-        // No variable needed here, so this map uses the short form.
-        <View key={game.id} style={styles.card}>
-          <View style={styles.dateBox}>
-            <Text style={styles.dateText}>{game.date}</Text>
-          </View>
-          <View style={styles.info}>
-            <Text style={styles.title}>{game.title}</Text>
-            <Text style={styles.meta}>{game.detail}</Text>
-          </View>
-        </View>
+      <Text style={styles.heading}>Results</Text>
+      {results.map((game) => (
+        <GameCard key={game.id} game={game} />
       ))}
+      {results.length === 0 && <Text style={styles.empty}>No games played yet.</Text>}
+
+      <Text style={styles.heading}>Upcoming</Text>
+      {upcoming.map((game) => (
+        <GameCard key={game.id} game={game} />
+      ))}
+      {upcoming.length === 0 && <Text style={styles.empty}>Season complete.</Text>}
+
+      <Text style={styles.source}>
+        Schedules and scores from lulions.com. Check there for changes.
+      </Text>
     </ScreenShell>
   );
 }
 
+// A small component used twice above. Pulling it out means the card markup
+// exists in ONE place â€” fix the padding here and both lists change.
+// { game }: { game: Game } destructures the props object and tells TypeScript
+// the shape, so autocomplete knows game.opponent exists.
+function GameCard({ game }: { game: Game }) {
+  // Picking the color from the outcome. A plain object used as a lookup table
+  // is cleaner than three if-statements.
+  const outcomeColor =
+    game.outcome === "W" ? colors.green :
+    game.outcome === "L" ? colors.red :
+    colors.grey;
+
+  // "vs" for home games, "at" for away, "vs" for neutral-site games too â€”
+  // that's the convention every sports site uses.
+  const prefix = game.site === "Away" ? "at" : "vs";
+
+  return (
+    <View style={styles.card}>
+      <View style={styles.cardTop}>
+        <Text style={styles.sportTag}>{game.sport}</Text>
+        <Text style={styles.date}>
+          {game.date} Â· {game.time}
+        </Text>
+      </View>
+
+      <Text style={styles.opponent}>
+        {prefix} {game.opponent}
+      </Text>
+
+      <Text style={styles.place}>{game.place}</Text>
+
+      {/* Only render the score badge when there IS an outcome. An empty
+          string is falsy, so unplayed games skip this entirely. */}
+      {game.outcome !== "" && (
+        <Text style={[styles.score, { color: outcomeColor }]}>
+          {game.outcome === "W" ? "Won" : game.outcome === "L" ? "Lost" : "Tied"}{" "}
+          {game.score}
+        </Text>
+      )}
+
+      {/* Notes like "Homecoming" or "Canceled" only exist on some games. */}
+      {game.note !== "" && <Text style={styles.note}>{game.note}</Text>}
+    </View>
+  );
+}
+
 const styles = StyleSheet.create({
-  sectionLabel: {
-    fontSize: 11,
+  filterRow: {
+    flexDirection: "row",
+    flexWrap: "wrap",   // lets the chips spill onto a second row
+    gap: 8,
+    marginBottom: 12,
+  },
+  chip: {
+    paddingVertical: 6,
+    paddingHorizontal: 12,
+    borderRadius: 999,  // any number bigger than half the height = a pill
+    backgroundColor: colors.card,
+    borderWidth: 1,
+    borderColor: colors.line,
+  },
+  chipActive: {
+    backgroundColor: colors.navy,
+    borderColor: colors.navy,
+  },
+  chipText: {
+    fontSize: 13,
+    color: colors.grey,
+    fontWeight: "600",
+  },
+  chipTextActive: {
+    color: "#ffffff",
+  },
+  record: {
+    fontSize: 14,
+    fontWeight: "700",
+    color: colors.navy,
+    marginBottom: 4,
+  },
+  heading: {
+    fontSize: 12,
     fontWeight: "700",
     color: colors.grey,
     letterSpacing: 1,
-    marginTop: 8,
-    marginBottom: 10,
+    textTransform: "uppercase",
+    marginTop: 16,
+    marginBottom: 8,
   },
   card: {
-    flexDirection: "row",        // badge, text, and score sit in a row
-    alignItems: "center",        // vertically centered against each other
     backgroundColor: colors.card,
     borderRadius: 14,
     padding: 14,
     marginBottom: 10,
   },
-  badge: {
-    width: 30,
-    height: 30,
-    borderRadius: 15,            // half the width makes a circle
-    alignItems: "center",
-    justifyContent: "center",
-    marginRight: 12,
-    // no backgroundColor here on purpose — it's supplied inline per game
+  cardTop: {
+    flexDirection: "row",
+    justifyContent: "space-between",  // pushes the two children to the edges
+    marginBottom: 6,
   },
-  badgeText: {
-    color: colors.card,          // white letter on the colored circle
-    fontSize: 14,
-    fontWeight: "700",
-  },
-  dateBox: {
-    width: 54,                   // fixed width so every date lines up
-    marginRight: 12,
-  },
-  dateText: {
-    fontSize: 13,
+  sportTag: {
+    fontSize: 11,
     fontWeight: "700",
     color: colors.orange,
+    letterSpacing: 0.5,
+    textTransform: "uppercase",
   },
-  info: {
-    flex: 1,                     // absorbs leftover width so long team names
-                                 // wrap instead of pushing the score off-screen
+  date: {
+    fontSize: 11,
+    color: colors.grey,
   },
-  title: {
-    fontSize: 15,
+  opponent: {
+    fontSize: 16,
     fontWeight: "600",
     color: colors.navy,
+    lineHeight: 21,
   },
-  meta: {
+  place: {
     fontSize: 13,
     color: colors.grey,
-    marginTop: 1,
+    marginTop: 2,
   },
   score: {
-    fontSize: 15,
+    fontSize: 14,
     fontWeight: "700",
-    marginLeft: 8,
-    // no color here — supplied inline so it matches the badge
+    marginTop: 6,
+    // no color here â€” GameCard passes it in so it can change per game
+  },
+  note: {
+    fontSize: 12,
+    color: colors.grey,
+    fontStyle: "italic",
+    marginTop: 4,
   },
 });
