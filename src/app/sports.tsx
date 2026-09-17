@@ -107,25 +107,32 @@ export default function SportsScreen() {
 // { game }: { game: Game } destructures the props object and tells TypeScript
 // the shape, so autocomplete knows game.opponent exists.
 function GameTile({ game }: { game: Game }) {
-  // Chained ternaries, read top to bottom like a list of rules. Grey covers
-  // both ties and games that haven't been played.
+  // Cross country is scored by team placement, not W/L, so a red or green ring
+  // would be misleading. Navy is the neutral "this is just an event" color.
+  const isTrack = game.sport === "Cross Country";
+
+  // Canceled games live in the note field rather than the outcome field,
+  // because a cancellation isn't a result.
+  const isCanceled = game.note === "Canceled";
+
+  // Chained ternaries read top to bottom as a list of rules, most specific
+  // first. Track and canceled both override the W/L coloring below them.
   const outcomeColor =
+    isTrack || isCanceled ? colors.navy :
     game.outcome === "W" ? colors.green :
     game.outcome === "L" ? colors.red :
     colors.grey;
 
-  // "at" for away games, "vs" for home and neutral sites - the convention
-  // every sports site uses.
+  // "at" for away games, "vs" for home and neutral sites.
   const prefix = game.site === "Away" ? "at" : "vs";
 
   return (
     <View style={styles.tile}>
-      {/* ICON BADGE. The circle is tinted with the outcome color, so a green or
-          red ring reads at a glance before you read any text. */}
+      {/* ICON BADGE, ringed in the color decided above. */}
       <View style={[styles.iconCircle, { borderColor: outcomeColor }]}>
         {/* "as any" tells TypeScript to stop checking this value. Ionicons has
-            about 1300 valid names and TypeScript can't confirm that a name
-            pulled out of a plain object matches one of them. */}
+            about 1300 valid names and TypeScript can't confirm a name pulled
+            out of a plain object matches one of them. */}
         <Ionicons
           name={SPORT_ICONS[game.sport] as any}
           size={17}
@@ -135,27 +142,34 @@ function GameTile({ game }: { game: Game }) {
 
       <Text style={styles.date}>{game.date}</Text>
 
-      {/* numberOfLines={2} caps this at two lines and adds "..." if the name is
-          longer. Without it, a long opponent name would make one tile taller
-          than its neighbors and break the row alignment. */}
+      {/* numberOfLines={2} caps this at two lines and adds "..." past that.
+          Without it, a long opponent name would make one tile taller than its
+          neighbors and break the row alignment. */}
       <Text style={styles.opponent} numberOfLines={2}>
-        {prefix} {game.opponent}
+        {/* Cross country entries are meet names, not opponents, so "vs UMES
+            Invitational" would read wrong. Track skips the prefix entirely. */}
+        {isTrack ? "" : prefix + " "}{game.opponent}
       </Text>
 
       {/* flex: 1 on this spacer pushes everything below it to the bottom of the
-          tile, so the score lines up across all three cards in a row even when
+          tile, so bottom lines align across all three cards in a row even when
           one opponent name wraps to two lines and another doesn't. */}
       <View style={styles.spacer} />
 
-      {/* Only draw the score when there IS an outcome. An empty string is
-          falsy, so unplayed games skip this entirely. */}
-      {game.outcome !== "" ? (
+      {/* Three cases for the bottom line, checked most specific first.
+          Order matters: a canceled game has no outcome, so if the outcome check
+          came first it would fall through to showing a start time for a game
+          that isn't happening. */}
+      {isCanceled ? (
+        <Text style={[styles.score, { color: colors.navy }]}>Canceled</Text>
+      ) : game.outcome !== "" ? (
         <Text style={[styles.score, { color: outcomeColor }]}>
           {game.outcome} {game.score}
         </Text>
       ) : (
-        // Unplayed games show the start time in the same slot, so every tile
-        // has something on its bottom line and none look truncated.
+        // Everything left over hasn't been played yet, so show the start time.
+        // Every tile ends up with something on its bottom line, so none look
+        // truncated.
         <Text style={styles.time}>{game.time}</Text>
       )}
     </View>
