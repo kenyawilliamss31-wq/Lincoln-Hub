@@ -99,7 +99,7 @@ function GameCard({ game }: { game: Game }) {
       <View style={styles.cardTop}>
         <Text style={styles.sportTag}>{game.sport}</Text>
         <Text style={styles.date}>
-          {game.date} Â· {game.time}
+          {game.date} - {game.time}
         </Text>
       </View>
 
