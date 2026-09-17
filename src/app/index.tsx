@@ -82,9 +82,9 @@ export default function HomeScreen() {
       <Text style={styles.eyebrow}>Sections</Text>
 
       <View style={styles.grid}>
-        {sections.map((section) => (
+        {sections.map((section) => ( // each section is a card that navigates to a different screen
           <Pressable
-            key={section.id}
+            key={section.id} // the key is required for React to track which items change, are added, or are removed
             style={styles.card}
             onPress={() => router.push(section.href as any)}
           >
@@ -133,11 +133,11 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
 
-  banner: {
+  banner: { // the event banner at the top of the screen
     flexDirection: "row",
     alignItems: "center",
     gap: 10,
-    backgroundColor: colors.orange,
+    backgroundColor: colors.navy,
     borderRadius: 12,
     padding: 12,
     marginBottom: 20,
