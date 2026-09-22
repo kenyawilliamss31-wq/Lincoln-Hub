@@ -1,52 +1,57 @@
-﻿// SPORTS - full 2026 fall season in a three-across grid, filterable by sport.
+﻿// SPORTS - three-across grid, live data from Lincoln's athletics feed.
 
 import ScreenShell from "@/components/screen-shell";
 import { colors } from "@/constants/colors";
-import {
-  pastGames,
-  record,
-  sportFilters,
-  upcomingGames,
-  type Game,
-} from "@/data/sports";
+import { pastGames, record, sportFilters, upcomingGames } from "@/lib/game-helpers";
+import { useRemote } from "@/lib/remote";
 import { Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
+// The hardcoded list is now only the offline fallback, not the main source.
+import { games as bundledGames, type Game } from "@/data/sports";
 
-// One icon per sport. A plain object used as a lookup table beats a chain of
-// if-statements: adding a sport is one line here, not a new branch.
-// Real team logos are trademarked, so sport icons stand in for them.
+// One icon per sport. Real team logos are trademarked, so these stand in.
 const SPORT_ICONS: Record<string, string> = {
   "Football": "american-football",
   "Volleyball": "tennisball",
-  "Women's Soccer": "football",      // Ionicons calls a soccer ball "football"
+  "Women's Soccer": "football",     // Ionicons calls a soccer ball "football"
   "Cross Country": "walk",
 };
 
 export default function SportsScreen() {
-  // useState gives us a value plus a function that changes it. Calling setSport
-  // makes React re-run this component with the new value, so the grids below
-  // redraw on their own. "All" is the starting value.
   const [sport, setSport] = useState("All");
 
-  // These recalculate on every render, so they always match the current filter.
-  const results = pastGames(sport);
-  const upcoming = upcomingGames(sport);
-  const rec = record(sport);
+  // Downloads sports.json, which the GitHub Action rebuilds every morning from
+  // lulions.com. Until it arrives (or if it fails), games is the bundled list.
+  const { data: games, status } = useRemote<Game[]>("sports.json", bundledGames);
+
+  // These recalculate on every render, so they always match both the current
+  // filter AND whichever data source won.
+  const results = pastGames(games, sport);
+  const upcoming = upcomingGames(games, sport);
+  const rec = record(results, sport);
 
   return (
     <ScreenShell eyebrow="Lincoln Lions" title="Sports">
-      {/* FILTER CHIPS - wrap onto a second line on narrow phones. */}
+      {/* DATA STATUS. Small, but it's honest: it tells you whether you're
+          looking at live scores or the copy that shipped with the app. */}
+      <Text style={styles.status}>
+        {status === "live"
+          ? "Live from lulions.com"
+          : status === "loading"
+          ? "Checking for updates..."
+          : "Offline - showing saved data"}
+      </Text>
+
+      {/* FILTER CHIPS */}
       <View style={styles.filterRow}>
         {sportFilters.map((name) => {
           const active = name === sport;
-
           return (
             <Pressable
               key={name}
               // The arrow function matters: onPress wants a function to call
-              // LATER. Writing onPress={setSport(name)} would call it during
-              // render and cause an infinite loop.
+              // LATER. onPress={setSport(name)} would fire during render.
               onPress={() => setSport(name)}
               style={[styles.chip, active && styles.chipActive]}
             >
@@ -58,21 +63,19 @@ export default function SportsScreen() {
         })}
       </View>
 
-      {/* RECORD LINE - only worth showing once games have been played. */}
       {results.length > 0 && (
         <Text style={styles.record}>
           {rec.wins}-{rec.losses}
-          {/* Ties only happen in soccer, so hide the third number when there
-              aren't any rather than printing a pointless "-0". */}
+          {/* Ties only happen in soccer, so hide the third number rather than
+              printing a pointless "-0". */}
           {rec.ties > 0 ? "-" + rec.ties : ""} this season
         </Text>
       )}
 
       <Text style={styles.heading}>Results</Text>
 
-      {/* THE GRID. flexWrap on this parent is what breaks cards into rows -
-          each card is 31% wide, so three fit per row and the fourth wraps.
-          These rules have to live on the PARENT, never on the cards. */}
+      {/* flexWrap on this PARENT is what breaks the tiles into rows. Each tile
+          is 31% wide, so three fit and the fourth wraps. */}
       <View style={styles.grid}>
         {results.map((game) => (
           <GameTile key={game.id} game={game} />
@@ -96,49 +99,38 @@ export default function SportsScreen() {
       )}
 
       <Text style={styles.source}>
-        Schedules and scores from lulions.com. Icons stand in for team logos.
+        Schedules and scores from the official Lincoln Lions athletics calendar.
+        Icons stand in for team logos.
       </Text>
     </ScreenShell>
   );
 }
 
-// One tile in the grid. Pulling it into its own component means the tile markup
-// exists in ONE place - adjust the padding here and both grids change.
-// { game }: { game: Game } destructures the props object and tells TypeScript
-// the shape, so autocomplete knows game.opponent exists.
-
+// One tile. Its own component so the markup exists in ONE place and both grids
+// change together.
 function GameTile({ game }: { game: Game }) {
   // Cross country is scored by team placement, not W/L, so a red or green ring
-  // would be misleading. Navy is the neutral "this is just an event" color.
+  // would be misleading. Navy is the neutral color.
   const isTrack = game.sport === "Cross Country";
 
-  // Canceled games live in the note field rather than the outcome field,
-  // because a cancellation isn't a result.
+  // Cancellations live in note, not outcome - a cancellation isn't a result.
   const isCanceled = game.note === "Canceled";
 
-  // Chained ternaries read top to bottom as a list of rules, most specific
-  // first. Track and canceled both override the W/L coloring below them.
+  // Rules top to bottom, most specific first.
   const outcomeColor =
     isTrack || isCanceled ? colors.navy :
     game.outcome === "W" ? colors.green :
     game.outcome === "L" ? colors.red :
     colors.grey;
 
-  // Where the game is played, as its own label instead of a "vs" / "at" prefix
-  // glued onto the opponent name. Neutral-site games are neither home nor away
-  // - the Chicago Classic and the CIAA roundups are played on other campuses.
-  const siteLabel =
-    game.site === "Home" ? "@ Home" :
-    game.site === "Away" ? "Away" :
-    "NEUTRAL";
+  const siteLabel = game.site === "Home" ? "@ HOME" : "AWAY";
 
   return (
     <View style={styles.tile}>
-      {/* ICON BADGE, ringed in the color decided above. */}
       <View style={[styles.iconCircle, { borderColor: outcomeColor }]}>
         {/* "as any" tells TypeScript to stop checking this value. Ionicons has
-            about 1300 valid names and TypeScript can't confirm a name pulled
-            out of a plain object matches one of them. */}
+            about 1300 valid names and it can't confirm a name pulled out of a
+            plain object is one of them. */}
         <Ionicons
           name={SPORT_ICONS[game.sport] as any}
           size={17}
@@ -148,35 +140,28 @@ function GameTile({ game }: { game: Game }) {
 
       <Text style={styles.date}>{game.date}</Text>
 
-      {/* numberOfLines={2} caps this at two lines and adds "..." past that.
-          Without it a long opponent name would make one tile taller than its
-          neighbors and break the row alignment. */}
+      {/* numberOfLines={2} caps this and adds "..." past it. Without it, a long
+          opponent name makes one tile taller and breaks the row alignment. */}
       <Text style={styles.opponent} numberOfLines={2}>
         {game.opponent}
       </Text>
 
-      {/* Home games get the orange accent so they stand out - those are the
-          ones a student can actually walk to. Everything else stays grey. */}
+      {/* Home games get the orange accent - those are the ones a student can
+          actually walk to. Track hides this line, since "@ HOME" under a meet
+          name adds nothing. */}
       <Text
-        style={[
-          styles.site,
-          game.site === "Home" && { color: colors.orange },
-        ]}
+        style={[styles.site, game.site === "Home" && { color: colors.orange }]}
       >
-        {/* Cross country entries are meets, and "@ HOME" under a meet name adds
-            nothing, so track hides this line. An empty string renders nothing
-            while still keeping the element in place. */}
         {isTrack ? "" : siteLabel}
       </Text>
 
-      {/* flex: 1 on this spacer pushes everything below it to the bottom of the
-          tile, so bottom lines align across all three cards in a row even when
-          one opponent name wraps to two lines and another doesn't. */}
+      {/* flex: 1 here absorbs leftover vertical space, pinning the bottom line
+          to the bottom of every tile so scores line up across a row. */}
       <View style={styles.spacer} />
 
-      {/* Three cases, checked most specific first. Order matters: a canceled
-          game has no outcome, so if the outcome check came first it would fall
-          through to showing a start time for a game that isn't happening. */}
+      {/* Three cases, most specific first. Order matters: a canceled game has
+          no outcome, so an outcome check first would fall through to printing a
+          start time for a game that isn't happening. */}
       {isCanceled ? (
         <Text style={[styles.score, { color: colors.navy }]}>Canceled</Text>
       ) : game.outcome !== "" ? (
@@ -191,16 +176,21 @@ function GameTile({ game }: { game: Game }) {
 }
 
 const styles = StyleSheet.create({
+  status: {
+    fontSize: 11,
+    color: colors.grey,
+    marginBottom: 8,
+  },
   filterRow: {
     flexDirection: "row",
-    flexWrap: "wrap",     // lets the chips spill onto a second row
+    flexWrap: "wrap",
     gap: 8,
     marginBottom: 12,
   },
   chip: {
     paddingVertical: 6,
     paddingHorizontal: 12,
-    borderRadius: 999,    // any number over half the height gives a pill
+    borderRadius: 999,      // anything over half the height gives a pill
     backgroundColor: colors.card,
     borderWidth: 1,
     borderColor: colors.line,
@@ -217,13 +207,13 @@ const styles = StyleSheet.create({
   chipTextActive: {
     color: "#ffffff",
   },
-  record: { // only shows when at least one game has been played
+  record: {
     fontSize: 14,
     fontWeight: "700",
     color: colors.navy,
     marginBottom: 4,
   },
-  heading: { // "Results" and "Upcoming" labels
+  heading: {
     fontSize: 12,
     fontWeight: "700",
     color: colors.grey,
@@ -232,29 +222,28 @@ const styles = StyleSheet.create({
     marginTop: 16,
     marginBottom: 8,
   },
-  grid: { // the parent of all the cards, not the cards themselves
+  grid: {
     flexDirection: "row",
-    flexWrap: "wrap",     // this is what makes it a grid instead of one long row
+    flexWrap: "wrap",       // makes it a grid instead of one long row
     gap: 8,
   },
-  tile: { // the individual card, not the parent grid
-    width: "31%",         // three across; the leftover 7% covers the two gaps
-    minHeight: 118,       // a floor, not a fixed height - keeps short tiles
-                          // from looking squashed next to taller ones
+  tile: {
+    width: "31%",           // three across; the spare 7% covers the two gaps
+    minHeight: 118,         // a floor, not a fixed height
     backgroundColor: colors.card,
     borderRadius: 12,
     padding: 9,
-    alignItems: "center", // centers everything horizontally in the tile
+    alignItems: "center",
   },
   iconCircle: {
     width: 32,
     height: 32,
-    borderRadius: 16,     // exactly half the width = a perfect circle
+    borderRadius: 16,       // half the width = a perfect circle
     borderWidth: 1.5,
     alignItems: "center",
     justifyContent: "center",
     marginBottom: 5,
-    // no borderColor here - GameTile passes it in so it changes per outcome
+    // borderColor comes from GameTile, so it changes per outcome
   },
   date: {
     fontSize: 10,
@@ -271,21 +260,20 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
   site: {
-  fontSize: 9,
-  fontWeight: "800",
-  color: colors.grey,
-  letterSpacing: 0.6,   // wide spacing makes tiny uppercase text legible
-  marginTop: 2,
-},
+    fontSize: 9,
+    fontWeight: "800",
+    color: colors.grey,
+    letterSpacing: 0.6,     // wide spacing makes tiny uppercase legible
+    marginTop: 2,
+  },
   spacer: {
-    flex: 1,              // absorbs leftover vertical space, pinning the score
-                          // to the bottom of every tile
+    flex: 1,
     minHeight: 4,
   },
   score: {
     fontSize: 12,
     fontWeight: "800",
-    // no color here - passed in per game so W is green and L is red
+    // color passed in per game
   },
   time: {
     fontSize: 10,
