@@ -29,8 +29,7 @@ type CampusEvent = {
 // weekday number can index straight into this array.
 const DAY_LABELS = ["S", "M", "T", "W", "T", "F", "S"];
 
-  // Saved events plus their reminders, persisted on the phone.
-  const { isSaved, toggle, savedCount } = useSavedEvents();
+ 
 
 const MONTH_NAMES = [
   "January", "February", "March", "April", "May", "June",
@@ -59,8 +58,12 @@ export default function EventsScreen() {
 
   // Downloads events.json, rebuilt every 6 hours from Lions Connect. Falls back
   // to the phone's saved copy, then to the bundled list.
-  const { data: events, status, refreshing, refresh, updatedLabel } =
+    const { data: events, status, refreshing, refresh, updatedLabel } =
     useRemote<CampusEvent[]>("events.json", bundledEvents as CampusEvent[]);
+
+
+  // Saved events plus their reminders, persisted on the phone.
+  const { isSaved, toggle, savedCount } = useSavedEvents();
 
   // Which month the calendar shows. Stored as two plain numbers rather than a
   // Date object, because that's all the grid needs.
