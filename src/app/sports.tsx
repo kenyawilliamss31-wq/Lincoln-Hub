@@ -1,4 +1,4 @@
-﻿// SPORTS - three-across grid, live data from Lincoln's athletics feed.
+﻿// SPORTS - three-across grid, live from Lincoln's athletics calendar feed.
 
 import ScreenShell from "@/components/screen-shell";
 import { colors } from "@/constants/colors";
@@ -10,7 +10,9 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 // The hardcoded list is now only the offline fallback, not the main source.
 import { games as bundledGames, type Game } from "@/data/sports";
 
-// One icon per sport. Real team logos are trademarked, so these stand in.
+// One icon per sport. A plain object used as a lookup table beats a chain of
+// if-statements: adding a sport is one line here, not a new branch.
+// Real team logos are trademarked, so sport icons stand in for them.
 const SPORT_ICONS: Record<string, string> = {
   "Football": "american-football",
   "Volleyball": "tennisball",
@@ -19,39 +21,56 @@ const SPORT_ICONS: Record<string, string> = {
 };
 
 export default function SportsScreen() {
+  // useState gives a value plus a function to change it. Calling setSport makes
+  // React re-run this component with the new value, so the grids below redraw
+  // on their own. "All" is the starting filter.
   const [sport, setSport] = useState("All");
 
-  // Downloads sports.json, which the GitHub Action rebuilds every morning from
-  // lulions.com. Until it arrives (or if it fails), games is the bundled list.
-  const { data: games, status } = useRemote<Game[]>("sports.json", bundledGames);
+  // Downloads sports.json, rebuilt every 6 hours from lulions.com.
+  // refreshing and refresh drive pull-to-refresh; updatedLabel is "3h ago".
+  const { data: games, status, refreshing, refresh, updatedLabel } =
+    useRemote<Game[]>("sports.json", bundledGames);
 
   // These recalculate on every render, so they always match both the current
-  // filter AND whichever data source won.
+  // filter AND whichever data source won (live, cached, or bundled).
   const results = pastGames(games, sport);
   const upcoming = upcomingGames(games, sport);
+  // Passing results, not games: the record should only count played games.
   const rec = record(results, sport);
 
   return (
-    <ScreenShell eyebrow="Lincoln Lions" title="Sports">
-      {/* DATA STATUS. Small, but it's honest: it tells you whether you're
-          looking at live scores or the copy that shipped with the app. */}
+    <ScreenShell
+      eyebrow="Lincoln Lions"
+      title="Sports"
+      sourceUrl="https://lulions.com/calendar"
+      sourceLabel="lulions.com"
+      updatedLabel={updatedLabel}
+      onRefresh={refresh}
+      refreshing={refreshing}
+    >
+      {/* DATA STATUS. Small, but honest: it says whether these are live scores,
+          a copy saved on this phone, or the data compiled into the app. */}
       <Text style={styles.status}>
         {status === "live"
           ? "Live from lulions.com"
+          : status === "cached"
+          ? "Saved on this phone"
           : status === "loading"
           ? "Checking for updates..."
           : "Offline - showing saved data"}
       </Text>
 
-      {/* FILTER CHIPS */}
+      {/* FILTER CHIPS - wrap to a second line on narrow phones. */}
       <View style={styles.filterRow}>
         {sportFilters.map((name) => {
           const active = name === sport;
+
           return (
             <Pressable
               key={name}
               // The arrow function matters: onPress wants a function to call
-              // LATER. onPress={setSport(name)} would fire during render.
+              // LATER. onPress={setSport(name)} would fire during render and
+              // cause an infinite loop.
               onPress={() => setSport(name)}
               style={[styles.chip, active && styles.chipActive]}
             >
@@ -63,6 +82,7 @@ export default function SportsScreen() {
         })}
       </View>
 
+      {/* RECORD LINE - only meaningful once games have been played. */}
       {results.length > 0 && (
         <Text style={styles.record}>
           {rec.wins}-{rec.losses}
@@ -74,8 +94,9 @@ export default function SportsScreen() {
 
       <Text style={styles.heading}>Results</Text>
 
-      {/* flexWrap on this PARENT is what breaks the tiles into rows. Each tile
-          is 31% wide, so three fit and the fourth wraps. */}
+      {/* THE GRID. flexWrap on this PARENT is what breaks tiles into rows: each
+          tile is 31% wide, so three fit per row and the fourth wraps on its own.
+          These two rules must live on the parent, never on the tiles. */}
       <View style={styles.grid}>
         {results.map((game) => (
           <GameTile key={game.id} game={game} />
@@ -106,17 +127,20 @@ export default function SportsScreen() {
   );
 }
 
-// One tile. Its own component so the markup exists in ONE place and both grids
-// change together.
+// One tile in the grid. Its own component so the markup exists in ONE place -
+// change the padding here and both grids change together.
+// { game }: { game: Game } destructures the props object and tells TypeScript
+// the shape, so autocomplete knows game.opponent exists.
 function GameTile({ game }: { game: Game }) {
   // Cross country is scored by team placement, not W/L, so a red or green ring
-  // would be misleading. Navy is the neutral color.
+  // would be misleading. Navy is the neutral "this is just an event" color.
   const isTrack = game.sport === "Cross Country";
 
   // Cancellations live in note, not outcome - a cancellation isn't a result.
   const isCanceled = game.note === "Canceled";
 
-  // Rules top to bottom, most specific first.
+  // Chained ternaries read top to bottom as a list of rules, most specific
+  // first. Track and canceled both override the W/L coloring below them.
   const outcomeColor =
     isTrack || isCanceled ? colors.navy :
     game.outcome === "W" ? colors.green :
@@ -127,10 +151,12 @@ function GameTile({ game }: { game: Game }) {
 
   return (
     <View style={styles.tile}>
+      {/* ICON BADGE. The ring carries the result, so green or red reads at a
+          glance before any text is read. */}
       <View style={[styles.iconCircle, { borderColor: outcomeColor }]}>
-        {/* "as any" tells TypeScript to stop checking this value. Ionicons has
-            about 1300 valid names and it can't confirm a name pulled out of a
-            plain object is one of them. */}
+        {/* "as any" tells TypeScript to stop checking this one value. Ionicons
+            has about 1300 valid names and TypeScript can't confirm that a name
+            pulled out of a plain object is one of them. */}
         <Ionicons
           name={SPORT_ICONS[game.sport] as any}
           size={17}
@@ -140,28 +166,32 @@ function GameTile({ game }: { game: Game }) {
 
       <Text style={styles.date}>{game.date}</Text>
 
-      {/* numberOfLines={2} caps this and adds "..." past it. Without it, a long
-          opponent name makes one tile taller and breaks the row alignment. */}
+      {/* numberOfLines={2} caps this at two lines and adds "..." past that.
+          Without it, "Mississippi Valley State" would run three lines and make
+          its tile taller than the two beside it, breaking the row. */}
       <Text style={styles.opponent} numberOfLines={2}>
         {game.opponent}
       </Text>
 
       {/* Home games get the orange accent - those are the ones a student can
           actually walk to. Track hides this line, since "@ HOME" under a meet
-          name adds nothing. */}
+          name adds nothing. An empty string renders nothing while keeping the
+          element in place, so tile heights stay consistent. */}
       <Text
         style={[styles.site, game.site === "Home" && { color: colors.orange }]}
       >
         {isTrack ? "" : siteLabel}
       </Text>
 
-      {/* flex: 1 here absorbs leftover vertical space, pinning the bottom line
-          to the bottom of every tile so scores line up across a row. */}
+      {/* flex: 1 on this spacer absorbs the leftover vertical space, pinning
+          everything below it to the bottom of the tile. That's what keeps the
+          scores aligned across a row when one opponent name wraps and the
+          others don't. */}
       <View style={styles.spacer} />
 
-      {/* Three cases, most specific first. Order matters: a canceled game has
-          no outcome, so an outcome check first would fall through to printing a
-          start time for a game that isn't happening. */}
+      {/* Three cases, checked most specific first. Order matters: a canceled
+          game has no outcome, so an outcome check first would fall through to
+          printing a start time for a game that isn't happening. */}
       {isCanceled ? (
         <Text style={[styles.score, { color: colors.navy }]}>Canceled</Text>
       ) : game.outcome !== "" ? (
@@ -183,14 +213,14 @@ const styles = StyleSheet.create({
   },
   filterRow: {
     flexDirection: "row",
-    flexWrap: "wrap",
+    flexWrap: "wrap",       // lets the chips spill onto a second row
     gap: 8,
     marginBottom: 12,
   },
   chip: {
     paddingVertical: 6,
     paddingHorizontal: 12,
-    borderRadius: 999,      // anything over half the height gives a pill
+    borderRadius: 999,      // any number over half the height gives a pill
     backgroundColor: colors.card,
     borderWidth: 1,
     borderColor: colors.line,
@@ -224,12 +254,13 @@ const styles = StyleSheet.create({
   },
   grid: {
     flexDirection: "row",
-    flexWrap: "wrap",       // makes it a grid instead of one long row
+    flexWrap: "wrap",       // this is what makes it a grid, not one long row
     gap: 8,
   },
   tile: {
     width: "31%",           // three across; the spare 7% covers the two gaps
-    minHeight: 118,         // a floor, not a fixed height
+    minHeight: 118,         // a floor, not a fixed height - keeps short tiles
+                            // from looking squashed beside taller ones
     backgroundColor: colors.card,
     borderRadius: 12,
     padding: 9,
@@ -238,12 +269,12 @@ const styles = StyleSheet.create({
   iconCircle: {
     width: 32,
     height: 32,
-    borderRadius: 16,       // half the width = a perfect circle
+    borderRadius: 16,       // exactly half the width = a perfect circle
     borderWidth: 1.5,
     alignItems: "center",
     justifyContent: "center",
     marginBottom: 5,
-    // borderColor comes from GameTile, so it changes per outcome
+    // no borderColor here - GameTile passes it so it changes per outcome
   },
   date: {
     fontSize: 10,
@@ -273,7 +304,7 @@ const styles = StyleSheet.create({
   score: {
     fontSize: 12,
     fontWeight: "800",
-    // color passed in per game
+    // no color here - passed in per game so W is green and L is red
   },
   time: {
     fontSize: 10,

@@ -1,117 +1,246 @@
-// ACADEMIC CALENDAR — Fall 2026, student-facing dates.
-// Source: Lincoln University Fall 2026 academic calendar.
-//
-// New idea here: comparing each date to today so past items render dimmed.
+﻿// ACADEMIC CALENDAR - key dates for the current and next semester, with a
+// countdown to whatever is next.
 
 import ScreenShell from "@/components/screen-shell";
 import { colors } from "@/constants/colors";
+import {
+  daysUntil,
+  fall2026,
+  spring2027,
+  todayIso,
+  type AcademicDate,
+  type DateKind,
+} from "@/data/academic";
 import { StyleSheet, Text, View } from "react-native";
 
-// "iso" is the sortable date used by code. "date" is what we show on screen.
-// For date ranges, iso holds the LAST day, so the item stays highlighted until
-// the whole range has passed.
-const dates = [
-  { id: 1,  iso: "2026-08-24", date: "Aug 24",     title: "Undergraduate classes begin" },
-  { id: 2,  iso: "2026-08-28", date: "Aug 28",     title: "Last day to register, add, or change schedule" },
-  { id: 3,  iso: "2026-09-04", date: "Sep 4",      title: "Last day to drop with 100% refund" },
-  { id: 4,  iso: "2026-09-04", date: "Sep 4",      title: "Payment arrangement deadline" },
-  { id: 5,  iso: "2026-09-07", date: "Sep 7",      title: "Labor Day — no classes" },
-  { id: 6,  iso: "2026-09-10", date: "Sep 10",     title: "All-University Convocation" },
-  { id: 7,  iso: "2026-09-14", date: "Sep 14",     title: "Schedules purged for non-payment" },
-  { id: 8,  iso: "2026-09-18", date: "Sep 18",     title: "Deadline to petition for reinstatement" },
-  { id: 9,  iso: "2026-09-25", date: "Sep 25",     title: "Fall graduation application deadline" },
-  { id: 10, iso: "2026-10-09", date: "Oct 5-9",    title: "Mid-term examination week" },
-  { id: 11, iso: "2026-10-14", date: "Oct 14",     title: "Mid-term grades due" },
-  { id: 12, iso: "2026-10-24", date: "Oct 24",     title: "Homecoming" },
-  { id: 13, iso: "2026-10-30", date: "Oct 30",     title: "Last day to drop with a W grade" },
-  { id: 14, iso: "2026-11-02", date: "Nov 2",      title: "Mandatory registration begins" },
-  { id: 15, iso: "2026-11-20", date: "Nov 20",     title: "Last day to withdraw from the University" },
-  { id: 16, iso: "2026-11-20", date: "Nov 20",     title: "Spring graduation application deadline" },
-  { id: 17, iso: "2026-11-28", date: "Nov 23-28",  title: "Thanksgiving recess" },
-  { id: 18, iso: "2026-11-30", date: "Nov 30",     title: "Classes resume" },
-  { id: 19, iso: "2026-12-04", date: "Dec 4",      title: "Last day of class" },
-  { id: 20, iso: "2026-12-07", date: "Dec 5-7",    title: "Reading days" },
-  { id: 21, iso: "2026-12-12", date: "Dec 8-12",   title: "Final examinations" },
-  { id: 22, iso: "2026-12-14", date: "Dec 14",     title: "Final grades due by 12:00 p.m." },
-];
+// One color per kind of date. A lookup object beats a chain of if-statements:
+// adding a category is one line here instead of a new branch in the component.
+const KIND_COLORS: Record<DateKind, string> = {
+  class: colors.navy,
+  deadline: colors.red,      // deadlines are the ones that cost you money
+  break: colors.green,
+  exam: colors.orange,
+  event: colors.grey,
+};
 
 export default function AcademicCalendarScreen() {
-  // toISOString() gives "2026-09-17T12:42:00.000Z". slice(0, 10) cuts off the
-  // time, leaving "2026-09-17" — the same shape as our iso values, so we can
-  // compare them as plain strings.
-  const today = new Date().toISOString().slice(0, 10);
+  const today = todayIso();
+
+  // Both semesters in one list, so "what's next" can cross from December into
+  // January without any special handling.
+  const allDates = [...fall2026, ...spring2027];
+
+  // The next thing coming up. Comparing the END of a span, not the start, means
+  // Thanksgiving break still counts as "now" while you're in the middle of it.
+  // || falls back to the start date for single-day entries that have no isoEnd.
+  const next = allDates.find((d) => (d.isoEnd || d.iso) >= today);
 
   return (
-    <ScreenShell eyebrow="Fall 2026" title="Academic Calendar">
-      {dates.map((item) => {
-        // Anything before today is history. We dim it rather than hide it,
-        // so you can still see where you are in the semester.
-        const isPast = item.iso < today;
+    <ScreenShell
+      eyebrow="Important dates"
+      title="Academic Calendar"
+      sourceUrl="https://www.lincoln.edu/academics/academic-affairs/registrar/academic-calendar.html"
+      sourceLabel="Registrar"
+    >
+      {/* COUNTDOWN. find() returns undefined after the last date on file, so
+          this whole card disappears in May 2027 rather than showing something
+          wrong. That's also the signal to update the data file. */}
+      {next && (
+        <View style={styles.nextCard}>
+          <Text style={styles.nextLabel}>NEXT UP</Text>
+          <Text style={styles.nextTitle}>{next.label}</Text>
 
-        return (
-          <View key={item.id} style={styles.card}>
-            {/* Style arrays again: the base style, then a second object that
-                overrides only the color when the date has passed. */}
-            <View style={styles.dateBox}>
-              <Text style={[styles.dateText, isPast && styles.dimText]}>
-                {item.date}
-              </Text>
-            </View>
-            {/* isPast && styles.dimText evaluates to FALSE when the date is
-                upcoming, and React Native ignores false in a style array.
-                That's the standard way to apply a style conditionally. */}
+          <Text style={styles.nextMeta}>
+            {next.display}
+            {" - "}
+            {/* One expression, three cases. Nested ternaries read as a list of
+                rules when each line holds one case. */}
+            {daysUntil(next.iso) > 1
+              ? `in ${daysUntil(next.iso)} days`
+              : daysUntil(next.iso) === 1
+              ? "tomorrow"
+              : daysUntil(next.iso) === 0
+              ? "today"
+              : "happening now"}
+          </Text>
+        </View>
+      )}
 
-            <Text style={[styles.title, isPast && styles.dimText]}>
-              {item.title}
-            </Text>
+      <Semester title="Fall 2026" dates={fall2026} today={today} />
+      <Semester title="Spring 2027" dates={spring2027} today={today} />
+
+      {/* LEGEND. Color is doing real work here - without a key, a red dot is
+          just decoration. */}
+      <View style={styles.legend}>
+        {/* Object.entries turns { class: "#14213d", ... } into
+            [["class", "#14213d"], ...] so it can be mapped over. The [kind,
+            color] in the parameter list destructures each pair. */}
+        {Object.entries(KIND_COLORS).map(([kind, color]) => (
+          <View key={kind} style={styles.legendItem}>
+            <View style={[styles.legendDot, { backgroundColor: color }]} />
+            <Text style={styles.legendText}>{kind}</Text>
           </View>
-        );
-      })}
+        ))}
+      </View>
 
       <Text style={styles.source}>
-        Source: Lincoln University Fall 2026 academic calendar. Confirm with the
-        Registrar before relying on a deadline.
+        From the Lincoln University Academic Calendar 2026-2028 (Main Campus),
+        approved 5/13/26. Always confirm deadlines with the Registrar.
       </Text>
     </ScreenShell>
   );
 }
 
+// One semester block. Its own component so the markup exists once and both
+// semesters stay identical.
+function Semester({
+  title,
+  dates,
+  today,
+}: {
+  title: string;
+  dates: AcademicDate[];
+  today: string;
+}) {
+  return (
+    <View style={styles.semester}>
+      <Text style={styles.semesterTitle}>{title}</Text>
+
+      {dates.map((item) => {
+        // A date is past once its END has passed, so a multi-day break doesn't
+        // grey out on its first morning.
+        const isPast = (item.isoEnd || item.iso) < today;
+        const isToday = item.iso <= today && (item.isoEnd || item.iso) >= today;
+
+        return (
+          <View key={item.id} style={styles.row}>
+            {/* THE DOT, colored by kind. Past dates get a grey dot instead, so
+                the color only draws attention to what still matters. */}
+            <View
+              style={[
+                styles.dot,
+                { backgroundColor: isPast ? colors.line : KIND_COLORS[item.kind] },
+              ]}
+            />
+
+            {/* Fixed-width date column, so every label starts at the same x
+                whether the date reads "Dec 4" or "Apr 27 - May 1". */}
+            <Text style={[styles.date, isPast && styles.pastText]}>
+              {item.display}
+            </Text>
+
+            {/* flex: 1 lets a long label wrap inside the row instead of pushing
+                past the edge of the card. */}
+            <Text
+              style={[
+                styles.label,
+                isPast && styles.pastText,
+                isToday && styles.todayText,
+              ]}
+            >
+              {item.label}
+            </Text>
+          </View>
+        );
+      })}
+    </View>
+  );
+}
+
 const styles = StyleSheet.create({
-  card: {
-    flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: colors.card,
-    borderRadius: 12,
-    paddingVertical: 12,
-    paddingHorizontal: 14,
+  nextCard: {
+    backgroundColor: colors.navy,
+    borderRadius: 14,
+    padding: 15,
+    marginBottom: 20,
+  },
+  nextLabel: {
+    fontSize: 10,
+    fontWeight: "800",
+    color: colors.orange,
+    letterSpacing: 1.2,     // wide spacing makes tiny uppercase legible
+    marginBottom: 4,
+  },
+  nextTitle: {
+    fontSize: 16,
+    fontWeight: "700",
+    color: colors.card,
+    lineHeight: 21,
+  },
+  nextMeta: {
+    fontSize: 12,
+    color: "#c9cdd8",       // muted grey-white, readable on navy
+    marginTop: 3,
+  },
+  semester: {
+    marginBottom: 20,
+  },
+  semesterTitle: {
+    fontSize: 12,
+    fontWeight: "700",
+    color: colors.grey,
+    letterSpacing: 1,
+    textTransform: "uppercase",
     marginBottom: 8,
   },
-  dateBox: {
-    width: 68,                   // fixed width so every date column lines up
-    marginRight: 12,
-    borderRightWidth: 1,         // thin divider between date and description
-    borderRightColor: colors.line,
-    paddingRight: 10,
+  row: {
+    flexDirection: "row",
+    alignItems: "flex-start",   // top-aligned, so the dot stays level with the
+                                // first line when a label wraps to two
+    backgroundColor: colors.card,
+    borderRadius: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+    marginBottom: 6,
   },
-  dateText: {
+  dot: {
+    width: 7,
+    height: 7,
+    borderRadius: 3.5,
+    marginTop: 5,              // nudged down to sit on the text baseline
+    marginRight: 10,
+  },
+  date: {
+    width: 78,                 // fixed, so all the labels line up
+    fontSize: 11,
+    fontWeight: "700",
+    color: colors.navy,
+  },
+  label: {
+    flex: 1,                   // takes the rest, so long labels wrap
     fontSize: 12,
+    color: colors.navy,
+    lineHeight: 16,
+  },
+  pastText: {
+    color: colors.grey,        // faded, but still readable
+  },
+  todayText: {
     fontWeight: "700",
     color: colors.orange,
   },
-  title: {
-    flex: 1,                     // absorbs the rest of the width so long
-                                 // descriptions wrap instead of overflowing
-    fontSize: 14,
-    color: colors.navy,
-    lineHeight: 19,
+  legend: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: 12,
+    marginBottom: 12,
   },
-  dimText: {
-    color: colors.grey,          // one override reused for both date and title
+  legendItem: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 5,
   },
-  source: {
+  legendDot: {
+    width: 7,
+    height: 7,
+    borderRadius: 3.5,
+  },
+  legendText: {
     fontSize: 11,
     color: colors.grey,
-    lineHeight: 16,
-    marginTop: 10,
+    textTransform: "capitalize",
+  },
+  legendText2: {
+    fontSize: 11,
   },
 });

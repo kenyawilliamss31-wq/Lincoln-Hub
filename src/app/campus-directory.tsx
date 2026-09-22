@@ -1,4 +1,4 @@
-// CAMPUS DIRECTORY - real offices in a two-column grid.
+﻿// CAMPUS DIRECTORY - real offices in a two-column grid.
 // Source: lincoln.edu/directory/index.html
 
 // One import per package. Having "react-native" listed twice is a syntax
@@ -40,7 +40,7 @@ export default function CampusDirectoryScreen() {
   const mail = (email: string) => Linking.openURL("mailto:" + email);
 
   return (
-    <ScreenShell eyebrow="Tap to call or email" title="Campus Directory">
+    <ScreenShell sourceUrl="https://www.lincoln.edu/directory/index.html" sourceLabel="lincoln.edu directory" eyebrow="Tap to call or email" title="Campus Directory">
       {/* HEADER CARD - the escape hatch. This app only carries the offices
           students actually call, so anyone looking for a specific professor
           gets sent to Lincoln's full searchable directory. */}

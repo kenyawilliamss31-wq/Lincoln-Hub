@@ -1,4 +1,4 @@
-// CAMPUS MAP - embedded Google Map, directions, and building list.
+﻿// CAMPUS MAP - embedded Google Map, directions, and building list.
 
 import InfoCard from "@/components/info-card";
 import ScreenShell from "@/components/screen-shell";
@@ -78,7 +78,7 @@ const buildings = [
 
 export default function CampusMapScreen() {
   return (
-    <ScreenShell eyebrow="Buildings and directions" title="Campus Map">
+    <ScreenShell sourceUrl="https://www.lincoln.edu/about/maps/directions-getting-campus.html" sourceLabel="lincoln.edu maps" eyebrow="Buildings and directions" title="Campus Map">
       {/* EMBEDDED MAP - two versions, because WebView is a NATIVE component
           and doesn't exist in a browser. Platform.OS tells us where the app is
           running right now: "ios", "android", or "web".

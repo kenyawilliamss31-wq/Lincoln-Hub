@@ -1,4 +1,4 @@
-// DINING - real campus dining hours with a live open/closed badge.
+﻿// DINING - real campus dining hours with a live open/closed badge.
 // Source: lincoln.edu dining services hours page.
 
 import ScreenShell from "@/components/screen-shell";
@@ -74,7 +74,7 @@ export default function DiningScreen() {
   const nowMinutes = now.getHours() * 60 + now.getMinutes();
 
   return (
-    <ScreenShell eyebrow="Campus Dining" title="Dining">
+    <ScreenShell sourceUrl="https://www.lincoln.edu/student-life/dining-services.html" sourceLabel="lincoln.edu dining" eyebrow="Campus Dining" title="Dining">
       {/* Tells the user which column of hours they're looking at, so an empty
           Saturday doesn't read like missing data. */}
       <Text style={styles.dayNote}>

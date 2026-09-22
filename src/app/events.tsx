@@ -1,6 +1,5 @@
-// EVENTS - month calendar with dots on days that have events.
-// Data downloads daily from the Lions Connect feed, with the bundled list as an
-// offline fallback. Tapping an event opens its RSVP page.
+﻿// EVENTS - month calendar with dots on days that have events.
+// Live from the Lions Connect feed, cached on the phone, tappable to RSVP.
 
 import ScreenShell from "@/components/screen-shell";
 import { colors } from "@/constants/colors";
@@ -9,7 +8,7 @@ import { Ionicons } from "@expo/vector-icons";
 import * as WebBrowser from "expo-web-browser";
 import { useState } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
-// The hardcoded list is now only the fallback for when the download fails.
+// The hardcoded list is now only the fallback for a first run with no network.
 import { events as bundledEvents } from "@/data/events";
 
 // The shape of one event. Declared here rather than imported, so this file
@@ -22,7 +21,7 @@ type CampusEvent = {
   title: string;
   place: string;
   host: string;     // the organization running it
-  url?: string;     // the ? means optional - the bundled fallback has no urls
+  url?: string;     // the ? means optional - bundled fallback events have none
 };
 
 // Column headers. Index 0 is Sunday, matching what Date.getDay() returns, so a
@@ -36,7 +35,8 @@ const MONTH_NAMES = [
 
 // Turns a year, month, and day into "2026-09-22" so it matches the iso strings
 // in the data. Months are ZERO-BASED in JavaScript dates - September is month 8,
-// not 9 - which is why we add 1 here.
+// not 9 - which is why we add 1 here. Doing it in one function means that
+// correction lives in one place instead of being remembered everywhere.
 // padStart(2, "0") turns "9" into "09", which keeps text comparison correct.
 function makeIso(year: number, month: number, day: number) {
   return (
@@ -53,16 +53,13 @@ export default function EventsScreen() {
   // Today as an iso string, so we can outline today's square in the grid.
   const todayIso = makeIso(today.getFullYear(), today.getMonth(), today.getDate());
 
-  // Downloads events.json, which the GitHub Action rebuilds every morning from
-  // Lincoln's Lions Connect calendar. Until it arrives - or if the network
-  // fails - this holds the bundled list, so the screen is never empty.
-  const { data: events, status } = useRemote<CampusEvent[]>(
-    "events.json",
-    bundledEvents as CampusEvent[]
-  );
+  // Downloads events.json, rebuilt every 6 hours from Lions Connect. Falls back
+  // to the phone's saved copy, then to the bundled list.
+  const { data: events, status, refreshing, refresh, updatedLabel } =
+    useRemote<CampusEvent[]>("events.json", bundledEvents as CampusEvent[]);
 
   // Which month the calendar shows. Stored as two plain numbers rather than a
-  // Date, because that's all the grid needs.
+  // Date object, because that's all the grid needs.
   const [year, setYear] = useState(today.getFullYear());
   const [month, setMonth] = useState(today.getMonth());
 
@@ -71,7 +68,7 @@ export default function EventsScreen() {
   const [selected, setSelected] = useState(todayIso);
 
   // How many days this month has. The trick: asking for day 0 of the NEXT month
-  // gives you the LAST day of this one. new Date(2026, 9, 0) is Sep 30. This
+  // gives you the LAST day of this one - new Date(2026, 9, 0) is Sep 30. This
   // handles leap years for free, with no lookup table.
   const daysInMonth = new Date(year, month + 1, 0).getDate();
 
@@ -80,14 +77,14 @@ export default function EventsScreen() {
   const firstWeekday = new Date(year, month, 1).getDay();
 
   // Every event in the month on screen. Comparing the first 7 characters
-  // ("2026-09") is enough to match a month, and it's cheaper than turning each
-  // string back into a Date.
+  // ("2026-09") is enough to match a month, and it's far cheaper than turning
+  // 222 strings back into Date objects.
   const monthPrefix = year + "-" + String(month + 1).padStart(2, "0");
   const monthEvents = events.filter((e) => e.iso.startsWith(monthPrefix));
 
   // A Set of just the days that have something on them. A Set answers "is this
-  // in here?" instantly no matter how many items it holds - an array would have
-  // to scan all 222 events for every square in the grid.
+  // in here?" instantly no matter how big it is - an array would have to scan
+  // every event again for each of the 30 squares in the grid.
   const busyDays = new Set(monthEvents.map((e) => e.iso));
 
   // Events on the day the user tapped.
@@ -111,17 +108,27 @@ export default function EventsScreen() {
 
   // Opens an event's RSVP page in the phone's in-app browser.
   const openEvent = (url?: string) => {
-    // The guard matters: the bundled fallback events have no url, and calling
-    // this with undefined would crash.
+    // The guard matters: bundled fallback events have no url, and calling this
+    // with undefined would crash.
     if (url) WebBrowser.openBrowserAsync(url);
   };
 
   return (
-    <ScreenShell eyebrow="Campus calendar" title="Events">
-      {/* DATA STATUS - honest about whether these are live or saved. */}
+    <ScreenShell
+      eyebrow="Campus calendar"
+      title="Events"
+      sourceUrl="https://lionsconnect.lincoln.edu/events"
+      sourceLabel="Lions Connect"
+      updatedLabel={updatedLabel}
+      onRefresh={refresh}
+      refreshing={refreshing}
+    >
+      {/* DATA STATUS - honest about which of the three sources you're seeing. */}
       <Text style={styles.status}>
         {status === "live"
           ? "Live from Lions Connect"
+          : status === "cached"
+          ? "Saved on this phone"
           : status === "loading"
           ? "Checking for updates..."
           : "Offline - showing saved events"}
@@ -155,11 +162,12 @@ export default function EventsScreen() {
         </View>
 
         {/* THE GRID. flexWrap on this parent does the row-breaking: each square
-            is 14.28% wide (100 / 7), so exactly seven fit per row and the
-            eighth wraps on its own. No manual row logic needed. */}
+            is 14.28% wide (100 / 7), so exactly seven fit per row and the eighth
+            wraps on its own. No manual week-splitting logic needed anywhere. */}
         <View style={styles.grid}>
-          {/* BLANK SQUARES before the 1st. Array.from({ length: n }) builds an
-              empty n-item array purely to give .map() something to loop over. */}
+          {/* BLANK SQUARES before the 1st, so day 1 sits under the right
+              weekday. Array.from({ length: n }) builds an empty n-item array
+              purely to give .map() something to loop over n times. */}
           {Array.from({ length: firstWeekday }).map((_unused, index) => (
             <View key={"blank" + index} style={styles.cell} />
           ))}
@@ -190,10 +198,7 @@ export default function EventsScreen() {
                   ]}
                 >
                   <Text
-                    style={[
-                      styles.dayNumber,
-                      isSelected && styles.selectedNumber,
-                    ]}
+                    style={[styles.dayNumber, isSelected && styles.selectedNumber]}
                   >
                     {day}
                   </Text>
@@ -201,14 +206,14 @@ export default function EventsScreen() {
 
                 {/* The dot marking a day with events. Its space is always
                     reserved by a fixed-height View, so rows don't shift up and
-                    down depending on which days have dots. */}
+                    down depending on which days happen to have dots. */}
                 <View style={styles.dotSlot}>
                   {hasEvents && (
                     <View
                       style={[
                         styles.dot,
                         // On the selected day the circle is navy, so a navy dot
-                        // would disappear into it. Orange stays visible.
+                        // would vanish into it. Orange stays visible.
                         isSelected && { backgroundColor: colors.orange },
                       ]}
                     />
@@ -249,8 +254,8 @@ export default function EventsScreen() {
           <Text style={styles.time}>{event.time}</Text>
           <Text style={styles.title}>{event.title}</Text>
 
-          {/* Host and place on one row, with the chevron pushed to the far
-              right by flex: 1 on the text block. */}
+          {/* Host and place on one row, with the chevron pushed right by
+              flex: 1 on the text block beside it. */}
           <View style={styles.metaRow}>
             <View style={styles.meta}>
               <Text style={styles.host}>{event.host}</Text>
@@ -258,8 +263,8 @@ export default function EventsScreen() {
             </View>
 
             {/* The chevron only appears when tapping actually does something.
-                Showing it on an unlinked card would promise an action that
-                isn't there. \u203A is the unicode escape for the character,
+                Drawing it on an unlinked card promises an action that isn't
+                there. \u203A is the unicode escape for a single angle quote,
                 written as an escape so no editor encoding can mangle it. */}
             {event.url !== undefined && event.url !== "" && (
               <Text style={styles.chevron}>{"\u203A"}</Text>
@@ -404,7 +409,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   meta: {
-    flex: 1,            // absorbs the leftover width, pushing the chevron right
+    flex: 1,            // absorbs leftover width, pushing the chevron right
   },
   host: {
     fontSize: 12,

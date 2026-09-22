@@ -1,4 +1,4 @@
-// QUICK LINKS - opens Lincoln's real sites in the phone's browser.
+﻿// QUICK LINKS - opens Lincoln's real sites in the phone's browser.
 //
 // This is the honest way to handle grades, email, and tutoring: we can't log
 // into those systems, but we can get a student there in one tap.
@@ -29,7 +29,7 @@ export default function QuickLinksScreen() {
   };
 
   return (
-    <ScreenShell eyebrow="Opens in your browser" title="Quick Links">
+    <ScreenShell sourceUrl="https://www.lincoln.edu/" sourceLabel="lincoln.edu" eyebrow="Opens in your browser" title="Quick Links">
       {links.map((link) => (
         // onPress takes a FUNCTION, not a function call. That's why it's
         // () => open(link.url) and not open(link.url) - the second version
