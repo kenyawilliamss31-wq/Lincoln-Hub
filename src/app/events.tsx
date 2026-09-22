@@ -10,6 +10,7 @@ import { useState } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 // The hardcoded list is now only the fallback for a first run with no network.
 import { events as bundledEvents } from "@/data/events";
+import { useSavedEvents } from "@/lib/reminders";
 
 // The shape of one event. Declared here rather than imported, so this file
 // doesn't depend on what src/data/events.ts happens to name its type.
@@ -27,6 +28,9 @@ type CampusEvent = {
 // Column headers. Index 0 is Sunday, matching what Date.getDay() returns, so a
 // weekday number can index straight into this array.
 const DAY_LABELS = ["S", "M", "T", "W", "T", "F", "S"];
+
+  // Saved events plus their reminders, persisted on the phone.
+  const { isSaved, toggle, savedCount } = useSavedEvents();
 
 const MONTH_NAMES = [
   "January", "February", "March", "April", "May", "June",
@@ -133,6 +137,11 @@ export default function EventsScreen() {
           ? "Checking for updates..."
           : "Offline - showing saved events"}
       </Text>
+            {savedCount > 0 && (
+        <Text style={styles.savedNote}>
+          {savedCount} saved. Reminders arrive an hour before each event starts.
+        </Text>
+      )}
 
       {/* MONTH HEADER with an arrow on each side of the month name. */}
       <View style={styles.monthHeader}>
@@ -244,33 +253,45 @@ export default function EventsScreen() {
         )}
       </View>
 
-      {dayEvents.map((event) => (
-        // The whole card is tappable when there's a link to open.
-        <Pressable
-          key={event.id}
-          style={styles.card}
-          onPress={() => openEvent(event.url)}
-        >
-          <Text style={styles.time}>{event.time}</Text>
-          <Text style={styles.title}>{event.title}</Text>
+            {dayEvents.map((event) => (
+        <View key={event.id} style={styles.card}>
+          {/* Tapping the body opens the RSVP page; the bookmark is a separate
+              target so one gesture can't trigger both. */}
+          <Pressable onPress={() => openEvent(event.url)}>
+            <Text style={styles.time}>{event.time}</Text>
+            <Text style={styles.title}>{event.title}</Text>
+          </Pressable>
 
-          {/* Host and place on one row, with the chevron pushed right by
-              flex: 1 on the text block beside it. */}
           <View style={styles.metaRow}>
             <View style={styles.meta}>
               <Text style={styles.host}>{event.host}</Text>
               <Text style={styles.place}>{event.place}</Text>
             </View>
 
-            {/* The chevron only appears when tapping actually does something.
-                Drawing it on an unlinked card promises an action that isn't
-                there. \u203A is the unicode escape for a single angle quote,
-                written as an escape so no editor encoding can mangle it. */}
+            {/* THE BOOKMARK. A filled icon means saved, an outline means not -
+                the standard convention, so it needs no label to be understood. */}
+            <Pressable
+              style={styles.saveButton}
+              onPress={() => toggle(event)}
+              // Read aloud by a screen reader, which sees an icon as nothing at
+              // all. Required for anything a university would adopt.
+              accessibilityLabel={
+                isSaved(event) ? "Remove reminder" : "Remind me an hour before"
+              }
+            >
+              <Ionicons
+                name={isSaved(event) ? "bookmark" : "bookmark-outline"}
+                size={20}
+                color={isSaved(event) ? colors.orange : colors.grey}
+              />
+            </Pressable>
+
+            {/* The chevron only appears when tapping actually opens something. */}
             {event.url !== undefined && event.url !== "" && (
               <Text style={styles.chevron}>{"\u203A"}</Text>
             )}
           </View>
-        </Pressable>
+        </View>
       ))}
 
       {/* An empty list with no explanation reads as a bug, so say it plainly. */}
@@ -291,6 +312,16 @@ const styles = StyleSheet.create({
     fontSize: 11,
     color: colors.grey,
     marginBottom: 8,
+  },
+    saveButton: {
+    padding: 6,          // padding, not margin - it grows the tap target so a
+                         // 20px icon is still easy to hit with a thumb
+    marginLeft: 4,
+  },
+  savedNote: {
+    fontSize: 11,
+    color: colors.grey,
+    marginBottom: 10,
   },
   monthHeader: {
     flexDirection: "row",
