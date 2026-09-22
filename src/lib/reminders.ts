@@ -179,10 +179,14 @@ export function useSavedEvents() {
     [saved]
   );
 
-  return {
+
+    return {
     // A helper so screens ask a question instead of poking at the object.
     isSaved: (event: SavableEvent) => saved[eventKey(event)] !== undefined,
     toggle,
     savedCount: Object.keys(saved).length,
+    // The keys themselves, so a screen can tell whether anything is saved at
+    // all without re-deriving keys for every event in the list.
+    savedKeys: Object.keys(saved),  
   };
 }
