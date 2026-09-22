@@ -1,200 +1,2222 @@
 [
   {
-    "id": 13,
-    "iso": "2026-08-16",
-    "date": "Aug 16",
-    "time": "All day",
-    "title": "Residence Halls Open for New Students Fall 2026 Semester",
-    "place": "Lincoln University",
-    "host": "Lincoln University"
-  },
-  {
-    "id": 14,
-    "iso": "2026-08-22",
-    "date": "Aug 22",
-    "time": "All day",
-    "title": "Residence Halls Open for Returning Students Fall 2026 Semester",
-    "place": "Lincoln University",
-    "host": "Lincoln University"
-  },
-  {
-    "id": 11,
-    "iso": "2026-09-07",
-    "date": "Sep 7",
-    "time": "All day",
-    "title": "Campus Closures: Labor Day Holiday",
-    "place": "Lincoln University",
-    "host": "Lincoln University"
-  },
-  {
-    "id": 12,
-    "iso": "2026-09-17",
-    "date": "Sep 17",
-    "time": "12:30 PM",
-    "title": "Start Strong - Student Success Fair",
-    "place": "Lincoln University",
-    "host": "Lincoln University"
-  },
-  {
-    "id": 10,
-    "iso": "2026-10-18",
-    "date": "Oct 18",
-    "time": "10:00 AM",
-    "title": "100 Years of Lion Pride! Homecoming 2026",
-    "place": "Lincoln University",
-    "host": "Lincoln University"
-  },
-  {
-    "id": 22,
-    "iso": "2026-11-20",
-    "date": "Nov 20",
-    "time": "8:00 PM",
-    "title": "Residence Halls Closing: Thanksgiving Break 2026",
-    "place": "Lincoln University",
-    "host": "Lincoln University"
-  },
-  {
-    "id": 7,
-    "iso": "2026-11-26",
-    "date": "Nov 26",
-    "time": "All day",
-    "title": "Campus Closures: Thanksgiving Holiday",
-    "place": "Lincoln University",
-    "host": "Lincoln University"
-  },
-  {
-    "id": 8,
-    "iso": "2026-11-27",
-    "date": "Nov 27",
-    "time": "All day",
-    "title": "Campus Closures: Thanksgiving Holiday",
-    "place": "Lincoln University",
-    "host": "Lincoln University"
-  },
-  {
-    "id": 9,
-    "iso": "2026-11-29",
-    "date": "Nov 29",
-    "time": "12:00 PM",
-    "title": "Residence Halls Reopen: Thanksgiving Break 2026",
-    "place": "Lincoln University",
-    "host": "Lincoln University"
-  },
-  {
-    "id": 6,
-    "iso": "2026-12-11",
-    "date": "Dec 11",
-    "time": "8:00 PM",
-    "title": "Residence Halls Close for the Fall 2026 Semester",
-    "place": "Lincoln University",
-    "host": "Lincoln University"
-  },
-  {
     "id": 1,
-    "iso": "2026-12-23",
-    "date": "Dec 23",
-    "time": "All day",
-    "title": "Campus Closures: Winter Holiday 2026",
-    "place": "Lincoln University",
-    "host": "Lincoln University"
+    "iso": "2026-09-08",
+    "date": "Sep 8",
+    "time": "12:00 PM",
+    "title": "Drug/Alcohol",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379325"
   },
   {
     "id": 2,
-    "iso": "2026-12-24",
-    "date": "Dec 24",
-    "time": "All day",
-    "title": "Campus Closures: Winter Holiday 2026",
-    "place": "Lincoln University",
-    "host": "Lincoln University"
+    "iso": "2026-09-08",
+    "date": "Sep 8",
+    "time": "12:00 PM",
+    "title": "Splash The Mafia!",
+    "place": "See Lions Connect",
+    "host": "We Are 1 Family",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379603"
   },
   {
     "id": 3,
-    "iso": "2026-12-25",
-    "date": "Dec 25",
-    "time": "All day",
-    "title": "Campus Closures: Winter Holiday 2026",
-    "place": "Lincoln University",
-    "host": "Lincoln University"
+    "iso": "2026-09-08",
+    "date": "Sep 8",
+    "time": "12:30 PM",
+    "title": "Knack Kick-off - FREE TUTORING AT LU",
+    "place": "LLC Cafe and Wellness Atrium, Lincoln University",
+    "host": "Division of Student Success",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379537"
   },
   {
     "id": 4,
-    "iso": "2026-12-28",
-    "date": "Dec 28",
-    "time": "All day",
-    "title": "Campus Closures: Winter Holiday 2026",
-    "place": "Lincoln University",
-    "host": "Lincoln University"
+    "iso": "2026-09-08",
+    "date": "Sep 8",
+    "time": "5:00 PM",
+    "title": "Interest Meeting & Walking Sessions",
+    "place": "See Lions Connect",
+    "host": "Ziana Fashion Club, Inc.",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379550"
   },
   {
     "id": 5,
-    "iso": "2026-12-31",
-    "date": "Dec 31",
-    "time": "All day",
-    "title": "Campus Closures: New Year&apos\\;s Holiday",
-    "place": "Lincoln University",
-    "host": "Lincoln University"
+    "iso": "2026-09-08",
+    "date": "Sep 8",
+    "time": "6:00 PM",
+    "title": "LU Connection Group",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379302"
   },
   {
-    "id": 18,
-    "iso": "2027-01-01",
-    "date": "Jan 1",
-    "time": "All day",
-    "title": "Campus Closures: New Year&apos\\;s Holiday",
-    "place": "Lincoln University",
-    "host": "Lincoln University"
+    "id": 6,
+    "iso": "2026-09-08",
+    "date": "Sep 8",
+    "time": "6:00 PM",
+    "title": "Interest Meeting",
+    "place": "See Lions Connect",
+    "host": "We Are 1 Family",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379529"
   },
   {
-    "id": 19,
-    "iso": "2027-01-08",
-    "date": "Jan 8",
-    "time": "All day",
-    "title": "Residence Halls Open for Spring 2027 Semester New Students",
-    "place": "Lincoln University",
-    "host": "Lincoln University"
+    "id": 7,
+    "iso": "2026-09-08",
+    "date": "Sep 8",
+    "time": "6:00 PM",
+    "title": "Inferno Dance Company Interest Meeting",
+    "place": "See Lions Connect",
+    "host": "Inferno Dance Company",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379681"
   },
   {
-    "id": 20,
-    "iso": "2027-01-10",
-    "date": "Jan 10",
-    "time": "All day",
-    "title": "Residence Halls Open for Returning Students for Spring 2027 Semest",
-    "place": "Lincoln University",
-    "host": "Lincoln University"
+    "id": 8,
+    "iso": "2026-09-08",
+    "date": "Sep 8",
+    "time": "6:00 PM",
+    "title": "ONYX Interest Meeting",
+    "place": "See Lions Connect",
+    "host": "Onyx Dance Troupe",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379728"
   },
   {
-    "id": 21,
-    "iso": "2027-01-18",
-    "date": "Jan 18",
-    "time": "All day",
-    "title": "Campus Closures: Martin Luther King Jr. Holiday",
-    "place": "Lincoln University",
-    "host": "Lincoln University"
+    "id": 9,
+    "iso": "2026-09-08",
+    "date": "Sep 8",
+    "time": "6:00 PM",
+    "title": "Let's Feed Philly's Interest Meeting",
+    "place": "See Lions Connect",
+    "host": "Let's Feed Philly!",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379756"
   },
   {
-    "id": 16,
-    "iso": "2027-02-19",
-    "date": "Feb 19",
-    "time": "8:00 PM",
-    "title": "Residence Halls Close for Spring Break 2027",
-    "place": "Lincoln University",
-    "host": "Lincoln University"
+    "id": 10,
+    "iso": "2026-09-08",
+    "date": "Sep 8",
+    "time": "6:30 PM",
+    "title": "How To Tie A Tie/ Tie Tuesday",
+    "place": "Dickey Hall Room 114, Lincoln University",
+    "host": "Gentlemen Qualities",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379570"
   },
   {
-    "id": 17,
-    "iso": "2027-02-28",
-    "date": "Feb 28",
+    "id": 11,
+    "iso": "2026-09-08",
+    "date": "Sep 8",
+    "time": "7:00 PM",
+    "title": "Dramatic Impulse Interest Meeting",
+    "place": "Grim Auditorium, Lincoln University",
+    "host": "Dramatic Impulse Drama Performing Arts",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379543"
+  },
+  {
+    "id": 12,
+    "iso": "2026-09-08",
+    "date": "Sep 8",
+    "time": "7:00 PM",
+    "title": "Collegiate 100 Informational",
+    "place": "See Lions Connect",
+    "host": "Collegiate 100",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379546"
+  },
+  {
+    "id": 13,
+    "iso": "2026-09-09",
+    "date": "Sep 9",
     "time": "12:00 PM",
-    "title": "Residence Halls Reopen from Spring Break 2027",
-    "place": "Lincoln University",
-    "host": "Lincoln University"
+    "title": "Legend 27: Where'd All The Time Go (Senior Time Capsule)",
+    "place": "See Lions Connect",
+    "host": "Legend 27 - Class of 2027",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379725"
+  },
+  {
+    "id": 14,
+    "iso": "2026-09-09",
+    "date": "Sep 9",
+    "time": "4:00 PM",
+    "title": "Gilman Scholarship Session",
+    "place": "See Lions Connect",
+    "host": "International Programs",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379457"
   },
   {
     "id": 15,
-    "iso": "2027-04-30",
-    "date": "Apr 30",
+    "iso": "2026-09-09",
+    "date": "Sep 9",
+    "time": "6:00 PM",
+    "title": "My Sisters Keeper",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379348"
+  },
+  {
+    "id": 16,
+    "iso": "2026-09-09",
+    "date": "Sep 9",
+    "time": "6:00 PM",
+    "title": "Interest Meeting & Walking Sessions",
+    "place": "See Lions Connect",
+    "host": "Ziana Fashion Club, Inc.",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379555"
+  },
+  {
+    "id": 17,
+    "iso": "2026-09-09",
+    "date": "Sep 9",
+    "time": "6:00 PM",
+    "title": "ASA Interest Meeting!",
+    "place": "See Lions Connect",
+    "host": "African Student Association",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379586"
+  },
+  {
+    "id": 18,
+    "iso": "2026-09-09",
+    "date": "Sep 9",
+    "time": "6:00 PM",
+    "title": "Interest Meeting",
+    "place": "See Lions Connect",
+    "host": "Charmed Village",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379605"
+  },
+  {
+    "id": 19,
+    "iso": "2026-09-09",
+    "date": "Sep 9",
+    "time": "6:00 PM",
+    "title": "M'Brace Interest Meeting",
+    "place": "See Lions Connect",
+    "host": "M'Brace",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379613"
+  },
+  {
+    "id": 20,
+    "iso": "2026-09-09",
+    "date": "Sep 9",
+    "time": "6:00 PM",
+    "title": "General Body Meeting",
+    "place": "See Lions Connect",
+    "host": "Let's Feed Philly!",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379758"
+  },
+  {
+    "id": 21,
+    "iso": "2026-09-09",
+    "date": "Sep 9",
+    "time": "6:30 PM",
+    "title": "Big Sister Little Sister Interest Meeting",
+    "place": "See Lions Connect",
+    "host": "Big Sister Little Sister",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379556"
+  },
+  {
+    "id": 22,
+    "iso": "2026-09-09",
+    "date": "Sep 9",
+    "time": "7:00 PM",
+    "title": "TRY OUTS",
+    "place": "See Lions Connect",
+    "host": "We Are 1 Family",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379527"
+  },
+  {
+    "id": 23,
+    "iso": "2026-09-09",
+    "date": "Sep 9",
+    "time": "7:00 PM",
+    "title": "Gentlemen Qualities Interest Meeting",
+    "place": "See Lions Connect",
+    "host": "Gentlemen Qualities",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379571"
+  },
+  {
+    "id": 24,
+    "iso": "2026-09-09",
+    "date": "Sep 9",
+    "time": "7:00 PM",
+    "title": "Mu mentorship program",
+    "place": "See Lions Connect",
+    "host": "Phi Beta Sigma Fraternity, Inc.",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379668"
+  },
+  {
+    "id": 25,
+    "iso": "2026-09-09",
+    "date": "Sep 9",
+    "time": "7:00 PM",
+    "title": "Inferno Dance Company Dance Tryouts",
+    "place": "See Lions Connect",
+    "host": "Inferno Dance Company",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379678"
+  },
+  {
+    "id": 26,
+    "iso": "2026-09-09",
+    "date": "Sep 9",
+    "time": "7:20 PM",
+    "title": "Do's & Don'ts",
+    "place": "See Lions Connect",
+    "host": "Zeta Phi Beta Sorority Delta Delta Chapter",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379572"
+  },
+  {
+    "id": 27,
+    "iso": "2026-09-10",
+    "date": "Sep 10",
+    "time": "11:00 AM",
+    "title": "Vira Heinz Tabling",
+    "place": "See Lions Connect",
+    "host": "International Programs",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379454"
+  },
+  {
+    "id": 28,
+    "iso": "2026-09-10",
+    "date": "Sep 10",
+    "time": "12:00 PM",
+    "title": "Splash a Zeta",
+    "place": "See Lions Connect",
+    "host": "Zeta Phi Beta Sorority Delta Delta Chapter",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379573"
+  },
+  {
+    "id": 29,
+    "iso": "2026-09-10",
+    "date": "Sep 10",
+    "time": "1:15 PM",
+    "title": "LLE Transfer Student Kickoff Event",
+    "place": "See Lions Connect",
+    "host": "Navigating Experiences & Transitions - Beyond the 1st Year",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379795"
+  },
+  {
+    "id": 30,
+    "iso": "2026-09-10",
+    "date": "Sep 10",
+    "time": "2:00 PM",
+    "title": "Suicide Prevention",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379370"
+  },
+  {
+    "id": 31,
+    "iso": "2026-09-10",
+    "date": "Sep 10",
+    "time": "4:30 PM",
+    "title": "Vira Heinz Interest Meeting",
+    "place": "See Lions Connect",
+    "host": "International Programs",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379455"
+  },
+  {
+    "id": 32,
+    "iso": "2026-09-10",
+    "date": "Sep 10",
+    "time": "6:00 PM",
+    "title": "S.T.A.R.S Interest Meeting",
+    "place": "See Lions Connect",
+    "host": "Sisters That Are Respected Seriously (S.T.A.R.S.)",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379692"
+  },
+  {
+    "id": 33,
+    "iso": "2026-09-10",
+    "date": "Sep 10",
+    "time": "6:00 PM",
+    "title": "Computer Science Club Meet and Greet",
+    "place": "See Lions Connect",
+    "host": "Computer Science Club",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379695"
+  },
+  {
+    "id": 34,
+    "iso": "2026-09-10",
+    "date": "Sep 10",
+    "time": "6:00 PM",
+    "title": "Interest Meeting",
+    "place": "See Lions Connect",
+    "host": "Muslim Student Association",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379721"
+  },
+  {
+    "id": 35,
+    "iso": "2026-09-10",
+    "date": "Sep 10",
+    "time": "7:00 PM",
+    "title": "TRY OUTS",
+    "place": "See Lions Connect",
+    "host": "We Are 1 Family",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379528"
+  },
+  {
+    "id": 36,
+    "iso": "2026-09-10",
+    "date": "Sep 10",
+    "time": "7:00 PM",
+    "title": "Ziana TryoutZ",
+    "place": "Sub MPR, Lincoln University",
+    "host": "Ziana Fashion Club, Inc.",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379548"
+  },
+  {
+    "id": 37,
+    "iso": "2026-09-10",
+    "date": "Sep 10",
+    "time": "7:00 PM",
+    "title": "Inferno Dance Company Dance Tryouts",
+    "place": "See Lions Connect",
+    "host": "Inferno Dance Company",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379679"
+  },
+  {
+    "id": 38,
+    "iso": "2026-09-10",
+    "date": "Sep 10",
+    "time": "7:00 PM",
+    "title": "5th Annual Suicide Prevention Campus Walk",
+    "place": "See Lions Connect",
+    "host": "Let's Feed Philly!",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379759"
+  },
+  {
+    "id": 39,
+    "iso": "2026-09-11",
+    "date": "Sep 11",
+    "time": "11:00 AM",
+    "title": "Career Readiness Workshop - Resume Building",
+    "place": "Wright Hall 314, Lincoln University",
+    "host": "Office of Career Success",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379286"
+  },
+  {
+    "id": 40,
+    "iso": "2026-09-11",
+    "date": "Sep 11",
+    "time": "5:00 PM",
+    "title": "Fitness Friday",
+    "place": "See Lions Connect",
+    "host": "Lion Heart Fitness Club",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379694"
+  },
+  {
+    "id": 41,
+    "iso": "2026-09-11",
+    "date": "Sep 11",
+    "time": "6:00 PM",
+    "title": "Crew Member Interest Meeting",
+    "place": "See Lions Connect",
+    "host": "Ziana Fashion Club, Inc.",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379549"
+  },
+  {
+    "id": 42,
+    "iso": "2026-09-11",
+    "date": "Sep 11",
+    "time": "7:00 PM",
+    "title": "Mr. Epsilon Nu Pageant Interest Meeting",
+    "place": "See Lions Connect",
+    "host": "Alpha Kappa Alpha Sorority Incorporated Epsilon Nu Chapter",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379698"
+  },
+  {
+    "id": 43,
+    "iso": "2026-09-13",
+    "date": "Sep 13",
+    "time": "12:00 PM",
+    "title": "The Timeless Tea Derby : Epsilon Nu’s Annual Freshman Tea",
+    "place": "See Lions Connect",
+    "host": "Alpha Kappa Alpha Sorority Incorporated Epsilon Nu Chapter",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379684"
+  },
+  {
+    "id": 44,
+    "iso": "2026-09-13",
+    "date": "Sep 13",
+    "time": "5:00 PM",
+    "title": "Run Klub",
+    "place": "aux field, Lincoln University",
+    "host": "Kappa Alpha Psi Fraternity Incorporated",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379618"
+  },
+  {
+    "id": 45,
+    "iso": "2026-09-14",
+    "date": "Sep 14",
+    "time": "8:00 AM",
+    "title": "Industry Exchange Week- Business",
+    "place": "See Lions Connect",
+    "host": "Office of Career Success",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379275"
+  },
+  {
+    "id": 46,
+    "iso": "2026-09-14",
+    "date": "Sep 14",
+    "time": "1:00 PM",
+    "title": "Reading with Purpose Workshop",
+    "place": "Wright Hall 206, Lincoln University",
+    "host": "Academic Advising Center",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379802"
+  },
+  {
+    "id": 47,
+    "iso": "2026-09-14",
+    "date": "Sep 14",
+    "time": "3:00 PM",
+    "title": "Reading with Purpose Workshop (option 2)",
+    "place": "Wright Hall 206, Lincoln University",
+    "host": "Academic Advising Center",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379805"
+  },
+  {
+    "id": 48,
+    "iso": "2026-09-14",
+    "date": "Sep 14",
+    "time": "5:00 PM",
+    "title": "Rustin's Chat",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379491"
+  },
+  {
+    "id": 49,
+    "iso": "2026-09-14",
+    "date": "Sep 14",
+    "time": "6:00 PM",
+    "title": "Brother Circle",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379371"
+  },
+  {
+    "id": 50,
+    "iso": "2026-09-14",
+    "date": "Sep 14",
+    "time": "6:00 PM",
+    "title": "What is NABA?",
+    "place": "Dickey Hall 205, Lincoln University",
+    "host": "National Association of Black Accountants",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379598"
+  },
+  {
+    "id": 51,
+    "iso": "2026-09-14",
+    "date": "Sep 14",
+    "time": "6:55 PM",
+    "title": "Barbershop Talk",
+    "place": "See Lions Connect",
+    "host": "Iota Phi Theta Fraternity, Inc.",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379811"
+  },
+  {
+    "id": 52,
+    "iso": "2026-09-15",
+    "date": "Sep 15",
+    "time": "8:00 AM",
+    "title": "Industry Exchange Week-Social Science",
+    "place": "See Lions Connect",
+    "host": "Office of Career Success",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379277"
+  },
+  {
+    "id": 53,
+    "iso": "2026-09-15",
+    "date": "Sep 15",
+    "time": "12:00 PM",
+    "title": "Drug/Alcohol",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379326"
+  },
+  {
+    "id": 54,
+    "iso": "2026-09-15",
+    "date": "Sep 15",
+    "time": "12:00 PM",
+    "title": "Pie a Iota",
+    "place": "See Lions Connect",
+    "host": "Iota Phi Theta Fraternity, Inc.",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379775"
+  },
+  {
+    "id": 55,
+    "iso": "2026-09-15",
+    "date": "Sep 15",
+    "time": "12:30 PM",
+    "title": "Truist Life,  Money,  and Choices - Truist Bank Leadership Workshop",
+    "place": "Wellness Center, United States",
+    "host": "Lincoln Legacy Experience",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379831"
+  },
+  {
+    "id": 56,
+    "iso": "2026-09-15",
+    "date": "Sep 15",
+    "time": "6:00 PM",
+    "title": "LU Connection Group",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379303"
+  },
+  {
+    "id": 57,
+    "iso": "2026-09-15",
+    "date": "Sep 15",
+    "time": "6:00 PM",
+    "title": "Interest Meeting",
+    "place": "See Lions Connect",
+    "host": "The National Council of Negro Women",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379686"
+  },
+  {
+    "id": 58,
+    "iso": "2026-09-15",
+    "date": "Sep 15",
+    "time": "6:00 PM",
+    "title": "Paint Your Perspective",
+    "place": "SUB Lair, Lincoln University",
+    "host": "College Democrats",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379817"
+  },
+  {
+    "id": 59,
+    "iso": "2026-09-15",
+    "date": "Sep 15",
     "time": "8:00 PM",
-    "title": "Residence Halls Close for Spring 2027 Semester",
-    "place": "Lincoln University",
-    "host": "Lincoln University"
+    "title": "Break the Ice",
+    "place": "See Lions Connect",
+    "host": "Alpha Phi Alpha Fraternity Inc. Nu chapter",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379647"
+  },
+  {
+    "id": 60,
+    "iso": "2026-09-16",
+    "date": "Sep 16",
+    "time": "8:00 AM",
+    "title": "Industry Exchange Week-Art & Humanities",
+    "place": "See Lions Connect",
+    "host": "Office of Career Success",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379278"
+  },
+  {
+    "id": 61,
+    "iso": "2026-09-16",
+    "date": "Sep 16",
+    "time": "11:00 AM",
+    "title": "Club cafe",
+    "place": "See Lions Connect",
+    "host": "Iota Phi Theta Fraternity, Inc.",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379776"
+  },
+  {
+    "id": 62,
+    "iso": "2026-09-16",
+    "date": "Sep 16",
+    "time": "12:00 PM",
+    "title": "Glamaholic ticket raffle",
+    "place": "See Lions Connect",
+    "host": "People Standing United",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379816"
+  },
+  {
+    "id": 63,
+    "iso": "2026-09-16",
+    "date": "Sep 16",
+    "time": "12:30 PM",
+    "title": "Pie A Legend",
+    "place": "See Lions Connect",
+    "host": "Legend 27 - Class of 2027",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379723"
+  },
+  {
+    "id": 64,
+    "iso": "2026-09-16",
+    "date": "Sep 16",
+    "time": "6:00 PM",
+    "title": "My Sisters Keeper",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379349"
+  },
+  {
+    "id": 65,
+    "iso": "2026-09-16",
+    "date": "Sep 16",
+    "time": "6:00 PM",
+    "title": "Sex in the Dark",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379448"
+  },
+  {
+    "id": 66,
+    "iso": "2026-09-16",
+    "date": "Sep 16",
+    "time": "6:00 PM",
+    "title": "\"What's the Squeeze?\" NSBWM Interest Meeting",
+    "place": "See Lions Connect",
+    "host": "The National Society of Black Women in Medicine",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379599"
+  },
+  {
+    "id": 67,
+    "iso": "2026-09-16",
+    "date": "Sep 16",
+    "time": "6:00 PM",
+    "title": "Freshman Pillow Talk",
+    "place": "Ashmun Den, Lincoln University",
+    "host": "M'Brace",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379614"
+  },
+  {
+    "id": 68,
+    "iso": "2026-09-16",
+    "date": "Sep 16",
+    "time": "6:30 PM",
+    "title": "Unpopular Opinions",
+    "place": "See Lions Connect",
+    "host": "Charmed Village",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379651"
+  },
+  {
+    "id": 69,
+    "iso": "2026-09-16",
+    "date": "Sep 16",
+    "time": "7:00 PM",
+    "title": "Step Up To The Mic",
+    "place": "See Lions Connect",
+    "host": "Reconstruction Step Team",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379674"
+  },
+  {
+    "id": 70,
+    "iso": "2026-09-16",
+    "date": "Sep 16",
+    "time": "7:00 PM",
+    "title": "Pool Tournament",
+    "place": "See Lions Connect",
+    "host": "Campus Activities Board",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379708"
+  },
+  {
+    "id": 71,
+    "iso": "2026-09-16",
+    "date": "Sep 16",
+    "time": "7:00 PM",
+    "title": "Dj Battle",
+    "place": "See Lions Connect",
+    "host": "Iota Phi Theta Fraternity, Inc.",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379779"
+  },
+  {
+    "id": 72,
+    "iso": "2026-09-17",
+    "date": "Sep 17",
+    "time": "8:00 AM",
+    "title": "Industry Exchange Week- STEM & Health Science",
+    "place": "See Lions Connect",
+    "host": "Office of Career Success",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379279"
+  },
+  {
+    "id": 73,
+    "iso": "2026-09-17",
+    "date": "Sep 17",
+    "time": "12:00 PM",
+    "title": "Weare1 Serves Cafe!",
+    "place": "See Lions Connect",
+    "host": "We Are 1 Family",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379604"
+  },
+  {
+    "id": 74,
+    "iso": "2026-09-17",
+    "date": "Sep 17",
+    "time": "12:00 PM",
+    "title": "Ice An Alpha",
+    "place": "See Lions Connect",
+    "host": "Alpha Phi Alpha Fraternity Inc. Nu chapter",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379650"
+  },
+  {
+    "id": 75,
+    "iso": "2026-09-17",
+    "date": "Sep 17",
+    "time": "12:00 PM",
+    "title": "Splash A Member",
+    "place": "See Lions Connect",
+    "host": "Investment Club",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379731"
+  },
+  {
+    "id": 76,
+    "iso": "2026-09-17",
+    "date": "Sep 17",
+    "time": "12:00 PM",
+    "title": "Glamaholic ticket raffle",
+    "place": "See Lions Connect",
+    "host": "People Standing United",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379821"
+  },
+  {
+    "id": 77,
+    "iso": "2026-09-17",
+    "date": "Sep 17",
+    "time": "12:00 PM",
+    "title": "Registered Student Organization Meeting",
+    "place": "See Lions Connect",
+    "host": "Campus Activities Board",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379850"
+  },
+  {
+    "id": 78,
+    "iso": "2026-09-17",
+    "date": "Sep 17",
+    "time": "12:30 PM",
+    "title": "Start Strong: Student Success Fair",
+    "place": "Bottom of the U, Lincoln University",
+    "host": "Division of Student Success",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379539"
+  },
+  {
+    "id": 79,
+    "iso": "2026-09-17",
+    "date": "Sep 17",
+    "time": "1:00 PM",
+    "title": "RISE Conflict and Anger Management Skills Group",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379390"
+  },
+  {
+    "id": 80,
+    "iso": "2026-09-17",
+    "date": "Sep 17",
+    "time": "6:00 PM",
+    "title": "ASA AUX WARS!",
+    "place": "See Lions Connect",
+    "host": "African Student Association",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379588"
+  },
+  {
+    "id": 81,
+    "iso": "2026-09-17",
+    "date": "Sep 17",
+    "time": "6:00 PM",
+    "title": "General Body Member",
+    "place": "See Lions Connect",
+    "host": "Bloom",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379739"
+  },
+  {
+    "id": 82,
+    "iso": "2026-09-17",
+    "date": "Sep 17",
+    "time": "6:00 PM",
+    "title": "LUPA College Dems Interest Meeting",
+    "place": "Dickey 102, Lincoln University",
+    "host": "College Democrats",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379818"
+  },
+  {
+    "id": 83,
+    "iso": "2026-09-17",
+    "date": "Sep 17",
+    "time": "6:00 PM",
+    "title": "BLSA Interesting Meeting",
+    "place": "See Lions Connect",
+    "host": "LU Black Law Student Association",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379819"
+  },
+  {
+    "id": 84,
+    "iso": "2026-09-17",
+    "date": "Sep 17",
+    "time": "7:15 PM",
+    "title": "Rhoyal Sip and Paint: Meet the Poodles",
+    "place": "See Lions Connect",
+    "host": "Sigma Gamma Rho Sorority, Incorporated – Xi Theta",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379685"
+  },
+  {
+    "id": 85,
+    "iso": "2026-09-17",
+    "date": "Sep 17",
+    "time": "7:55 PM",
+    "title": "Fear Factor",
+    "place": "See Lions Connect",
+    "host": "Iota Phi Theta Fraternity, Inc.",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379777"
+  },
+  {
+    "id": 86,
+    "iso": "2026-09-18",
+    "date": "Sep 18",
+    "time": "8:00 AM",
+    "title": "Industry Exchange Week- Faculty Forum",
+    "place": "See Lions Connect",
+    "host": "Office of Career Success",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379280"
+  },
+  {
+    "id": 87,
+    "iso": "2026-09-18",
+    "date": "Sep 18",
+    "time": "10:00 AM",
+    "title": "Career Readiness Workshop - Project Success Job Searching",
+    "place": "Wright Hall 314, Lincoln University",
+    "host": "Office of Career Success",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379287"
+  },
+  {
+    "id": 88,
+    "iso": "2026-09-18",
+    "date": "Sep 18",
+    "time": "12:00 PM",
+    "title": "Glamaholic ticket raffle",
+    "place": "See Lions Connect",
+    "host": "People Standing United",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379822"
+  },
+  {
+    "id": 89,
+    "iso": "2026-09-18",
+    "date": "Sep 18",
+    "time": "1:00 PM",
+    "title": "Line Dance is My Cardio",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379401"
+  },
+  {
+    "id": 90,
+    "iso": "2026-09-18",
+    "date": "Sep 18",
+    "time": "1:00 PM",
+    "title": "Lacrosse Training Camp",
+    "place": "See Lions Connect",
+    "host": "Collegiate 100",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379659"
+  },
+  {
+    "id": 91,
+    "iso": "2026-09-18",
+    "date": "Sep 18",
+    "time": "1:00 PM",
+    "title": "Pre-Founders' Day Cookout",
+    "place": "See Lions Connect",
+    "host": "Iota Phi Theta Fraternity, Inc.",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379853"
+  },
+  {
+    "id": 92,
+    "iso": "2026-09-18",
+    "date": "Sep 18",
+    "time": "5:00 PM",
+    "title": "Fitness Friday",
+    "place": "See Lions Connect",
+    "host": "Lion Heart Fitness Club",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379753"
+  },
+  {
+    "id": 93,
+    "iso": "2026-09-18",
+    "date": "Sep 18",
+    "time": "5:00 PM",
+    "title": "Thurgood Marshall Law Society Interest Meeting",
+    "place": "See Lions Connect",
+    "host": "Thurgood Marshall Law Society",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379812"
+  },
+  {
+    "id": 94,
+    "iso": "2026-09-18",
+    "date": "Sep 18",
+    "time": "6:00 PM",
+    "title": "The Black Woman's Body",
+    "place": "See Lions Connect",
+    "host": "The National Council of Negro Women",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379688"
+  },
+  {
+    "id": 95,
+    "iso": "2026-09-18",
+    "date": "Sep 18",
+    "time": "6:00 PM",
+    "title": "iFeel: Pour Into Yourself PJs & Mocktails",
+    "place": "See Lions Connect",
+    "host": "Royal Court",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379729"
+  },
+  {
+    "id": 96,
+    "iso": "2026-09-19",
+    "date": "Sep 19",
+    "time": "6:00 PM",
+    "title": "Movie Night - featuring \"Spider-Man: Brand New Day\"",
+    "place": "See Lions Connect",
+    "host": "Royal Court",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379726"
+  },
+  {
+    "id": 97,
+    "iso": "2026-09-20",
+    "date": "Sep 20",
+    "time": "12:00 PM",
+    "title": "Dorm Clean Up",
+    "place": "See Lions Connect",
+    "host": "Sigma Gamma Rho Sorority, Incorporated – Xi Theta",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379687"
+  },
+  {
+    "id": 98,
+    "iso": "2026-09-20",
+    "date": "Sep 20",
+    "time": "12:00 PM",
+    "title": "Campus clean up",
+    "place": "See Lions Connect",
+    "host": "Iota Phi Theta Fraternity, Inc.",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379780"
+  },
+  {
+    "id": 99,
+    "iso": "2026-09-21",
+    "date": "Sep 21",
+    "time": "12:00 PM",
+    "title": "👑 Royal Grattitude: An Appreciation Initiative",
+    "place": "See Lions Connect",
+    "host": "Royal Court",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379683"
+  },
+  {
+    "id": 100,
+    "iso": "2026-09-21",
+    "date": "Sep 21",
+    "time": "12:00 PM",
+    "title": "Glamaholic ticket raffle",
+    "place": "See Lions Connect",
+    "host": "People Standing United",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379823"
+  },
+  {
+    "id": 101,
+    "iso": "2026-09-21",
+    "date": "Sep 21",
+    "time": "5:00 PM",
+    "title": "Rustin's Chat",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379492"
+  },
+  {
+    "id": 102,
+    "iso": "2026-09-21",
+    "date": "Sep 21",
+    "time": "6:00 PM",
+    "title": "Brother Circle",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379372"
+  },
+  {
+    "id": 103,
+    "iso": "2026-09-21",
+    "date": "Sep 21",
+    "time": "7:00 PM",
+    "title": "Men do cry",
+    "place": "See Lions Connect",
+    "host": "Omega Psi Phi Fraternity, Inc.",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379664"
+  },
+  {
+    "id": 104,
+    "iso": "2026-09-21",
+    "date": "Sep 21",
+    "time": "7:00 PM",
+    "title": "Interest Meeting For Pump",
+    "place": "Dickey Hall Room 205, Lincoln University",
+    "host": "Positive United Modeling Prospering (P.U.M.P) Legacy",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379796"
+  },
+  {
+    "id": 105,
+    "iso": "2026-09-21",
+    "date": "Sep 21",
+    "time": "7:20 PM",
+    "title": "Affirmationz with the Zetas",
+    "place": "See Lions Connect",
+    "host": "Zeta Phi Beta Sorority Delta Delta Chapter",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379575"
+  },
+  {
+    "id": 106,
+    "iso": "2026-09-22",
+    "date": "Sep 22",
+    "time": "11:00 AM",
+    "title": "Workshop - Resume Building & Cover Letters: Hiration Walk Through;",
+    "place": "Wright Hall 314, Lincoln University",
+    "host": "Office of Career Success",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379514"
+  },
+  {
+    "id": 107,
+    "iso": "2026-09-22",
+    "date": "Sep 22",
+    "time": "12:00 PM",
+    "title": "Drug/Alcohol",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379327"
+  },
+  {
+    "id": 108,
+    "iso": "2026-09-22",
+    "date": "Sep 22",
+    "time": "12:00 PM",
+    "title": "Splash a Que",
+    "place": "See Lions Connect",
+    "host": "Omega Psi Phi Fraternity, Inc.",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379663"
+  },
+  {
+    "id": 109,
+    "iso": "2026-09-22",
+    "date": "Sep 22",
+    "time": "12:00 PM",
+    "title": "Drone Flying",
+    "place": "See Lions Connect",
+    "host": "Computer Science Club",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379696"
+  },
+  {
+    "id": 110,
+    "iso": "2026-09-22",
+    "date": "Sep 22",
+    "time": "12:00 PM",
+    "title": "Glamaholic ticket raffle",
+    "place": "See Lions Connect",
+    "host": "People Standing United",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379824"
+  },
+  {
+    "id": 111,
+    "iso": "2026-09-22",
+    "date": "Sep 22",
+    "time": "4:30 PM",
+    "title": "Study Aborad 101",
+    "place": "See Lions Connect",
+    "host": "International Programs",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379456"
+  },
+  {
+    "id": 112,
+    "iso": "2026-09-22",
+    "date": "Sep 22",
+    "time": "6:00 PM",
+    "title": "LU Connection Group",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379304"
+  },
+  {
+    "id": 113,
+    "iso": "2026-09-22",
+    "date": "Sep 22",
+    "time": "6:30 PM",
+    "title": "Mocktails & Medicine: Welcome Social",
+    "place": "See Lions Connect",
+    "host": "Minority Association of Pre-Health Students",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379619"
+  },
+  {
+    "id": 114,
+    "iso": "2026-09-22",
+    "date": "Sep 22",
+    "time": "7:30 PM",
+    "title": "Movie on the U",
+    "place": "See Lions Connect",
+    "host": "Collegiate 100",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379551"
+  },
+  {
+    "id": 115,
+    "iso": "2026-09-23",
+    "date": "Sep 23",
+    "time": "12:00 PM",
+    "title": "Glamaholic ticket raffle",
+    "place": "See Lions Connect",
+    "host": "People Standing United",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379825"
+  },
+  {
+    "id": 116,
+    "iso": "2026-09-23",
+    "date": "Sep 23",
+    "time": "12:30 PM",
+    "title": "Professional Development Workshop on Mentoring",
+    "place": "See Lions Connect",
+    "host": "Undergraduate Research",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379473"
+  },
+  {
+    "id": 117,
+    "iso": "2026-09-23",
+    "date": "Sep 23",
+    "time": "5:55 PM",
+    "title": "Royal Court Interest Meeting",
+    "place": "See Lions Connect",
+    "host": "Iota Phi Theta Fraternity, Inc.",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379557"
+  },
+  {
+    "id": 118,
+    "iso": "2026-09-23",
+    "date": "Sep 23",
+    "time": "6:00 PM",
+    "title": "My Sisters Keeper",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379350"
+  },
+  {
+    "id": 119,
+    "iso": "2026-09-23",
+    "date": "Sep 23",
+    "time": "6:30 PM",
+    "title": "Moodz & Visions",
+    "place": "Amos 205, Lincoln University",
+    "host": "SKETCH-Made",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379567"
+  },
+  {
+    "id": 120,
+    "iso": "2026-09-23",
+    "date": "Sep 23",
+    "time": "7:00 PM",
+    "title": "Ping Pong Tournament",
+    "place": "See Lions Connect",
+    "host": "Campus Activities Board",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379715"
+  },
+  {
+    "id": 121,
+    "iso": "2026-09-24",
+    "date": "Sep 24",
+    "time": "12:00 PM",
+    "title": "Glamaholic ticket raffle",
+    "place": "See Lions Connect",
+    "host": "People Standing United",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379826"
+  },
+  {
+    "id": 122,
+    "iso": "2026-09-24",
+    "date": "Sep 24",
+    "time": "12:30 PM",
+    "title": "Senior Town Hall",
+    "place": "See Lions Connect",
+    "host": "Legend 27 - Class of 2027",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379722"
+  },
+  {
+    "id": 123,
+    "iso": "2026-09-24",
+    "date": "Sep 24",
+    "time": "12:30 PM",
+    "title": "All University Convocation",
+    "place": "International Cultural Center (ICC)",
+    "host": "Lincoln University Announcements",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379840"
+  },
+  {
+    "id": 124,
+    "iso": "2026-09-24",
+    "date": "Sep 24",
+    "time": "6:30 PM",
+    "title": "Royal Purple Picasso",
+    "place": "See Lions Connect",
+    "host": "Omega Psi Phi Fraternity, Inc.",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379665"
+  },
+  {
+    "id": 125,
+    "iso": "2026-09-24",
+    "date": "Sep 24",
+    "time": "7:00 PM",
+    "title": "Speaking With Elegance, Dressed With Nobility",
+    "place": "See Lions Connect",
+    "host": "Alpha Kappa Alpha Sorority Incorporated Epsilon Nu Chapter",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379699"
+  },
+  {
+    "id": 126,
+    "iso": "2026-09-25",
+    "date": "Sep 25",
+    "time": "10:00 AM",
+    "title": "Career Readiness Workshop - Career Fair Prep Part 1",
+    "place": "Wright Hall 314, Lincoln University",
+    "host": "Office of Career Success",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379288"
+  },
+  {
+    "id": 127,
+    "iso": "2026-09-25",
+    "date": "Sep 25",
+    "time": "11:00 AM",
+    "title": "Heal the Yard",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379820"
+  },
+  {
+    "id": 128,
+    "iso": "2026-09-25",
+    "date": "Sep 25",
+    "time": "12:00 PM",
+    "title": "Glamaholic ticket raffle",
+    "place": "See Lions Connect",
+    "host": "People Standing United",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379827"
+  },
+  {
+    "id": 129,
+    "iso": "2026-09-25",
+    "date": "Sep 25",
+    "time": "5:00 PM",
+    "title": "Charmed Village on Shuffle",
+    "place": "See Lions Connect",
+    "host": "Charmed Village",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379656"
+  },
+  {
+    "id": 130,
+    "iso": "2026-09-25",
+    "date": "Sep 25",
+    "time": "5:00 PM",
+    "title": "Fitness Friday",
+    "place": "See Lions Connect",
+    "host": "Lion Heart Fitness Club",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379754"
+  },
+  {
+    "id": 131,
+    "iso": "2026-09-25",
+    "date": "Sep 25",
+    "time": "6:00 PM",
+    "title": "“White Coat Starter Kit” Panel Discussion",
+    "place": "See Lions Connect",
+    "host": "The National Society of Black Women in Medicine",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379622"
+  },
+  {
+    "id": 132,
+    "iso": "2026-09-25",
+    "date": "Sep 25",
+    "time": "6:30 PM",
+    "title": "Celebrity Lip-Sync Battle",
+    "place": "See Lions Connect",
+    "host": "Worthy 30 - Class of 2030",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379757"
+  },
+  {
+    "id": 133,
+    "iso": "2026-09-25",
+    "date": "Sep 25",
+    "time": "7:00 PM",
+    "title": "He Said Vs She Said",
+    "place": "See Lions Connect",
+    "host": "Swing Phi Swing Social Fellowship Inc.",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379709"
+  },
+  {
+    "id": 134,
+    "iso": "2026-09-25",
+    "date": "Sep 25",
+    "time": "8:00 PM",
+    "title": "Miss Black and Old Gold Pageant",
+    "place": "See Lions Connect",
+    "host": "Alpha Phi Alpha Fraternity Inc. Nu chapter",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379653"
+  },
+  {
+    "id": 135,
+    "iso": "2026-09-26",
+    "date": "Sep 26",
+    "time": "8:00 PM",
+    "title": "NuFlix & Chill",
+    "place": "See Lions Connect",
+    "host": "Alpha Phi Alpha Fraternity Inc. Nu chapter",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379657"
+  },
+  {
+    "id": 136,
+    "iso": "2026-09-26",
+    "date": "Sep 26",
+    "time": "9:25 PM",
+    "title": "Late Night Bake Sale",
+    "place": "See Lions Connect",
+    "host": "Sigma Gamma Rho Sorority, Incorporated – Xi Theta",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379689"
+  },
+  {
+    "id": 137,
+    "iso": "2026-09-28",
+    "date": "Sep 28",
+    "time": "12:00 PM",
+    "title": "Splash ASA!",
+    "place": "See Lions Connect",
+    "host": "African Student Association",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379587"
+  },
+  {
+    "id": 138,
+    "iso": "2026-09-28",
+    "date": "Sep 28",
+    "time": "3:00 PM",
+    "title": "Meet President Allen - Open Office Hours",
+    "place": "Vail Hall 201",
+    "host": "Lincoln University Announcements",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379834"
+  },
+  {
+    "id": 139,
+    "iso": "2026-09-28",
+    "date": "Sep 28",
+    "time": "5:00 PM",
+    "title": "Spill Your Tea",
+    "place": "See Lions Connect",
+    "host": "SKETCH-Made",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379566"
+  },
+  {
+    "id": 140,
+    "iso": "2026-09-28",
+    "date": "Sep 28",
+    "time": "6:00 PM",
+    "title": "Brother Circle",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379373"
+  },
+  {
+    "id": 141,
+    "iso": "2026-09-28",
+    "date": "Sep 28",
+    "time": "6:00 PM",
+    "title": "The Career Lab",
+    "place": "See Lions Connect",
+    "host": "National Association of Black Accountants",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379703"
+  },
+  {
+    "id": 142,
+    "iso": "2026-09-29",
+    "date": "Sep 29",
+    "time": "12:00 PM",
+    "title": "Drug/Alcohol",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379328"
+  },
+  {
+    "id": 143,
+    "iso": "2026-09-29",
+    "date": "Sep 29",
+    "time": "12:00 PM",
+    "title": "Faculty Fireside Chats - Inside the Discipline",
+    "place": "See Lions Connect",
+    "host": "Navigating Experiences & Transitions - Beyond the 1st Year",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379666"
+  },
+  {
+    "id": 144,
+    "iso": "2026-09-29",
+    "date": "Sep 29",
+    "time": "1:00 PM",
+    "title": "Breath Well, Live Well",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379404"
+  },
+  {
+    "id": 145,
+    "iso": "2026-09-29",
+    "date": "Sep 29",
+    "time": "6:00 PM",
+    "title": "LU Connection Group",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379305"
+  },
+  {
+    "id": 146,
+    "iso": "2026-09-30",
+    "date": "Sep 30",
+    "time": "12:00 PM",
+    "title": "Can You WIng it Pt.2",
+    "place": "See Lions Connect",
+    "host": "Royal Court",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379682"
+  },
+  {
+    "id": 147,
+    "iso": "2026-09-30",
+    "date": "Sep 30",
+    "time": "2:00 PM",
+    "title": "Gilman Open Advising",
+    "place": "See Lions Connect",
+    "host": "International Programs",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379459"
+  },
+  {
+    "id": 148,
+    "iso": "2026-09-30",
+    "date": "Sep 30",
+    "time": "4:00 PM",
+    "title": "Appreciation Station",
+    "place": "See Lions Connect",
+    "host": "We Are 1 Family",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379606"
+  },
+  {
+    "id": 149,
+    "iso": "2026-09-30",
+    "date": "Sep 30",
+    "time": "6:00 PM",
+    "title": "My Sisters Keeper",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379351"
+  },
+  {
+    "id": 150,
+    "iso": "2026-09-30",
+    "date": "Sep 30",
+    "time": "6:00 PM",
+    "title": "Study With the AKA’s : Linked in Edition",
+    "place": "See Lions Connect",
+    "host": "Alpha Kappa Alpha Sorority Incorporated Epsilon Nu Chapter",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379702"
+  },
+  {
+    "id": 151,
+    "iso": "2026-10-01",
+    "date": "Oct 1",
+    "time": "7:00 AM",
+    "title": "Gilman Scholarship Deadline",
+    "place": "See Lions Connect",
+    "host": "International Programs",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379461"
+  },
+  {
+    "id": 152,
+    "iso": "2026-10-01",
+    "date": "Oct 1",
+    "time": "1:00 PM",
+    "title": "RISE Conflict and Anger Management Skills Group",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379391"
+  },
+  {
+    "id": 153,
+    "iso": "2026-10-01",
+    "date": "Oct 1",
+    "time": "1:00 PM",
+    "title": "Clothes Line Project",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379449"
+  },
+  {
+    "id": 154,
+    "iso": "2026-10-02",
+    "date": "Oct 2",
+    "time": "10:00 AM",
+    "title": "Career Readiness Workshop - Professional Etiquette & Communication",
+    "place": "Wright Hall 314, Lincoln University",
+    "host": "Office of Career Success",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379289"
+  },
+  {
+    "id": 155,
+    "iso": "2026-10-07",
+    "date": "Oct 7",
+    "time": "8:00 AM",
+    "title": "Dress For Success - First Wednesdays",
+    "place": "See Lions Connect",
+    "host": "Office of Career Success",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=378377"
+  },
+  {
+    "id": 156,
+    "iso": "2026-10-07",
+    "date": "Oct 7",
+    "time": "11:00 AM",
+    "title": "Study Abroad Fair",
+    "place": "See Lions Connect",
+    "host": "International Programs",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379462"
+  },
+  {
+    "id": 157,
+    "iso": "2026-10-07",
+    "date": "Oct 7",
+    "time": "5:30 PM",
+    "title": "Dine & Discuss",
+    "place": "See Lions Connect",
+    "host": "Office of Career Success",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379274"
+  },
+  {
+    "id": 158,
+    "iso": "2026-10-08",
+    "date": "Oct 8",
+    "time": "12:30 PM",
+    "title": "How to Apply for the Solomon Melvyn Coles Undergraduate Research Project",
+    "place": "See Lions Connect",
+    "host": "Undergraduate Research",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379474"
+  },
+  {
+    "id": 159,
+    "iso": "2026-10-08",
+    "date": "Oct 8",
+    "time": "12:30 PM",
+    "title": "Undergraduate Research - Info Session",
+    "place": "See Lions Connect",
+    "host": "Undergraduate Research",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379852"
+  },
+  {
+    "id": 160,
+    "iso": "2026-10-08",
+    "date": "Oct 8",
+    "time": "4:30 PM",
+    "title": "Global Cafe-Passport To The World",
+    "place": "See Lions Connect",
+    "host": "International Programs",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379460"
+  },
+  {
+    "id": 161,
+    "iso": "2026-10-09",
+    "date": "Oct 9",
+    "time": "10:00 AM",
+    "title": "Career Readiness Workshop - Following up with Connections",
+    "place": "Wright Hall 314, Lincoln University",
+    "host": "Office of Career Success",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379290"
+  },
+  {
+    "id": 162,
+    "iso": "2026-10-12",
+    "date": "Oct 12",
+    "time": "12:00 PM",
+    "title": "Coming Out Day",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379444"
+  },
+  {
+    "id": 163,
+    "iso": "2026-10-12",
+    "date": "Oct 12",
+    "time": "5:00 PM",
+    "title": "Rustin's Chat",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379493"
+  },
+  {
+    "id": 164,
+    "iso": "2026-10-12",
+    "date": "Oct 12",
+    "time": "6:00 PM",
+    "title": "Brother Circle",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379374"
+  },
+  {
+    "id": 165,
+    "iso": "2026-10-13",
+    "date": "Oct 13",
+    "time": "12:00 PM",
+    "title": "Drug/Alcohol",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379329"
+  },
+  {
+    "id": 166,
+    "iso": "2026-10-13",
+    "date": "Oct 13",
+    "time": "6:00 PM",
+    "title": "LU Connection Group",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379306"
+  },
+  {
+    "id": 167,
+    "iso": "2026-10-14",
+    "date": "Oct 14",
+    "time": "1:00 PM",
+    "title": "Mocktail",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379434"
+  },
+  {
+    "id": 168,
+    "iso": "2026-10-14",
+    "date": "Oct 14",
+    "time": "6:00 PM",
+    "title": "My Sisters Keeper",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379352"
+  },
+  {
+    "id": 169,
+    "iso": "2026-10-15",
+    "date": "Oct 15",
+    "time": "1:00 PM",
+    "title": "RISE Conflict and Anger Management Skills Group",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379392"
+  },
+  {
+    "id": 170,
+    "iso": "2026-10-16",
+    "date": "Oct 16",
+    "time": "10:00 AM",
+    "title": "Career Readiness Workshop - Project Success Career Fair Prep",
+    "place": "Wright Hall 314, Lincoln University",
+    "host": "Office of Career Success",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379291"
+  },
+  {
+    "id": 171,
+    "iso": "2026-10-20",
+    "date": "Oct 20",
+    "time": "11:00 AM",
+    "title": "Fall Career Fair 2026",
+    "place": "See Lions Connect",
+    "host": "Office of Career Success",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379285"
+  },
+  {
+    "id": 172,
+    "iso": "2026-10-20",
+    "date": "Oct 20",
+    "time": "12:00 PM",
+    "title": "Drug/Alcohol",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379330"
+  },
+  {
+    "id": 173,
+    "iso": "2026-10-22",
+    "date": "Oct 22",
+    "time": "12:30 PM",
+    "title": "How to Apply for the Lincoln University Preservation and Archival Fellowship (LUPA)",
+    "place": "See Lions Connect",
+    "host": "Undergraduate Research",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379475"
+  },
+  {
+    "id": 174,
+    "iso": "2026-10-23",
+    "date": "Oct 23",
+    "time": "10:00 AM",
+    "title": "Career Readiness Workshop - Talks w/ Docs",
+    "place": "Wright Hall 314, Lincoln University",
+    "host": "Office of Career Success",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379292"
+  },
+  {
+    "id": 175,
+    "iso": "2026-10-26",
+    "date": "Oct 26",
+    "time": "5:00 PM",
+    "title": "Rustin's Chat",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379494"
+  },
+  {
+    "id": 176,
+    "iso": "2026-10-27",
+    "date": "Oct 27",
+    "time": "12:00 PM",
+    "title": "Drug/Alcohol",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379331"
+  },
+  {
+    "id": 177,
+    "iso": "2026-10-27",
+    "date": "Oct 27",
+    "time": "6:00 PM",
+    "title": "LU Connection Group",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379307"
+  },
+  {
+    "id": 178,
+    "iso": "2026-10-28",
+    "date": "Oct 28",
+    "time": "6:00 PM",
+    "title": "My Sisters Keeper",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379353"
+  },
+  {
+    "id": 179,
+    "iso": "2026-10-29",
+    "date": "Oct 29",
+    "time": "12:00 PM",
+    "title": "Majors on the U",
+    "place": "See Lions Connect",
+    "host": "Navigating Experiences & Transitions - Beyond the 1st Year",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379624"
+  },
+  {
+    "id": 180,
+    "iso": "2026-10-29",
+    "date": "Oct 29",
+    "time": "1:00 PM",
+    "title": "RISE Conflict and Anger Management Skills Group",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379393"
+  },
+  {
+    "id": 181,
+    "iso": "2026-10-29",
+    "date": "Oct 29",
+    "time": "7:00 PM",
+    "title": "Escape the \"L\"",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379445"
+  },
+  {
+    "id": 182,
+    "iso": "2026-10-30",
+    "date": "Oct 30",
+    "time": "10:00 AM",
+    "title": "Career Readiness Workshop - Office Etiquette & Confidence Building",
+    "place": "Wright Hall 314, Lincoln University",
+    "host": "Office of Career Success",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379293"
+  },
+  {
+    "id": 183,
+    "iso": "2026-10-31",
+    "date": "Oct 31",
+    "time": "7:00 AM",
+    "title": "Vira Heinz Deadline",
+    "place": "See Lions Connect",
+    "host": "International Programs",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379463"
+  },
+  {
+    "id": 184,
+    "iso": "2026-11-01",
+    "date": "Nov 1",
+    "time": "5:00 PM",
+    "title": "Vira Heinz Deadline",
+    "place": "See Lions Connect",
+    "host": "International Programs",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379464"
+  },
+  {
+    "id": 185,
+    "iso": "2026-11-02",
+    "date": "Nov 2",
+    "time": "5:00 PM",
+    "title": "Rustin's Chat",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379495"
+  },
+  {
+    "id": 186,
+    "iso": "2026-11-02",
+    "date": "Nov 2",
+    "time": "6:00 PM",
+    "title": "Brother Circle",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379375"
+  },
+  {
+    "id": 187,
+    "iso": "2026-11-03",
+    "date": "Nov 3",
+    "time": "12:00 PM",
+    "title": "Drug/Alcohol",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379332"
+  },
+  {
+    "id": 188,
+    "iso": "2026-11-03",
+    "date": "Nov 3",
+    "time": "12:30 PM",
+    "title": "Lead From Where You Are",
+    "place": "See Lions Connect",
+    "host": "Navigating Experiences & Transitions - Beyond the 1st Year",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379859"
+  },
+  {
+    "id": 189,
+    "iso": "2026-11-03",
+    "date": "Nov 3",
+    "time": "6:00 PM",
+    "title": "LU Connection Group",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379308"
+  },
+  {
+    "id": 190,
+    "iso": "2026-11-04",
+    "date": "Nov 4",
+    "time": "6:00 PM",
+    "title": "My Sisters Keeper",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379354"
+  },
+  {
+    "id": 191,
+    "iso": "2026-11-05",
+    "date": "Nov 5",
+    "time": "4:30 PM",
+    "title": "Global Cafe-Holidays Around the World",
+    "place": "See Lions Connect",
+    "host": "International Programs",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379465"
+  },
+  {
+    "id": 192,
+    "iso": "2026-11-06",
+    "date": "Nov 6",
+    "time": "10:00 AM",
+    "title": "Career Readiness Workshop - Life After Lincoln",
+    "place": "Wright Hall 314, Lincoln University",
+    "host": "Office of Career Success",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379294"
+  },
+  {
+    "id": 193,
+    "iso": "2026-11-09",
+    "date": "Nov 9",
+    "time": "5:00 PM",
+    "title": "Rustin's Chat",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379496"
+  },
+  {
+    "id": 194,
+    "iso": "2026-11-09",
+    "date": "Nov 9",
+    "time": "6:00 PM",
+    "title": "Brother Circle",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379376"
+  },
+  {
+    "id": 195,
+    "iso": "2026-11-10",
+    "date": "Nov 10",
+    "time": "12:00 PM",
+    "title": "Drug/Alcohol",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379333"
+  },
+  {
+    "id": 196,
+    "iso": "2026-11-10",
+    "date": "Nov 10",
+    "time": "6:00 PM",
+    "title": "LU Connection Group",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379309"
+  },
+  {
+    "id": 197,
+    "iso": "2026-11-11",
+    "date": "Nov 11",
+    "time": "6:00 PM",
+    "title": "My Sisters Keeper",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379355"
+  },
+  {
+    "id": 198,
+    "iso": "2026-11-12",
+    "date": "Nov 12",
+    "time": "12:30 PM",
+    "title": "Lead From Where You Are",
+    "place": "See Lions Connect",
+    "host": "Navigating Experiences & Transitions - Beyond the 1st Year",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379860"
+  },
+  {
+    "id": 199,
+    "iso": "2026-11-12",
+    "date": "Nov 12",
+    "time": "1:00 PM",
+    "title": "RISE Conflict and Anger Management Skills Group",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379394"
+  },
+  {
+    "id": 200,
+    "iso": "2026-11-13",
+    "date": "Nov 13",
+    "time": "10:00 AM",
+    "title": "Career Readiness Workshop - Study Session",
+    "place": "Wright Hall 314, Lincoln University",
+    "host": "Office of Career Success",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379295"
+  },
+  {
+    "id": 201,
+    "iso": "2026-11-16",
+    "date": "Nov 16",
+    "time": "8:00 AM",
+    "title": "International Education Week",
+    "place": "See Lions Connect",
+    "host": "International Programs",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379466"
+  },
+  {
+    "id": 202,
+    "iso": "2026-11-16",
+    "date": "Nov 16",
+    "time": "5:00 PM",
+    "title": "Rustin's Chat",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379497"
+  },
+  {
+    "id": 203,
+    "iso": "2026-11-16",
+    "date": "Nov 16",
+    "time": "6:00 PM",
+    "title": "Brother Circle",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379377"
+  },
+  {
+    "id": 204,
+    "iso": "2026-11-16",
+    "date": "Nov 16",
+    "time": "6:00 PM",
+    "title": "Cafe - International Foods/ Presentations",
+    "place": "See Lions Connect",
+    "host": "International Programs",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379467"
+  },
+  {
+    "id": 205,
+    "iso": "2026-11-17",
+    "date": "Nov 17",
+    "time": "11:00 AM",
+    "title": "Lions Abroad Showcase",
+    "place": "See Lions Connect",
+    "host": "International Programs",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379468"
+  },
+  {
+    "id": 206,
+    "iso": "2026-11-17",
+    "date": "Nov 17",
+    "time": "12:00 PM",
+    "title": "Drug/Alcohol",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379334"
+  },
+  {
+    "id": 207,
+    "iso": "2026-11-17",
+    "date": "Nov 17",
+    "time": "12:30 PM",
+    "title": "Lead From Where You Are",
+    "place": "See Lions Connect",
+    "host": "Navigating Experiences & Transitions - Beyond the 1st Year",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379861"
+  },
+  {
+    "id": 208,
+    "iso": "2026-11-17",
+    "date": "Nov 17",
+    "time": "6:00 PM",
+    "title": "LU Connection Group",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379310"
+  },
+  {
+    "id": 209,
+    "iso": "2026-11-18",
+    "date": "Nov 18",
+    "time": "12:00 PM",
+    "title": "Fall on the \"L\"",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379447"
+  },
+  {
+    "id": 210,
+    "iso": "2026-11-18",
+    "date": "Nov 18",
+    "time": "5:30 PM",
+    "title": "Fulbright TA Showcase",
+    "place": "See Lions Connect",
+    "host": "International Programs",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379469"
+  },
+  {
+    "id": 211,
+    "iso": "2026-11-18",
+    "date": "Nov 18",
+    "time": "6:00 PM",
+    "title": "My Sisters Keeper",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379356"
+  },
+  {
+    "id": 212,
+    "iso": "2026-11-19",
+    "date": "Nov 19",
+    "time": "11:00 AM",
+    "title": "Fulbright Faculty Forum",
+    "place": "See Lions Connect",
+    "host": "International Programs",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379470"
+  },
+  {
+    "id": 213,
+    "iso": "2026-11-19",
+    "date": "Nov 19",
+    "time": "1:00 PM",
+    "title": "Stress Free Day",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379436"
+  },
+  {
+    "id": 214,
+    "iso": "2027-01-11",
+    "date": "Jan 11",
+    "time": "5:00 PM",
+    "title": "Rustin's Chat",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379498"
+  },
+  {
+    "id": 215,
+    "iso": "2027-01-11",
+    "date": "Jan 11",
+    "time": "6:00 PM",
+    "title": "Brother Circle",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379378"
+  },
+  {
+    "id": 216,
+    "iso": "2027-01-12",
+    "date": "Jan 12",
+    "time": "12:00 PM",
+    "title": "Drug/Alcohol",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379335"
+  },
+  {
+    "id": 217,
+    "iso": "2027-01-12",
+    "date": "Jan 12",
+    "time": "6:00 PM",
+    "title": "LU Connection Group",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379311"
+  },
+  {
+    "id": 218,
+    "iso": "2027-01-13",
+    "date": "Jan 13",
+    "time": "5:00 PM",
+    "title": "Vision Board Party",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379510"
+  },
+  {
+    "id": 219,
+    "iso": "2027-01-13",
+    "date": "Jan 13",
+    "time": "6:00 PM",
+    "title": "My Sisters Keeper",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379357"
+  },
+  {
+    "id": 220,
+    "iso": "2027-01-14",
+    "date": "Jan 14",
+    "time": "1:00 PM",
+    "title": "RISE Conflict and Anger Management Skills Group",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379395"
+  },
+  {
+    "id": 221,
+    "iso": "2027-01-19",
+    "date": "Jan 19",
+    "time": "12:00 PM",
+    "title": "Drug/Alcohol",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379336"
+  },
+  {
+    "id": 222,
+    "iso": "2027-01-19",
+    "date": "Jan 19",
+    "time": "6:00 PM",
+    "title": "LU Connection Group",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379312"
   }
 ]

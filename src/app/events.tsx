@@ -1,11 +1,12 @@
 // EVENTS - month calendar with dots on days that have events.
-// Data downloads daily from Lincoln's published calendar feed, with the
-// bundled list as an offline fallback.
+// Data downloads daily from the Lions Connect feed, with the bundled list as an
+// offline fallback. Tapping an event opens its RSVP page.
 
 import ScreenShell from "@/components/screen-shell";
 import { colors } from "@/constants/colors";
 import { useRemote } from "@/lib/remote";
 import { Ionicons } from "@expo/vector-icons";
+import * as WebBrowser from "expo-web-browser";
 import { useState } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 // The hardcoded list is now only the fallback for when the download fails.
@@ -15,12 +16,13 @@ import { events as bundledEvents } from "@/data/events";
 // doesn't depend on what src/data/events.ts happens to name its type.
 type CampusEvent = {
   id: number;
-  iso: string;     // "2026-09-20", sortable as plain text
-  date: string;    // "Sep 20", for display
+  iso: string;      // "2026-09-22", sortable as plain text
+  date: string;     // "Sep 22", for display
   time: string;
   title: string;
   place: string;
-  host: string;
+  host: string;     // the organization running it
+  url?: string;     // the ? means optional - the bundled fallback has no urls
 };
 
 // Column headers. Index 0 is Sunday, matching what Date.getDay() returns, so a
@@ -32,7 +34,7 @@ const MONTH_NAMES = [
   "July", "August", "September", "October", "November", "December",
 ];
 
-// Turns a year, month, and day into "2026-09-20" so it matches the iso strings
+// Turns a year, month, and day into "2026-09-22" so it matches the iso strings
 // in the data. Months are ZERO-BASED in JavaScript dates - September is month 8,
 // not 9 - which is why we add 1 here.
 // padStart(2, "0") turns "9" into "09", which keeps text comparison correct.
@@ -48,19 +50,19 @@ function makeIso(year: number, month: number, day: number) {
 
 export default function EventsScreen() {
   const today = new Date();
-  // Today as an iso string, so we can highlight today's square in the grid.
+  // Today as an iso string, so we can outline today's square in the grid.
   const todayIso = makeIso(today.getFullYear(), today.getMonth(), today.getDate());
 
   // Downloads events.json, which the GitHub Action rebuilds every morning from
-  // lincoln.edu's official calendar feed. Until it arrives - or if the network
-  // fails - this holds the bundled list instead, so the screen is never empty.
+  // Lincoln's Lions Connect calendar. Until it arrives - or if the network
+  // fails - this holds the bundled list, so the screen is never empty.
   const { data: events, status } = useRemote<CampusEvent[]>(
     "events.json",
     bundledEvents as CampusEvent[]
   );
 
-  // Which month the calendar shows. We store the year and month as plain
-  // numbers rather than a Date, because that's all the grid needs.
+  // Which month the calendar shows. Stored as two plain numbers rather than a
+  // Date, because that's all the grid needs.
   const [year, setYear] = useState(today.getFullYear());
   const [month, setMonth] = useState(today.getMonth());
 
@@ -70,22 +72,22 @@ export default function EventsScreen() {
 
   // How many days this month has. The trick: asking for day 0 of the NEXT month
   // gives you the LAST day of this one. new Date(2026, 9, 0) is Sep 30. This
-  // handles leap years for free.
+  // handles leap years for free, with no lookup table.
   const daysInMonth = new Date(year, month + 1, 0).getDate();
 
-  // Which weekday the 1st lands on: 0 = Sunday through 6 = Saturday. This is
-  // how many blank squares to draw before day 1 so the columns line up.
+  // Which weekday the 1st lands on: 0 = Sunday through 6 = Saturday. That's how
+  // many blank squares to draw before day 1 so the columns line up.
   const firstWeekday = new Date(year, month, 1).getDay();
 
-  // Every event in the month being shown. Comparing the first 7 characters
+  // Every event in the month on screen. Comparing the first 7 characters
   // ("2026-09") is enough to match a month, and it's cheaper than turning each
-  // string back into a Date object.
+  // string back into a Date.
   const monthPrefix = year + "-" + String(month + 1).padStart(2, "0");
   const monthEvents = events.filter((e) => e.iso.startsWith(monthPrefix));
 
   // A Set of just the days that have something on them. A Set answers "is this
   // in here?" instantly no matter how many items it holds - an array would have
-  // to scan every event for every square in the grid.
+  // to scan all 222 events for every square in the grid.
   const busyDays = new Set(monthEvents.map((e) => e.iso));
 
   // Events on the day the user tapped.
@@ -107,12 +109,19 @@ export default function EventsScreen() {
     }
   }
 
+  // Opens an event's RSVP page in the phone's in-app browser.
+  const openEvent = (url?: string) => {
+    // The guard matters: the bundled fallback events have no url, and calling
+    // this with undefined would crash.
+    if (url) WebBrowser.openBrowserAsync(url);
+  };
+
   return (
     <ScreenShell eyebrow="Campus calendar" title="Events">
       {/* DATA STATUS - honest about whether these are live or saved. */}
       <Text style={styles.status}>
         {status === "live"
-          ? "Live from lincoln.edu"
+          ? "Live from Lions Connect"
           : status === "loading"
           ? "Checking for updates..."
           : "Offline - showing saved events"}
@@ -190,7 +199,7 @@ export default function EventsScreen() {
                   </Text>
                 </View>
 
-                {/* The dot marking a day with events. The space is always
+                {/* The dot marking a day with events. Its space is always
                     reserved by a fixed-height View, so rows don't shift up and
                     down depending on which days have dots. */}
                 <View style={styles.dotSlot}>
@@ -211,23 +220,52 @@ export default function EventsScreen() {
         </View>
       </View>
 
-      {/* SELECTED DAY */}
-      <Text style={styles.heading}>
-        {/* Building a Date from the selected day's pieces lets us print a
-            friendly label like "Sunday, September 20". slice(8) grabs the day
-            digits off the end of the iso string. */}
-        {new Date(year, month, Number(selected.slice(8))).toLocaleDateString(
-          undefined,
-          { weekday: "long", month: "long", day: "numeric" }
+      {/* SELECTED DAY HEADING */}
+      <View style={styles.dayHeader}>
+        <Text style={styles.heading}>
+          {/* Building a Date from the selected day's pieces lets us print a
+              friendly label like "Tuesday, September 22". slice(8) grabs the
+              day digits off the end of the iso string. */}
+          {new Date(year, month, Number(selected.slice(8))).toLocaleDateString(
+            undefined,
+            { weekday: "long", month: "long", day: "numeric" }
+          )}
+        </Text>
+
+        {/* The count, only when there's more than one - "1 event" next to a
+            single card is clutter. */}
+        {dayEvents.length > 1 && (
+          <Text style={styles.count}>{dayEvents.length} events</Text>
         )}
-      </Text>
+      </View>
 
       {dayEvents.map((event) => (
-        <View key={event.id} style={styles.card}>
+        // The whole card is tappable when there's a link to open.
+        <Pressable
+          key={event.id}
+          style={styles.card}
+          onPress={() => openEvent(event.url)}
+        >
           <Text style={styles.time}>{event.time}</Text>
           <Text style={styles.title}>{event.title}</Text>
-          <Text style={styles.place}>{event.place}</Text>
-        </View>
+
+          {/* Host and place on one row, with the chevron pushed to the far
+              right by flex: 1 on the text block. */}
+          <View style={styles.metaRow}>
+            <View style={styles.meta}>
+              <Text style={styles.host}>{event.host}</Text>
+              <Text style={styles.place}>{event.place}</Text>
+            </View>
+
+            {/* The chevron only appears when tapping actually does something.
+                Showing it on an unlinked card would promise an action that
+                isn't there. \u203A is the unicode escape for the character,
+                written as an escape so no editor encoding can mangle it. */}
+            {event.url !== undefined && event.url !== "" && (
+              <Text style={styles.chevron}>{"\u203A"}</Text>
+            )}
+          </View>
+        </Pressable>
       ))}
 
       {/* An empty list with no explanation reads as a bug, so say it plainly. */}
@@ -236,8 +274,8 @@ export default function EventsScreen() {
       )}
 
       <Text style={styles.source}>
-        From Lincoln's official events calendar. Check lincoln.edu or LU Live for
-        the full listing and any changes.
+        From Lincoln's Lions Connect calendar. Some locations are only visible
+        after signing in on Lions Connect.
       </Text>
     </ScreenShell>
   );
@@ -252,7 +290,7 @@ const styles = StyleSheet.create({
   monthHeader: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between",  // arrows to the edges, name centered
+    justifyContent: "space-between",   // arrows to the edges, name centered
     marginBottom: 10,
   },
   monthName: {
@@ -261,8 +299,8 @@ const styles = StyleSheet.create({
     color: colors.navy,
   },
   arrow: {
-    padding: 6,        // padding, not margin - it enlarges the tap target so
-                       // the arrows aren't fiddly to hit with a thumb
+    padding: 6,         // padding, not margin - it enlarges the tap target so
+                        // the arrows aren't fiddly to hit with a thumb
   },
   calendar: {
     backgroundColor: colors.card,
@@ -275,7 +313,7 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   dayLabel: {
-    width: "14.28%",   // 100 / 7, so headers align with the grid columns
+    width: "14.28%",    // 100 / 7, so headers align with the grid columns
     textAlign: "center",
     fontSize: 11,
     fontWeight: "700",
@@ -283,38 +321,38 @@ const styles = StyleSheet.create({
   },
   grid: {
     flexDirection: "row",
-    flexWrap: "wrap",  // this is what breaks the squares into weeks
+    flexWrap: "wrap",   // this is what breaks the squares into weeks
   },
   cell: {
-    width: "14.28%",   // seven per row
+    width: "14.28%",    // seven per row
     alignItems: "center",
     paddingVertical: 3,
   },
   dayCircle: {
     width: 30,
     height: 30,
-    borderRadius: 15,  // exactly half the width = a perfect circle
+    borderRadius: 15,   // exactly half the width = a perfect circle
     alignItems: "center",
     justifyContent: "center",
   },
   todayCircle: {
     borderWidth: 1.5,
-    borderColor: colors.orange,    // outlined: today, but not selected
+    borderColor: colors.orange,     // outlined: today, but not selected
   },
   selectedCircle: {
-    backgroundColor: colors.navy,  // filled: the day you tapped
+    backgroundColor: colors.navy,   // filled: the day you tapped
   },
   dayNumber: {
     fontSize: 13,
     color: colors.navy,
   },
   selectedNumber: {
-    color: "#ffffff",              // white, because the circle behind is navy
+    color: "#ffffff",               // white, because the circle behind is navy
     fontWeight: "700",
   },
   dotSlot: {
-    height: 8,         // reserved space, so row heights stay identical whether
-                       // or not a given day has a dot
+    height: 8,          // reserved space, so row heights stay identical whether
+                        // or not a given day has a dot
     justifyContent: "center",
   },
   dot: {
@@ -323,11 +361,21 @@ const styles = StyleSheet.create({
     borderRadius: 2.5,
     backgroundColor: colors.navy,
   },
+  dayHeader: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginBottom: 8,
+  },
   heading: {
     fontSize: 13,
     fontWeight: "700",
     color: colors.navy,
-    marginBottom: 8,
+  },
+  count: {
+    fontSize: 11,
+    color: colors.grey,
+    fontWeight: "600",
   },
   card: {
     backgroundColor: colors.card,
@@ -349,11 +397,29 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     color: colors.navy,
     lineHeight: 20,
-    marginBottom: 3,
+    marginBottom: 5,
+  },
+  metaRow: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  meta: {
+    flex: 1,            // absorbs the leftover width, pushing the chevron right
+  },
+  host: {
+    fontSize: 12,
+    fontWeight: "600",
+    color: colors.grey,
   },
   place: {
-    fontSize: 13,
+    fontSize: 12,
     color: colors.grey,
+    marginTop: 1,
+  },
+  chevron: {
+    fontSize: 20,
+    color: colors.orange,
+    marginLeft: 10,
   },
   empty: {
     fontSize: 14,
