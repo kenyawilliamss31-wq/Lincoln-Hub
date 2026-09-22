@@ -12,7 +12,7 @@ const student = {
   name: "Kenya Williams",
   major: "Computer Science",
   standing: "Junior",
-  classYear: "Class of 2027",
+  classYear: "Class of 2028",
   // Placeholder on purpose. A real student ID number in a public repo is
   // permanent - git keeps deleted lines in its history forever.
   idNumber: "LU-0000000",

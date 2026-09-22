@@ -1,9 +1,6 @@
-/**
- * Learn more about light and dark modes:
- * https://docs.expo.dev/guides/color-schemes/
- */
 
-import { Colors } from '@/constants/theme';
+
+import { Colors } from '@/constants/theme'; // Colors is a TypeScript type, not a value, so it must be imported with braces.
 import { useColorScheme } from '@/hooks/use-color-scheme';
 
 export function useTheme() {

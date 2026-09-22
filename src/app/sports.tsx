@@ -128,8 +128,8 @@ function GameTile({ game }: { game: Game }) {
   // glued onto the opponent name. Neutral-site games are neither home nor away
   // - the Chicago Classic and the CIAA roundups are played on other campuses.
   const siteLabel =
-    game.site === "Home" ? "@ HOME" :
-    game.site === "Away" ? "AWAY" :
+    game.site === "Home" ? "@ Home" :
+    game.site === "Away" ? "Away" :
     "NEUTRAL";
 
   return (
@@ -217,13 +217,13 @@ const styles = StyleSheet.create({
   chipTextActive: {
     color: "#ffffff",
   },
-  record: {
+  record: { // only shows when at least one game has been played
     fontSize: 14,
     fontWeight: "700",
     color: colors.navy,
     marginBottom: 4,
   },
-  heading: {
+  heading: { // "Results" and "Upcoming" labels
     fontSize: 12,
     fontWeight: "700",
     color: colors.grey,
@@ -232,12 +232,12 @@ const styles = StyleSheet.create({
     marginTop: 16,
     marginBottom: 8,
   },
-  grid: {
+  grid: { // the parent of all the cards, not the cards themselves
     flexDirection: "row",
     flexWrap: "wrap",     // this is what makes it a grid instead of one long row
     gap: 8,
   },
-  tile: {
+  tile: { // the individual card, not the parent grid
     width: "31%",         // three across; the leftover 7% covers the two gaps
     minHeight: 118,       // a floor, not a fixed height - keeps short tiles
                           // from looking squashed next to taller ones

@@ -1,0 +1,200 @@
+[
+  {
+    "id": 13,
+    "iso": "2026-08-16",
+    "date": "Aug 16",
+    "time": "All day",
+    "title": "Residence Halls Open for New Students Fall 2026 Semester",
+    "place": "Lincoln University",
+    "host": "Lincoln University"
+  },
+  {
+    "id": 14,
+    "iso": "2026-08-22",
+    "date": "Aug 22",
+    "time": "All day",
+    "title": "Residence Halls Open for Returning Students Fall 2026 Semester",
+    "place": "Lincoln University",
+    "host": "Lincoln University"
+  },
+  {
+    "id": 11,
+    "iso": "2026-09-07",
+    "date": "Sep 7",
+    "time": "All day",
+    "title": "Campus Closures: Labor Day Holiday",
+    "place": "Lincoln University",
+    "host": "Lincoln University"
+  },
+  {
+    "id": 12,
+    "iso": "2026-09-17",
+    "date": "Sep 17",
+    "time": "12:30 PM",
+    "title": "Start Strong - Student Success Fair",
+    "place": "Lincoln University",
+    "host": "Lincoln University"
+  },
+  {
+    "id": 10,
+    "iso": "2026-10-18",
+    "date": "Oct 18",
+    "time": "10:00 AM",
+    "title": "100 Years of Lion Pride! Homecoming 2026",
+    "place": "Lincoln University",
+    "host": "Lincoln University"
+  },
+  {
+    "id": 22,
+    "iso": "2026-11-20",
+    "date": "Nov 20",
+    "time": "8:00 PM",
+    "title": "Residence Halls Closing: Thanksgiving Break 2026",
+    "place": "Lincoln University",
+    "host": "Lincoln University"
+  },
+  {
+    "id": 7,
+    "iso": "2026-11-26",
+    "date": "Nov 26",
+    "time": "All day",
+    "title": "Campus Closures: Thanksgiving Holiday",
+    "place": "Lincoln University",
+    "host": "Lincoln University"
+  },
+  {
+    "id": 8,
+    "iso": "2026-11-27",
+    "date": "Nov 27",
+    "time": "All day",
+    "title": "Campus Closures: Thanksgiving Holiday",
+    "place": "Lincoln University",
+    "host": "Lincoln University"
+  },
+  {
+    "id": 9,
+    "iso": "2026-11-29",
+    "date": "Nov 29",
+    "time": "12:00 PM",
+    "title": "Residence Halls Reopen: Thanksgiving Break 2026",
+    "place": "Lincoln University",
+    "host": "Lincoln University"
+  },
+  {
+    "id": 6,
+    "iso": "2026-12-11",
+    "date": "Dec 11",
+    "time": "8:00 PM",
+    "title": "Residence Halls Close for the Fall 2026 Semester",
+    "place": "Lincoln University",
+    "host": "Lincoln University"
+  },
+  {
+    "id": 1,
+    "iso": "2026-12-23",
+    "date": "Dec 23",
+    "time": "All day",
+    "title": "Campus Closures: Winter Holiday 2026",
+    "place": "Lincoln University",
+    "host": "Lincoln University"
+  },
+  {
+    "id": 2,
+    "iso": "2026-12-24",
+    "date": "Dec 24",
+    "time": "All day",
+    "title": "Campus Closures: Winter Holiday 2026",
+    "place": "Lincoln University",
+    "host": "Lincoln University"
+  },
+  {
+    "id": 3,
+    "iso": "2026-12-25",
+    "date": "Dec 25",
+    "time": "All day",
+    "title": "Campus Closures: Winter Holiday 2026",
+    "place": "Lincoln University",
+    "host": "Lincoln University"
+  },
+  {
+    "id": 4,
+    "iso": "2026-12-28",
+    "date": "Dec 28",
+    "time": "All day",
+    "title": "Campus Closures: Winter Holiday 2026",
+    "place": "Lincoln University",
+    "host": "Lincoln University"
+  },
+  {
+    "id": 5,
+    "iso": "2026-12-31",
+    "date": "Dec 31",
+    "time": "All day",
+    "title": "Campus Closures: New Year&apos\\;s Holiday",
+    "place": "Lincoln University",
+    "host": "Lincoln University"
+  },
+  {
+    "id": 18,
+    "iso": "2027-01-01",
+    "date": "Jan 1",
+    "time": "All day",
+    "title": "Campus Closures: New Year&apos\\;s Holiday",
+    "place": "Lincoln University",
+    "host": "Lincoln University"
+  },
+  {
+    "id": 19,
+    "iso": "2027-01-08",
+    "date": "Jan 8",
+    "time": "All day",
+    "title": "Residence Halls Open for Spring 2027 Semester New Students",
+    "place": "Lincoln University",
+    "host": "Lincoln University"
+  },
+  {
+    "id": 20,
+    "iso": "2027-01-10",
+    "date": "Jan 10",
+    "time": "All day",
+    "title": "Residence Halls Open for Returning Students for Spring 2027 Semest",
+    "place": "Lincoln University",
+    "host": "Lincoln University"
+  },
+  {
+    "id": 21,
+    "iso": "2027-01-18",
+    "date": "Jan 18",
+    "time": "All day",
+    "title": "Campus Closures: Martin Luther King Jr. Holiday",
+    "place": "Lincoln University",
+    "host": "Lincoln University"
+  },
+  {
+    "id": 16,
+    "iso": "2027-02-19",
+    "date": "Feb 19",
+    "time": "8:00 PM",
+    "title": "Residence Halls Close for Spring Break 2027",
+    "place": "Lincoln University",
+    "host": "Lincoln University"
+  },
+  {
+    "id": 17,
+    "iso": "2027-02-28",
+    "date": "Feb 28",
+    "time": "12:00 PM",
+    "title": "Residence Halls Reopen from Spring Break 2027",
+    "place": "Lincoln University",
+    "host": "Lincoln University"
+  },
+  {
+    "id": 15,
+    "iso": "2027-04-30",
+    "date": "Apr 30",
+    "time": "8:00 PM",
+    "title": "Residence Halls Close for Spring 2027 Semester",
+    "place": "Lincoln University",
+    "host": "Lincoln University"
+  }
+]

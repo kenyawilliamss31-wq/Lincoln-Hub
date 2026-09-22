@@ -1,0 +1,45 @@
+warning: in the working copy of 'src/app/digital-id.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/constants/colors.ts', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/src/app/digital-id.tsx b/src/app/digital-id.tsx[m
+[1mindex a514883..6963f75 100644[m
+[1m--- a/src/app/digital-id.tsx[m
+[1m+++ b/src/app/digital-id.tsx[m
+[36m@@ -12,7 +12,7 @@[m [mconst student = {[m
+   name: "Kenya Williams",[m
+   major: "Computer Science",[m
+   standing: "Junior",[m
+[31m-  classYear: "Class of 2027",[m
+[32m+[m[32m  classYear: "Class of 2028",[m
+   // Placeholder on purpose. A real student ID number in a public repo is[m
+   // permanent - git keeps deleted lines in its history forever.[m
+   idNumber: "LU-0000000",[m
+[1mdiff --git a/src/app/sports.tsx b/src/app/sports.tsx[m
+[1mindex 744f445..041a8a1 100644[m
+[1m--- a/src/app/sports.tsx[m
+[1m+++ b/src/app/sports.tsx[m
+[36m@@ -128,8 +128,8 @@[m [mfunction GameTile({ game }: { game: Game }) {[m
+   // glued onto the opponent name. Neutral-site games are neither home nor away[m
+   // - the Chicago Classic and the CIAA roundups are played on other campuses.[m
+   const siteLabel =[m
+[31m-    game.site === "Home" ? "@ HOME" :[m
+[31m-    game.site === "Away" ? "AWAY" :[m
+[32m+[m[32m    game.site === "Home" ? "@ Home" :[m
+[32m+[m[32m    game.site === "Away" ? "Away" :[m
+     "NEUTRAL";[m
+ [m
+   return ([m
+[1mdiff --git a/src/constants/colors.ts b/src/constants/colors.ts[m
+[1mindex d4968e9..518ead2 100644[m
+[1m--- a/src/constants/colors.ts[m
+[1m+++ b/src/constants/colors.ts[m
+[36m@@ -4,8 +4,8 @@[m
+ [m
+ export const colors = {[m
+   navy: "#14213d",      // headings, primary text — swap for Lincoln's exact blue[m
+[31m-  orange: "#f0801a",    // accents, stripes, dates — swap for Lincoln's exact orange[m
+[31m-  bg: "#f4f4f7",        // page background (light grey)[m
+[32m+[m[32m  orange: "#e29755",    // accents, stripes, dates — swap for Lincoln's exact orange[m
+[32m+[m[32m  bg: "#f0ecec",        // page background (light grey)[m
+   card: "#ffffff",      // card background (white)[m
+   grey: "#8a8a94",      // secondary text, labels[m
+   line: "#ececf2",      // dividers and thin borders[m
