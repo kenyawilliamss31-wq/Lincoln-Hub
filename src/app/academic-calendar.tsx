@@ -243,4 +243,9 @@ const styles = StyleSheet.create({
   legendText2: {
     fontSize: 11,
   },
+  source: {
+    fontSize: 11,
+    color: colors.grey,
+    lineHeight: 16,
+  },
 });

@@ -1,15 +1,15 @@
-// HOME - event banner, fun fact, greeting, sections, then live campus
-// info and safety at the bottom.
+// HOME - saved-event banner, greeting, fun fact, sections, then your saved
+// events today, next game, and Public Safety at the bottom.
 
 import { colors } from "@/constants/colors";
 import { events as bundledEvents } from "@/data/events";
 import { factOfTheDay } from "@/data/facts";
 import { games as bundledGames, type Game } from "@/data/sports";
+import { useSavedEvents } from "@/lib/reminders";
 import { useRemote } from "@/lib/remote";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import { Linking, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
-
 
 // Public Safety, digits only so the tel: link can use the value directly.
 const SAFETY_PHONE = "4843657211";
@@ -66,24 +66,31 @@ export default function HomeScreen() {
   });
 
   // LIVE DATA. Both files download in parallel, each with its own saved copy on
-  // the phone. The banner used to read the hardcoded list; now it reads the same
-  // downloaded data the Events screen does, so the two can never disagree.
+  // the phone, so the home screen can never disagree with the other screens.
   const { data: events } = useRemote<CampusEvent[]>(
     "events.json",
     bundledEvents as CampusEvent[]
   );
   const { data: games } = useRemote<Game[]>("sports.json", bundledGames);
 
+  // Which events you bookmarked. The home screen only surfaces saved ones, so
+  // it stays quiet unless you asked to be reminded about something.
+  const { isSaved } = useSavedEvents();
+
   const today = todayIso();
 
-  // find() returns the FIRST match and stops looking, which works because the
-  // data arrives sorted oldest first. It returns undefined when nothing is left,
-  // which is what the && guards below are protecting against.
-  const upcoming = events.find((e) => e.iso >= today);
+  // Every saved event from today onward. Filtering the LIVE data rather than
+  // stored copies means a moved event shows its current time here.
+  // iso strings compare correctly as plain text, so >= is all "upcoming" needs.
+  const savedUpcoming = events.filter((e) => e.iso >= today && isSaved(e));
 
-  // Today's events, capped at three. slice() never errors on a short array -
-  // asking for three from a one-item list just returns the one.
-  const todayEvents = events.filter((e) => e.iso === today).slice(0, 3);
+  // The banner shows the soonest one. [0] is the first item, or undefined when
+  // the list is empty - which the && guard in the JSX below handles.
+  const nextSaved = savedUpcoming[0];
+
+  // Saved events happening today, capped at three. slice() never errors on a
+  // short array - asking for three from a one-item list just returns the one.
+  const savedToday = savedUpcoming.filter((e) => e.iso === today).slice(0, 3);
 
   const nextGame = games.find((g) => g.iso >= today && g.note !== "Canceled");
 
@@ -93,22 +100,22 @@ export default function HomeScreen() {
 
   return (
     <ScrollView style={styles.screen} contentContainerStyle={styles.content}>
-      {/* ---------- Event notification ---------- */}
-      {/* Only shows if there IS an upcoming event. Once every event has passed,
-          find() returns undefined and this whole block disappears instead of
-          crashing. That's what the && guard is protecting against. */}
-      {upcoming && (
-        <Pressable style={styles.banner} onPress={() => router.push("/events")}>
-          <Ionicons name="notifications-outline" size={18} color={colors.card} />
+      {/* ---------- Saved event banner ---------- */}
+      {/* Only shows when you have a saved event coming up. Nothing saved means
+          nextSaved is undefined, and && renders nothing at all - no banner, no
+          empty gap at the top. */}
+      {nextSaved && (
+        <Pressable style={styles.banner} onPress={() => router.push("/events" as any)}>
+          <Ionicons name="bookmark" size={18} color={colors.card} />
           <View style={styles.bannerInfo}>
-            <Text style={styles.bannerLabel}>COMING UP</Text>
-            <Text style={styles.bannerTitle} numberOfLines={1}>
-              {upcoming.title}
-            </Text>
+            <Text style={styles.bannerLabel}>YOUR NEXT SAVED EVENT</Text>
             {/* numberOfLines={1} truncates with "..." instead of letting a long
                 event name wrap and break the banner's height. */}
+            <Text style={styles.bannerTitle} numberOfLines={1}>
+              {nextSaved.title}
+            </Text>
           </View>
-          <Text style={styles.bannerDate}>{upcoming.date}</Text>
+          <Text style={styles.bannerDate}>{nextSaved.date}</Text>
         </Pressable>
       )}
 
@@ -141,34 +148,32 @@ export default function HomeScreen() {
         ))}
       </View>
 
-     
-      {/* ---------- Happening today ---------- */}
-      {/* Only drawn when something is actually on. An empty "Today" heading
-          every Sunday would make the app look broken. */}
-      {todayEvents.length > 0 && (
-        <View style={styles.bottomSection}>
-          <Text style={styles.eyebrow}>Happening today</Text>
+      {/* ---------- Your saved events today ---------- */}
+      {/* Only drawn when you saved something for today. No saved events means
+          no heading and no cards - the section simply doesn't exist. */}
+      {savedToday.length > 0 && (
+        <View style={styles.section}>
+          <Text style={styles.eyebrow}>Your events today</Text>
 
-          {todayEvents.map((event) => (
+          {savedToday.map((event) => (
             <Pressable
               key={event.id}
               style={styles.eventRow}
               // Goes to the Events screen rather than the RSVP page, so the home
               // screen stays a map of the app rather than a place you leave from.
-              onPress={() => router.push("/events")}
+              onPress={() => router.push("/events" as any)}
             >
               {/* A fixed-width time column lines up every title, whether the
                   time reads "9:00 AM" or "All day". */}
               <Text style={styles.eventTime}>{event.time}</Text>
 
               <View style={styles.eventBody}>
-                {/* numberOfLines={1} keeps each row exactly one line tall, so
-                    three events always occupy the same height. */}
+                {/* numberOfLines={1} keeps each row exactly one line tall. */}
                 <Text style={styles.eventTitle} numberOfLines={1}>
                   {event.title}
                 </Text>
                 <Text style={styles.eventHost} numberOfLines={1}>
-                  {event.host}
+                  {event.place}
                 </Text>
               </View>
             </Pressable>
@@ -180,7 +185,7 @@ export default function HomeScreen() {
       {/* find() returns undefined once the season is over, so this block
           disappears on its own in December without any date logic. */}
       {nextGame && (
-        <Pressable style={styles.gameCard} onPress={() => router.push("/sports")}>
+        <Pressable style={styles.gameCard} onPress={() => router.push("/sports" as any)}>
           <Text style={styles.gameLabel}>NEXT GAME</Text>
 
           <Text style={styles.gameTitle}>
@@ -201,10 +206,12 @@ export default function HomeScreen() {
       <Pressable
         style={styles.safety}
         // tel: hands the number to the phone's dialer. It does NOT place the
-        // call - the user still presses the call button - so this is safe to tap
-        // by accident. Linking is React Native's way to open something outside
+        // call - the user still has to press call, so an accidental tap is
+        // harmless. Linking is React Native's way to open something outside
         // the app.
         onPress={() => Linking.openURL(`tel:${SAFETY_PHONE}`)}
+        // Read aloud by a screen reader so the button is usable without sight.
+        accessibilityLabel="Call Public Safety, available 24 hours"
       >
         <View style={styles.safetyIcon}>
           <Ionicons name="shield-checkmark" size={20} color={colors.card} />
@@ -233,11 +240,11 @@ const styles = StyleSheet.create({
     paddingTop: 36,
     paddingBottom: 40,
     width: "100%",
-    maxWidth: 480,
+    maxWidth: 480,          // keeps it phone-width on a laptop browser
     alignSelf: "center",
   },
 
-  banner: { // the event banner at the top of the screen
+  banner: { // the saved-event banner at the top of the screen
     flexDirection: "row",
     alignItems: "center",
     gap: 10,
@@ -247,7 +254,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   bannerInfo: {
-    flex: 1,
+    flex: 1,                // takes the middle, pushing the date to the right
   },
   bannerLabel: {
     fontSize: 9,
@@ -303,7 +310,7 @@ const styles = StyleSheet.create({
   factText: {
     fontSize: 14,
     color: colors.navy,
-    lineHeight: 20,        // extra line spacing keeps multi-line text readable
+    lineHeight: 20,         // extra line spacing keeps multi-line text readable
   },
 
   eyebrow: {
@@ -316,17 +323,17 @@ const styles = StyleSheet.create({
   },
   grid: {
     flexDirection: "row",
-    flexWrap: "wrap",
+    flexWrap: "wrap",       // two per row, wrapping onto new rows
     gap: 12,
     marginBottom: 28,
   },
   card: {
-    width: "48%",
+    width: "48%",           // two fit side by side with the gap between
     height: 96,
     backgroundColor: colors.card,
     borderRadius: 14,
     padding: 14,
-    justifyContent: "space-between",
+    justifyContent: "space-between",   // icon top, title bottom
     borderLeftWidth: 3,
     borderLeftColor: colors.orange,
   },
@@ -336,23 +343,7 @@ const styles = StyleSheet.create({
     color: colors.navy,
   },
 
-
-  bookButton: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: 8,
-    backgroundColor: colors.navy,
-    borderRadius: 10,
-    paddingVertical: 12,
-  },
-  bookText: {
-    color: colors.card,
-    fontSize: 14,
-    fontWeight: "600",
-  },
-
-  bottomSection: {
+  section: {
     marginBottom: 16,
   },
   eventRow: {
@@ -364,14 +355,14 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   eventTime: {
-    width: 62,             // fixed, so every title starts at the same x
+    width: 62,              // fixed, so every title starts at the same x
     fontSize: 11,
     fontWeight: "700",
     color: colors.orange,
   },
   eventBody: {
-    flex: 1,               // takes the rest, so long titles truncate instead of
-                           // pushing past the card edge
+    flex: 1,                // takes the rest, so long titles truncate instead of
+                            // pushing past the card edge
   },
   eventTitle: {
     fontSize: 14,
@@ -394,7 +385,7 @@ const styles = StyleSheet.create({
     fontSize: 10,
     fontWeight: "800",
     color: colors.orange,
-    letterSpacing: 1.2,    // wide spacing makes tiny uppercase legible
+    letterSpacing: 1.2,     // wide spacing makes tiny uppercase legible
     marginBottom: 4,
   },
   gameTitle: {
@@ -405,7 +396,7 @@ const styles = StyleSheet.create({
   },
   gameMeta: {
     fontSize: 12,
-    color: "#c9cdd8",      // muted grey-white, readable on navy
+    color: "#c9cdd8",       // muted grey-white, readable on navy
     marginTop: 3,
   },
 
@@ -415,21 +406,21 @@ const styles = StyleSheet.create({
     backgroundColor: colors.red,
     borderRadius: 14,
     padding: 13,
+    marginBottom: 24,
   },
   safetyIcon: {
     width: 36,
     height: 36,
-    borderRadius: 18,      // half the width = a circle
-    // A translucent white circle. rgba is red/green/blue/alpha, and 0.18 is the
-    // opacity - the red card shows through, which is why this one value works
-    // no matter what color sits behind it.
+    borderRadius: 18,       // half the width = a circle
+    // Translucent white: rgba is red/green/blue/alpha, and 0.18 is the opacity,
+    // so the red card shows through behind it.
     backgroundColor: "rgba(255,255,255,0.18)",
     alignItems: "center",
     justifyContent: "center",
     marginRight: 12,
   },
   safetyText: {
-    flex: 1,               // pushes the phone icon to the right edge
+    flex: 1,                // pushes the phone icon to the right edge
   },
   safetyTitle: {
     fontSize: 15,
@@ -438,7 +429,7 @@ const styles = StyleSheet.create({
   },
   safetySub: {
     fontSize: 12,
-    color: "rgba(255,255,255,0.85)",  // dimmed white, still legible
+    color: "rgba(255,255,255,0.85)",   // dimmed white, still legible
     marginTop: 1,
   },
 });
