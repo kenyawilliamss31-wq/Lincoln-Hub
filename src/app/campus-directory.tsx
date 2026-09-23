@@ -74,7 +74,13 @@ export default function CampusDirectoryScreen() {
               <Text style={styles.place}>{office.place}</Text>
             </View>
 
-            <Pressable style={styles.action} onPress={() => call(office.phone)}>
+                        <Pressable
+              style={styles.action}
+              onPress={() => call(office.phone)}
+              // Names the office, so VoiceOver says "Call Registrar" instead of
+              // reading out a bare phone number with no context.
+              accessibilityLabel={`Call ${office.name}`}
+            >
               <Ionicons name="call-outline" size={12} color={colors.navy} />
               <Text style={styles.actionText}>{office.phone}</Text>
             </Pressable>
@@ -83,7 +89,12 @@ export default function CampusDirectoryScreen() {
                 when the string isn't empty. An empty string "" is FALSY in
                 JavaScript, which is why a plain && check is enough here. */}
             {office.email !== "" && (
-              <Pressable style={styles.action} onPress={() => mail(office.email)}>
+                            <Pressable
+                style={styles.action}
+                onPress={() => mail(office.email)}
+                // Without the office name, every email button just says "Email".
+                accessibilityLabel={`Email ${office.name}`}
+              >
                 <Ionicons name="mail-outline" size={12} color={colors.navy} />
                 <Text style={styles.actionText}>Email</Text>
               </Pressable>
