@@ -271,8 +271,8 @@
     "sport": "Women's Soccer",
     "opponent": "Chestnut Hill College",
     "site": "Away",
-    "outcome": "",
-    "score": "",
+    "outcome": "L",
+    "score": "0-2",
     "note": ""
   },
   {
@@ -285,7 +285,7 @@
     "site": "Away",
     "outcome": "",
     "score": "",
-    "note": ""
+    "note": "Canceled"
   },
   {
     "id": 25,
@@ -521,7 +521,7 @@
     "date": "Oct 10",
     "time": "12:00 PM",
     "sport": "Women's Soccer",
-    "opponent": "University of Bridgeport - HOMECOMING GAME",
+    "opponent": "University of Bridgeport",
     "site": "Home",
     "outcome": "",
     "score": "",
