@@ -6,12 +6,13 @@ name: Update campus data
 on:
   schedule:
     # Cron format: minute hour day month weekday. Always UTC, never local time.
-    # 11:00 UTC is 7 AM Eastern in summer, 6 AM in winter - early enough that
-    # data is fresh before anyone opens the app.
-    - cron: "0 11 * * *"
+    # "*/30" in the minute field means "every 30 minutes", and the stars mean
+    # "every" for the rest - so this runs all day, every day, twice an hour.
+    # Scores show up within about half an hour of reaching Lincoln's feed.
+    - cron: "*/30 * * * *"
 
-  # Lets you press a button in the Actions tab to run it immediately, which is
-  # how you test it without waiting until tomorrow morning.
+  # Lets you press a button in the Actions tab to run it immediately, so you
+  # never have to wait for the schedule.
   workflow_dispatch:
 
 # By default a workflow can only read the repo. Writing the JSON back requires
@@ -42,6 +43,6 @@ jobs:
           git add public-data
 
           # --quiet --exit-code makes this command SUCCEED when nothing changed.
-          # The || means "if that check fails, then commit" - so on a day with
+          # The || means "if that check fails, then commit" - so when there are
           # no new scores, the job finishes cleanly without an empty commit.
           git diff --staged --quiet || (git commit -m "Update campus data from feeds" && git push)
