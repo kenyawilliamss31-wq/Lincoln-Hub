@@ -9,7 +9,7 @@ on:
     # "*/30" in the minute field means "every 30 minutes", and the stars mean
     # "every" for the rest - so this runs all day, every day, twice an hour.
     # Scores show up within about half an hour of reaching Lincoln's feed.
-    - cron: "*/1 * * * *"
+    - cron: "*/30 * * * *"
 
   # Lets you press a button in the Actions tab to run it immediately, so you
   # never have to wait for the schedule.
