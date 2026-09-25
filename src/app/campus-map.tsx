@@ -1,149 +1,170 @@
-﻿// CAMPUS MAP - embedded Google Map, directions, and building list.
+﻿// CAMPUS MAP - campus overview on top, then every building from Lincoln's
+// official walking map. Tap any building to get walking directions to it.
 
-import InfoCard from "@/components/info-card";
 import ScreenShell from "@/components/screen-shell";
 import { colors } from "@/constants/colors";
+import { buildings, categories } from "@/data/buildings";
 import { Ionicons } from "@expo/vector-icons";
 import * as WebBrowser from "expo-web-browser";
-import { createElement } from "react";
-import { Platform, Pressable, StyleSheet, Text, View } from "react-native";
+import { useState } from "react";
+import { Linking, Pressable, StyleSheet, Text, View } from "react-native";
 import { WebView } from "react-native-webview";
 
-// Lincoln's coordinates, taken from the campus Google Maps URL.
-// Latitude first, then longitude - the order every mapping API expects.
+// The center of campus, used for the overview map at the top.
 const CAMPUS_LAT = 39.8071788;
 const CAMPUS_LNG = -75.928474;
 
-// output=embed is the important part. A normal Google Maps URL refuses to load
-// inside a frame; this is Google's official embeddable version and it needs no
-// API key. z=16 is the zoom level - higher numbers are closer in.
-const MAP_EMBED_URL =
-  "https://maps.google.com/maps?q=" +
-  CAMPUS_LAT + "," + CAMPUS_LNG +
-  "&z=16&output=embed";
+// Lincoln's own interactive walking map, for anyone who wants the full version.
+const OFFICIAL_MAP_URL =
+  "https://lionsconnect.lincoln.edu/LionsConnectInfo/LU_google_walking_map/";
 
-// Google's embed refuses to load as a top-level page - it insists on being
-// inside an iframe. So rather than pointing WebView at Google, we hand WebView
-// a tiny HTML page of our own that HAS an iframe in it. WebView renders our
-// page, our page frames Google, and Google is satisfied.
-//
-// The backticks make a template literal, which can span multiple lines.
-// Regular "quotes" cannot, which is why URLs elsewhere in this file are glued
-// together with + instead.
+// The overview map, wrapped in a tiny web page. Google's embed only loads
+// inside an iframe, so we hand the WebView a page containing one rather than
+// pointing it at the map URL directly.
 const MAP_HTML = `
-<!DOCTYPE html>
-<html>
-  <head>
-    <!-- Without this the map renders zoomed-way-out and tiny on a phone. -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-      /* height: 100% has to be set on html and body too, not just the iframe.
-         A percentage height means "of my parent" - and if the parent has no
-         height, 100% of nothing is nothing, so the map collapses to zero. */
-      html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; }
-      iframe { border: 0; width: 100%; height: 100%; }
-    </style>
-  </head>
-  <body>
-    <!-- \${...} is string interpolation: inside backticks it drops the value of
-         that variable straight into the text. Only works in template literals. -->
-    <iframe src="${MAP_EMBED_URL}" loading="lazy"></iframe>
-  </body>
-</html>
+  <html>
+    <head><meta name="viewport" content="width=device-width, initial-scale=1"></head>
+    <body style="margin:0">
+      <iframe
+        width="100%" height="100%" style="border:0"
+        src="https://maps.google.com/maps?q=${CAMPUS_LAT},${CAMPUS_LNG}&z=16&output=embed">
+      </iframe>
+    </body>
+  </html>
 `;
 
-// api=1 is Google's format for launching turn-by-turn navigation. On a phone
-// this opens the actual Google Maps app, not the website.
-const DIRECTIONS_URL =
-  "https://www.google.com/maps/dir/?api=1&destination=" +
-  CAMPUS_LAT + "," + CAMPUS_LNG;
+// Opens walking directions from wherever the phone is to this spot.
+// This URL format is Google's official "directions" link. On a phone it opens
+// the Google Maps app if installed, otherwise the browser - either way the
+// user gets turn-by-turn walking directions without us building any of it.
+function walkTo(lat: number, lng: number) {
+  Linking.openURL(
+    `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}&travelmode=walking`
+  );
+}
 
-// Lincoln's own directions and parking page - things Google can't tell you,
-// like which lots students are allowed to park in.
-const OFFICIAL_MAP_URL =
-  "https://www.lincoln.edu/about/maps/directions-getting-campus.html";
-
-const buildings = [
-  { id: 1,  name: "Wright Hall",                      lines: ["Career Development, Internship Services, classrooms"] },
-  { id: 2,  name: "Vail Hall",                        lines: ["Administration, President's office"] },
-  { id: 3,  name: "Manuel Rivero Hall",               lines: ["Athletics, gymnasium"] },
-  { id: 4,  name: "Langston Hughes Memorial Library", lines: ["Library, study space"] },
-  { id: 5,  name: "Science Center",                   lines: ["Computer Science department, labs"] },
-  { id: 6,  name: "Student Union Building",           lines: ["Dining, Financial Aid, Residence Life"] },
-  { id: 7,  name: "Dickey Hall",                      lines: ["Information Technology, auditorium"] },
-  { id: 8,  name: "Lincoln Hall",                     lines: ["Registrar, Bursar"] },
-  { id: 9,  name: "Wellness Center",                  lines: ["Health Services, Counseling, Chick-fil-A"] },
-  { id: 10, name: "International Cultural Center",    lines: ["Public Safety, events"] },
-];
+// One icon per category, so the list is scannable before reading any names.
+// A lookup object instead of if-statements: adding a category is one line.
+const CATEGORY_ICONS: Record<string, string> = {
+  "Academic": "school-outline",
+  "Offices": "business-outline",
+  "Historic": "library-outline",
+  "Residence Halls": "bed-outline",
+  "Campus Life": "people-outline",
+  "Arts": "color-palette-outline",
+  "Other Housing": "home-outline",
+  "Parking": "car-outline",
+};
 
 export default function CampusMapScreen() {
-  return (
-    <ScreenShell sourceUrl="https://www.lincoln.edu/about/maps/directions-getting-campus.html" sourceLabel="lincoln.edu maps" eyebrow="Buildings and directions" title="Campus Map">
-      {/* EMBEDDED MAP - two versions, because WebView is a NATIVE component
-          and doesn't exist in a browser. Platform.OS tells us where the app is
-          running right now: "ios", "android", or "web".
+  // Which filter chip is active. "All" shows every building.
+  const [filter, setFilter] = useState("All");
 
-          The box needs a fixed height either way. Neither an iframe nor a
-          WebView has a natural size, so with no height they collapse to zero
-          pixels and you get blank space with no error to explain it. */}
+  // A building matches if the chip is its main category OR one of its extras.
+  // ?. ("optional chaining") stops safely when a building has no also list
+  // instead of crashing, and ?? false turns that stopped result into a no.
+  const shown =
+    filter === "All"
+      ? buildings
+      : buildings.filter(
+          (b) => b.category === filter || (b.also?.includes(filter) ?? false)
+        );
+
+  return (
+    <ScreenShell
+      eyebrow="Find your way"
+      title="Campus Map"
+      sourceUrl={OFFICIAL_MAP_URL}
+      sourceLabel="LU walking map"
+    >
+      {/* OVERVIEW MAP. The fixed height matters: a WebView inside a scrolling
+          screen has no natural height, so without one it collapses to zero. */}
       <View style={styles.mapBox}>
-        {Platform.OS === "web" ? (
-          // In a browser we already have a real iframe available, so no HTML
-          // wrapper is needed. React Native has no iframe component, so we
-          // build the DOM element by hand with createElement(tag, props).
-          // This branch only ever runs on web, where iframe is a real thing.
-          createElement("iframe", {
-            src: MAP_EMBED_URL,
-            style: { border: "none", width: "100%", height: "100%" },
-            title: "Lincoln University campus map",
-          })
-        ) : (
-          <WebView
-            // html instead of uri: we hand WebView the page content directly
-            // rather than an address for it to go fetch.
-            // baseUrl makes WebView treat our page as if it came from
-            // google.com, which the iframe needs in order to be allowed to load.
-            source={{ html: MAP_HTML, baseUrl: "https://www.google.com" }}
-            style={styles.map}
-            scrollEnabled={true}        // allows pinching and dragging the map
-            startInLoadingState={true}  // hides the white flash while loading
-          />
-        )}
+        <WebView
+          // baseUrl makes the page look like it comes from google.com, which
+          // is what gets Google's embed to agree to load inside the app.
+          source={{ html: MAP_HTML, baseUrl: "https://www.google.com" }}
+          style={styles.map}
+          // Stops the map from stealing the screen's scroll gesture, so a swipe
+          // over the map still scrolls the list.
+          scrollEnabled={false}
+        />
       </View>
 
-      {/* The embed is for looking at. This is for actually going somewhere -
-          it hands off to Google Maps, which has GPS and live traffic. */}
       <Pressable
-        style={styles.primaryBtn}
-        onPress={() => WebBrowser.openBrowserAsync(DIRECTIONS_URL)}
-      >
-        <Ionicons name="navigate-outline" size={16} color="#ffffff" />
-        <Text style={styles.primaryText}>Get Directions</Text>
-      </Pressable>
-
-      {/* Secondary button, styled quieter on purpose. Two navy buttons stacked
-          would compete for attention; an outlined one reads as the lesser
-          option without needing a label to say so. */}
-      <Pressable
-        style={styles.secondaryBtn}
+        style={styles.officialBtn}
         onPress={() => WebBrowser.openBrowserAsync(OFFICIAL_MAP_URL)}
       >
         <Ionicons name="map-outline" size={16} color={colors.navy} />
-        <Text style={styles.secondaryText}>Official map and parking</Text>
+        <Text style={styles.officialText}>Open Lincoln's full walking map</Text>
       </Pressable>
 
-      <Text style={styles.heading}>Buildings</Text>
+      {/* FILTER CHIPS. ["All", ...categories] builds a new array with "All" in
+          front - the ... ("spread") copies every item of categories into it. */}
+      <View style={styles.filterRow}>
+        {["All", ...categories].map((name) => {
+          const active = name === filter;
 
-      {/* InfoCard is our own reusable component. It takes a title and an array
-          of lines and handles all the card styling, so this screen never has
-          to think about padding or fonts for these rows. */}
-      {buildings.map((building) => (
-        <InfoCard key={building.id} title={building.name} lines={building.lines} />
+          return (
+            <Pressable
+              key={name}
+              // An arrow function, so it runs on tap - not during render.
+              onPress={() => setFilter(name)}
+              style={[styles.chip, active && styles.chipActive]}
+            >
+              <Text style={[styles.chipText, active && styles.chipTextActive]}>
+                {name}
+              </Text>
+            </Pressable>
+          );
+        })}
+      </View>
+
+      <Text style={styles.hint}>
+        {shown.length} locations. Tap one for walking directions.
+      </Text>
+
+      {/* THE BUILDING LIST. Every row is a button. */}
+      {shown.map((b) => (
+        <Pressable
+          key={b.id}
+          style={styles.row}
+          onPress={() => walkTo(b.lat, b.lng)}
+          // The screen reader hears the destination, so it's clear what
+          // tapping will do.
+          accessibilityLabel={`Walking directions to ${b.name}`}
+        >
+          <View style={styles.iconCircle}>
+            {/* When a chip is active, show that chip's icon - so Wright Hall
+                gets the school icon under Academic. "as any" because TypeScript
+                can't confirm a name pulled from an object is a valid icon. */}
+            <Ionicons
+              name={
+                CATEGORY_ICONS[filter === "All" ? b.category : filter] as any
+              }
+              size={17}
+              color={colors.orange}
+            />
+          </View>
+
+          {/* flex: 1 absorbs the leftover width, so long names wrap here
+              instead of pushing the walk icon off the edge. */}
+          <View style={styles.rowBody}>
+            <Text style={styles.name}>{b.name}</Text>
+            <Text style={styles.category}>
+              {/* Lists every chip the building belongs to, e.g. "Offices,
+                  Academic". [b.category, ...(b.also ?? [])] joins the main
+                  category with the extras, using an empty list if none. */}
+              {[b.category, ...(b.also ?? [])].join(", ")}
+            </Text>
+          </View>
+
+          <Ionicons name="walk-outline" size={20} color={colors.navy} />
+        </Pressable>
       ))}
 
       <Text style={styles.source}>
-        Map data from Google. Building contents from the Lincoln University
-        campus directory.
+        Locations from Lincoln University's official Google walking map.
       </Text>
     </ScreenShell>
   );
@@ -151,62 +172,96 @@ export default function CampusMapScreen() {
 
 const styles = StyleSheet.create({
   mapBox: {
-    height: 220,                  // required - the map has no intrinsic height
+    height: 220,          // required - see the WebView comment above
     borderRadius: 14,
-    overflow: "hidden",           // clips the map's square corners to the
-                                  // radius. Without this the map bleeds past
-                                  // the rounding and the corners look broken.
+    overflow: "hidden",   // clips the map's square corners to the rounded box
     marginBottom: 10,
-    backgroundColor: colors.line, // grey placeholder visible while it loads
   },
   map: {
-    flex: 1,                      // fills the 220px box completely
+    flex: 1,
   },
-  primaryBtn: {
-    flexDirection: "row",         // icon and label side by side
-    alignItems: "center",
-    justifyContent: "center",
-    gap: 6,
-    backgroundColor: colors.navy,
-    borderRadius: 12,
-    paddingVertical: 13,
-    marginBottom: 8,
-  },
-  primaryText: {
-    fontSize: 15,
-    fontWeight: "700",
-    color: "#ffffff",
-  },
-  secondaryBtn: {
+  officialBtn: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    gap: 6,
-    backgroundColor: colors.card, // white, not navy
+    gap: 7,
+    backgroundColor: colors.card,
+    borderRadius: 10,
+    paddingVertical: 11,
+    marginBottom: 16,
     borderWidth: 1,
-    borderColor: colors.line,     // thin outline instead of a solid fill
+    borderColor: colors.line,
+  },
+  officialText: {
+    fontSize: 13,
+    fontWeight: "600",
+    color: colors.navy,
+  },
+  filterRow: {
+    flexDirection: "row",
+    flexWrap: "wrap",     // chips spill onto a second line on narrow phones
+    gap: 8,
+    marginBottom: 10,
+  },
+  chip: {
+    paddingVertical: 6,
+    paddingHorizontal: 12,
+    borderRadius: 999,    // pill shape
+    backgroundColor: colors.card,
+    borderWidth: 1,
+    borderColor: colors.line,
+  },
+  chipActive: {
+    backgroundColor: colors.navy,
+    borderColor: colors.navy,
+  },
+  chipText: {
+    fontSize: 13,
+    fontWeight: "600",
+    color: colors.grey,
+  },
+  chipTextActive: {
+    color: "#ffffff",
+  },
+  hint: {
+    fontSize: 11,
+    color: colors.grey,
+    marginBottom: 10,
+  },
+  row: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: colors.card,
     borderRadius: 12,
-    paddingVertical: 13,
+    padding: 12,
     marginBottom: 8,
   },
-  secondaryText: {
+  iconCircle: {
+    width: 34,
+    height: 34,
+    borderRadius: 17,     // half the width = a circle
+    backgroundColor: colors.bg,
+    alignItems: "center",
+    justifyContent: "center",
+    marginRight: 12,
+  },
+  rowBody: {
+    flex: 1,              // pushes the walk icon to the right edge
+  },
+  name: {
     fontSize: 14,
     fontWeight: "600",
     color: colors.navy,
   },
-  heading: {
-    fontSize: 12,
-    fontWeight: "700",
+  category: {
+    fontSize: 11,
     color: colors.grey,
-    letterSpacing: 1,
-    textTransform: "uppercase",
-    marginTop: 16,
-    marginBottom: 8,
+    marginTop: 1,
   },
   source: {
     fontSize: 11,
     color: colors.grey,
     lineHeight: 16,
-    marginTop: 14,
+    marginTop: 10,
   },
 });
