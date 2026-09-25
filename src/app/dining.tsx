@@ -29,14 +29,14 @@ type Spot = {
 };
 
 const spots: Spot[] = [
-  { id: 1, name: "Common Dining Hall",  note: "Main dining hall",       weekday: { open: t(7), close: t(20) },      weekend: { open: t(10), close: t(19) } },
-  { id: 2, name: "The Lion's Brew",     note: "Starbucks",              weekday: { open: t(8), close: t(14) },      weekend: null },
-  { id: 3, name: "Bagel Beaux",         note: "",                       weekday: { open: t(12), close: t(19) },     weekend: null },
-  { id: 4, name: "Chick-fil-A",         note: "Wellness Center",        weekday: { open: t(11), close: t(20) },     weekend: null },
-  { id: 5, name: "Austin Grill",        note: "",                       weekday: { open: t(11), close: t(20) },     weekend: null },
-  { id: 6, name: "Chop'd and Wrap'd",   note: "",                       weekday: { open: t(11), close: t(20) },     weekend: null },
-  { id: 7, name: "GoGo Fresh",          note: "Smoothie Zone",          weekday: { open: t(11), close: t(20) },     weekend: null },
-  { id: 8, name: "The Gold Room",       note: "Faculty and staff only", weekday: { open: t(11, 30), close: t(14) }, weekend: null },
+  { id: 1, name: "Common Dining Hall",  note: "Thurgood Marshall LLC",                 weekday: { open: t(7), close: t(20) },      weekend: { open: t(10), close: t(19) } },
+  { id: 2, name: "The Lion's Brew",     note: "Starbucks - Wellness Center",           weekday: { open: t(8), close: t(14) },      weekend: null },
+  { id: 3, name: "Bagel Beaux",         note: "Student Union Building (SUB)",          weekday: { open: t(12), close: t(19) },     weekend: null },
+  { id: 4, name: "Chick-fil-A",         note: "Wellness Center",                       weekday: { open: t(11), close: t(20) },     weekend: null },
+  { id: 5, name: "Austin Grill",        note: "Wellness Center food court",            weekday: { open: t(11), close: t(20) },     weekend: null },
+  { id: 6, name: "Chop'd and Wrap'd",   note: "Wellness Center",                       weekday: { open: t(11), close: t(20) },     weekend: null },
+  { id: 7, name: "GoGo Fresh",          note: "Smoothie Zone - Wellness Center",       weekday: { open: t(11), close: t(20) },     weekend: null },
+  { id: 8, name: "The Gold Room",       note: "Faculty and staff only",                weekday: { open: t(11, 30), close: t(14) }, weekend: null },
 ];
 
 // Turns 450 back into "7:30 AM" for display.

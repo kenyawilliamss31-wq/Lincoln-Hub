@@ -5,11 +5,13 @@ import { colors } from "@/constants/colors";
 import { events as bundledEvents } from "@/data/events";
 import { factOfTheDay } from "@/data/facts";
 import { games as bundledGames, type Game } from "@/data/sports";
+import { formatTime, nextClass, useClasses } from "@/lib/classes";
 import { useSavedEvents } from "@/lib/reminders";
 import { useRemote } from "@/lib/remote";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import { Linking, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+
 
 // Public Safety, digits only so the tel: link can use the value directly.
 const SAFETY_PHONE = "4843657211";
@@ -29,7 +31,7 @@ type CampusEvent = {
 
 const sections = [
   { id: 1, title: "Events", href: "/events", icon: "calendar-outline" },
-  { id: 2, title: "Digital ID", href: "/digital-id", icon: "card-outline" },
+  { id: 2, title: "My Classes", href: "/classes", icon: "book-outline" },
   { id: 3, title: "Sports", href: "/sports", icon: "trophy-outline" },
   { id: 4, title: "Directory", href: "/campus-directory", icon: "call-outline" },
   { id: 5, title: "Dining", href: "/dining", icon: "restaurant-outline" },
@@ -76,6 +78,9 @@ export default function HomeScreen() {
   // Which events you bookmarked. The home screen only surfaces saved ones, so
   // it stays quiet unless you asked to be reminded about something.
   const { isSaved } = useSavedEvents();
+    // Your own schedule, and whichever class comes next from right now.
+  const { classes } = useClasses();
+  const upNext = nextClass(classes);
 
   const today = todayIso();
 
@@ -147,6 +152,30 @@ export default function HomeScreen() {
           </Pressable>
         ))}
       </View>
+
+      {/* ---------- Next class ---------- */}
+      {/* Only shows once you've added classes. Tapping the card opens your
+          schedule; the walk icon goes straight to directions. */}
+      {upNext && (
+        <Pressable
+          style={styles.classCard}
+          onPress={() => router.push("/classes" as any)}
+        >
+          <View style={styles.classInfo}>
+            <Text style={styles.classLabel}>
+              NEXT CLASS - {upNext.label.toUpperCase()}
+            </Text>
+            <Text style={styles.className}>
+              {upNext.cls.name} at {formatTime(upNext.cls.start)}
+            </Text>
+            <Text style={styles.classPlace} numberOfLines={1}>
+              {upNext.cls.building}
+              {upNext.cls.room !== "" ? `, ${upNext.cls.room}` : ""}
+            </Text>
+          </View>
+          <Ionicons name="book-outline" size={22} color={colors.orange} />
+        </Pressable>
+      )}
 
       {/* ---------- Your saved events today ---------- */}
       {/* Only drawn when you saved something for today. No saved events means
@@ -231,6 +260,36 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
+    classCard: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: colors.card,
+    borderRadius: 14,
+    padding: 14,
+    marginBottom: 16,
+    borderLeftWidth: 3,
+    borderLeftColor: colors.navy,
+  },
+  classInfo: {
+    flex: 1,               // pushes the icon to the right edge
+  },
+  classLabel: {
+    fontSize: 10,
+    fontWeight: "800",
+    color: colors.grey,
+    letterSpacing: 1,
+    marginBottom: 3,
+  },
+  className: {
+    fontSize: 16,
+    fontWeight: "700",
+    color: colors.navy,
+  },
+  classPlace: {
+    fontSize: 12,
+    color: colors.grey,
+    marginTop: 2,
+  },
   screen: {
     flex: 1,
     backgroundColor: colors.bg,
