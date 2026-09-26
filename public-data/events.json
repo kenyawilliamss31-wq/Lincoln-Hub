@@ -694,23 +694,13 @@
     "iso": "2026-09-22",
     "date": "Sep 22",
     "time": "12:00 PM",
-    "title": "Splash a Que",
-    "place": "See Lions Connect",
-    "host": "Omega Psi Phi Fraternity, Inc.",
-    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379663"
-  },
-  {
-    "id": 71,
-    "iso": "2026-09-22",
-    "date": "Sep 22",
-    "time": "12:00 PM",
     "title": "Drone Flying",
     "place": "See Lions Connect",
     "host": "Computer Science Club",
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379696"
   },
   {
-    "id": 72,
+    "id": 71,
     "iso": "2026-09-22",
     "date": "Sep 22",
     "time": "12:00 PM",
@@ -720,7 +710,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379824"
   },
   {
-    "id": 73,
+    "id": 72,
     "iso": "2026-09-22",
     "date": "Sep 22",
     "time": "4:30 PM",
@@ -730,7 +720,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379456"
   },
   {
-    "id": 74,
+    "id": 73,
     "iso": "2026-09-22",
     "date": "Sep 22",
     "time": "6:00 PM",
@@ -740,7 +730,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379304"
   },
   {
-    "id": 75,
+    "id": 74,
     "iso": "2026-09-22",
     "date": "Sep 22",
     "time": "6:30 PM",
@@ -750,7 +740,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379619"
   },
   {
-    "id": 76,
+    "id": 75,
     "iso": "2026-09-22",
     "date": "Sep 22",
     "time": "7:30 PM",
@@ -760,7 +750,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379551"
   },
   {
-    "id": 77,
+    "id": 76,
     "iso": "2026-09-23",
     "date": "Sep 23",
     "time": "12:00 PM",
@@ -770,7 +760,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379825"
   },
   {
-    "id": 78,
+    "id": 77,
     "iso": "2026-09-23",
     "date": "Sep 23",
     "time": "12:30 PM",
@@ -780,7 +770,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379473"
   },
   {
-    "id": 79,
+    "id": 78,
     "iso": "2026-09-23",
     "date": "Sep 23",
     "time": "5:55 PM",
@@ -790,7 +780,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379557"
   },
   {
-    "id": 80,
+    "id": 79,
     "iso": "2026-09-23",
     "date": "Sep 23",
     "time": "6:00 PM",
@@ -800,7 +790,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379350"
   },
   {
-    "id": 81,
+    "id": 80,
     "iso": "2026-09-23",
     "date": "Sep 23",
     "time": "6:00 PM",
@@ -810,7 +800,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379690"
   },
   {
-    "id": 82,
+    "id": 81,
     "iso": "2026-09-23",
     "date": "Sep 23",
     "time": "6:30 PM",
@@ -820,7 +810,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379567"
   },
   {
-    "id": 83,
+    "id": 82,
     "iso": "2026-09-23",
     "date": "Sep 23",
     "time": "7:00 PM",
@@ -830,7 +820,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379715"
   },
   {
-    "id": 84,
+    "id": 83,
     "iso": "2026-09-23",
     "date": "Sep 23",
     "time": "7:00 PM",
@@ -840,7 +830,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379845"
   },
   {
-    "id": 85,
+    "id": 84,
     "iso": "2026-09-24",
     "date": "Sep 24",
     "time": "11:30 AM",
@@ -850,7 +840,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379842"
   },
   {
-    "id": 86,
+    "id": 85,
     "iso": "2026-09-24",
     "date": "Sep 24",
     "time": "12:00 PM",
@@ -860,7 +850,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379826"
   },
   {
-    "id": 87,
+    "id": 86,
     "iso": "2026-09-24",
     "date": "Sep 24",
     "time": "12:30 PM",
@@ -870,7 +860,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379458"
   },
   {
-    "id": 88,
+    "id": 87,
     "iso": "2026-09-24",
     "date": "Sep 24",
     "time": "12:30 PM",
@@ -880,7 +870,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379722"
   },
   {
-    "id": 89,
+    "id": 88,
     "iso": "2026-09-24",
     "date": "Sep 24",
     "time": "12:30 PM",
@@ -890,7 +880,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379840"
   },
   {
-    "id": 90,
+    "id": 89,
     "iso": "2026-09-24",
     "date": "Sep 24",
     "time": "5:00 PM",
@@ -900,7 +890,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=380129"
   },
   {
-    "id": 91,
+    "id": 90,
     "iso": "2026-09-24",
     "date": "Sep 24",
     "time": "6:30 PM",
@@ -910,7 +900,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379665"
   },
   {
-    "id": 92,
+    "id": 91,
     "iso": "2026-09-24",
     "date": "Sep 24",
     "time": "7:00 PM",
@@ -920,7 +910,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379699"
   },
   {
-    "id": 93,
+    "id": 92,
     "iso": "2026-09-25",
     "date": "Sep 25",
     "time": "10:00 AM",
@@ -930,7 +920,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379288"
   },
   {
-    "id": 94,
+    "id": 93,
     "iso": "2026-09-25",
     "date": "Sep 25",
     "time": "11:00 AM",
@@ -940,7 +930,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379623"
   },
   {
-    "id": 95,
+    "id": 94,
     "iso": "2026-09-25",
     "date": "Sep 25",
     "time": "11:00 AM",
@@ -950,7 +940,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379820"
   },
   {
-    "id": 96,
+    "id": 95,
     "iso": "2026-09-25",
     "date": "Sep 25",
     "time": "12:00 PM",
@@ -960,7 +950,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379827"
   },
   {
-    "id": 97,
+    "id": 96,
     "iso": "2026-09-25",
     "date": "Sep 25",
     "time": "2:30 PM",
@@ -970,7 +960,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379741"
   },
   {
-    "id": 98,
+    "id": 97,
     "iso": "2026-09-25",
     "date": "Sep 25",
     "time": "5:00 PM",
@@ -980,7 +970,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379656"
   },
   {
-    "id": 99,
+    "id": 98,
     "iso": "2026-09-25",
     "date": "Sep 25",
     "time": "5:00 PM",
@@ -990,7 +980,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379754"
   },
   {
-    "id": 100,
+    "id": 99,
     "iso": "2026-09-25",
     "date": "Sep 25",
     "time": "6:00 PM",
@@ -1000,7 +990,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379622"
   },
   {
-    "id": 101,
+    "id": 100,
     "iso": "2026-09-25",
     "date": "Sep 25",
     "time": "7:00 PM",
@@ -1010,7 +1000,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379709"
   },
   {
-    "id": 102,
+    "id": 101,
     "iso": "2026-09-25",
     "date": "Sep 25",
     "time": "7:00 PM",
@@ -1020,7 +1010,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379719"
   },
   {
-    "id": 103,
+    "id": 102,
     "iso": "2026-09-26",
     "date": "Sep 26",
     "time": "All day",
@@ -1030,7 +1020,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379657"
   },
   {
-    "id": 104,
+    "id": 103,
     "iso": "2026-09-26",
     "date": "Sep 26",
     "time": "9:25 PM",
@@ -1040,7 +1030,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379689"
   },
   {
-    "id": 105,
+    "id": 104,
     "iso": "2026-09-28",
     "date": "Sep 28",
     "time": "12:00 PM",
@@ -1050,7 +1040,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379587"
   },
   {
-    "id": 106,
+    "id": 105,
     "iso": "2026-09-28",
     "date": "Sep 28",
     "time": "3:00 PM",
@@ -1060,7 +1050,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379834"
   },
   {
-    "id": 107,
+    "id": 106,
     "iso": "2026-09-28",
     "date": "Sep 28",
     "time": "5:00 PM",
@@ -1070,7 +1060,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379566"
   },
   {
-    "id": 108,
+    "id": 107,
     "iso": "2026-09-28",
     "date": "Sep 28",
     "time": "6:00 PM",
@@ -1080,7 +1070,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379373"
   },
   {
-    "id": 109,
+    "id": 108,
     "iso": "2026-09-28",
     "date": "Sep 28",
     "time": "6:00 PM",
@@ -1090,7 +1080,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379703"
   },
   {
-    "id": 110,
+    "id": 109,
     "iso": "2026-09-28",
     "date": "Sep 28",
     "time": "6:00 PM",
@@ -1100,7 +1090,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379760"
   },
   {
-    "id": 111,
+    "id": 110,
     "iso": "2026-09-28",
     "date": "Sep 28",
     "time": "7:00 PM",
@@ -1110,7 +1100,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=380152"
   },
   {
-    "id": 112,
+    "id": 111,
     "iso": "2026-09-29",
     "date": "Sep 29",
     "time": "12:00 PM",
@@ -1118,6 +1108,16 @@
     "place": "See Lions Connect",
     "host": "Counseling Services",
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379328"
+  },
+  {
+    "id": 112,
+    "iso": "2026-09-29",
+    "date": "Sep 29",
+    "time": "12:00 PM",
+    "title": "Splash a Que",
+    "place": "See Lions Connect",
+    "host": "Omega Psi Phi Fraternity, Inc.",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379663"
   },
   {
     "id": 113,
@@ -1241,6 +1241,16 @@
   },
   {
     "id": 125,
+    "iso": "2026-10-01",
+    "date": "Oct 1",
+    "time": "6:00 PM",
+    "title": "Run the den for a cause",
+    "place": "See Lions Connect",
+    "host": "Iota Phi Theta Fraternity, Inc.",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379782"
+  },
+  {
+    "id": 126,
     "iso": "2026-10-02",
     "date": "Oct 2",
     "time": "11:00 AM",
@@ -1250,7 +1260,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379289"
   },
   {
-    "id": 126,
+    "id": 127,
     "iso": "2026-10-07",
     "date": "Oct 7",
     "time": "11:00 AM",
@@ -1260,7 +1270,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379462"
   },
   {
-    "id": 127,
+    "id": 128,
     "iso": "2026-10-07",
     "date": "Oct 7",
     "time": "5:30 PM",
@@ -1270,7 +1280,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379274"
   },
   {
-    "id": 128,
+    "id": 129,
     "iso": "2026-10-08",
     "date": "Oct 8",
     "time": "12:30 PM",
@@ -1280,7 +1290,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379474"
   },
   {
-    "id": 129,
+    "id": 130,
     "iso": "2026-10-08",
     "date": "Oct 8",
     "time": "12:30 PM",
@@ -1290,7 +1300,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379852"
   },
   {
-    "id": 130,
+    "id": 131,
     "iso": "2026-10-08",
     "date": "Oct 8",
     "time": "4:30 PM",
@@ -1300,7 +1310,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379460"
   },
   {
-    "id": 131,
+    "id": 132,
     "iso": "2026-10-09",
     "date": "Oct 9",
     "time": "10:00 AM",
@@ -1310,7 +1320,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379290"
   },
   {
-    "id": 132,
+    "id": 133,
     "iso": "2026-10-12",
     "date": "Oct 12",
     "time": "12:00 PM",
@@ -1320,7 +1330,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379444"
   },
   {
-    "id": 133,
+    "id": 134,
     "iso": "2026-10-12",
     "date": "Oct 12",
     "time": "5:00 PM",
@@ -1330,7 +1340,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379493"
   },
   {
-    "id": 134,
+    "id": 135,
     "iso": "2026-10-12",
     "date": "Oct 12",
     "time": "6:00 PM",
@@ -1340,7 +1350,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379374"
   },
   {
-    "id": 135,
+    "id": 136,
     "iso": "2026-10-13",
     "date": "Oct 13",
     "time": "12:00 PM",
@@ -1350,7 +1360,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379329"
   },
   {
-    "id": 136,
+    "id": 137,
     "iso": "2026-10-13",
     "date": "Oct 13",
     "time": "6:00 PM",
@@ -1360,7 +1370,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379306"
   },
   {
-    "id": 137,
+    "id": 138,
     "iso": "2026-10-14",
     "date": "Oct 14",
     "time": "1:00 PM",
@@ -1370,7 +1380,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379434"
   },
   {
-    "id": 138,
+    "id": 139,
     "iso": "2026-10-14",
     "date": "Oct 14",
     "time": "6:00 PM",
@@ -1380,7 +1390,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379352"
   },
   {
-    "id": 139,
+    "id": 140,
     "iso": "2026-10-15",
     "date": "Oct 15",
     "time": "1:00 PM",
@@ -1390,7 +1400,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379392"
   },
   {
-    "id": 140,
+    "id": 141,
     "iso": "2026-10-16",
     "date": "Oct 16",
     "time": "10:00 AM",
@@ -1400,7 +1410,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379291"
   },
   {
-    "id": 141,
+    "id": 142,
     "iso": "2026-10-20",
     "date": "Oct 20",
     "time": "11:00 AM",
@@ -1410,7 +1420,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379285"
   },
   {
-    "id": 142,
+    "id": 143,
     "iso": "2026-10-20",
     "date": "Oct 20",
     "time": "12:00 PM",
@@ -1420,7 +1430,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379330"
   },
   {
-    "id": 143,
+    "id": 144,
     "iso": "2026-10-22",
     "date": "Oct 22",
     "time": "12:30 PM",
@@ -1430,7 +1440,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379475"
   },
   {
-    "id": 144,
+    "id": 145,
     "iso": "2026-10-23",
     "date": "Oct 23",
     "time": "10:00 AM",
@@ -1440,7 +1450,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379292"
   },
   {
-    "id": 145,
+    "id": 146,
     "iso": "2026-10-26",
     "date": "Oct 26",
     "time": "5:00 PM",
@@ -1450,7 +1460,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379494"
   },
   {
-    "id": 146,
+    "id": 147,
     "iso": "2026-10-27",
     "date": "Oct 27",
     "time": "12:00 PM",
@@ -1460,7 +1470,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379331"
   },
   {
-    "id": 147,
+    "id": 148,
     "iso": "2026-10-27",
     "date": "Oct 27",
     "time": "6:00 PM",
@@ -1470,7 +1480,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379307"
   },
   {
-    "id": 148,
+    "id": 149,
     "iso": "2026-10-28",
     "date": "Oct 28",
     "time": "6:00 PM",
@@ -1480,7 +1490,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379353"
   },
   {
-    "id": 149,
+    "id": 150,
     "iso": "2026-10-29",
     "date": "Oct 29",
     "time": "12:00 PM",
@@ -1490,7 +1500,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379624"
   },
   {
-    "id": 150,
+    "id": 151,
     "iso": "2026-10-29",
     "date": "Oct 29",
     "time": "1:00 PM",
@@ -1500,7 +1510,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379393"
   },
   {
-    "id": 151,
+    "id": 152,
     "iso": "2026-10-29",
     "date": "Oct 29",
     "time": "7:00 PM",
@@ -1510,7 +1520,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379445"
   },
   {
-    "id": 152,
+    "id": 153,
     "iso": "2026-10-30",
     "date": "Oct 30",
     "time": "11:00 AM",
@@ -1520,7 +1530,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379293"
   },
   {
-    "id": 153,
+    "id": 154,
     "iso": "2026-10-31",
     "date": "Oct 31",
     "time": "7:00 AM",
@@ -1530,7 +1540,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379463"
   },
   {
-    "id": 154,
+    "id": 155,
     "iso": "2026-11-01",
     "date": "Nov 1",
     "time": "5:00 PM",
@@ -1540,7 +1550,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379464"
   },
   {
-    "id": 155,
+    "id": 156,
     "iso": "2026-11-02",
     "date": "Nov 2",
     "time": "5:00 PM",
@@ -1550,7 +1560,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379495"
   },
   {
-    "id": 156,
+    "id": 157,
     "iso": "2026-11-02",
     "date": "Nov 2",
     "time": "6:00 PM",
@@ -1560,7 +1570,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379375"
   },
   {
-    "id": 157,
+    "id": 158,
     "iso": "2026-11-03",
     "date": "Nov 3",
     "time": "12:00 PM",
@@ -1570,7 +1580,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379332"
   },
   {
-    "id": 158,
+    "id": 159,
     "iso": "2026-11-03",
     "date": "Nov 3",
     "time": "12:30 PM",
@@ -1580,7 +1590,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379859"
   },
   {
-    "id": 159,
+    "id": 160,
     "iso": "2026-11-03",
     "date": "Nov 3",
     "time": "6:00 PM",
@@ -1590,7 +1600,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379308"
   },
   {
-    "id": 160,
+    "id": 161,
     "iso": "2026-11-04",
     "date": "Nov 4",
     "time": "6:00 PM",
@@ -1600,7 +1610,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379354"
   },
   {
-    "id": 161,
+    "id": 162,
     "iso": "2026-11-05",
     "date": "Nov 5",
     "time": "4:30 PM",
@@ -1610,7 +1620,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379465"
   },
   {
-    "id": 162,
+    "id": 163,
     "iso": "2026-11-06",
     "date": "Nov 6",
     "time": "11:00 AM",
@@ -1620,7 +1630,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379294"
   },
   {
-    "id": 163,
+    "id": 164,
     "iso": "2026-11-09",
     "date": "Nov 9",
     "time": "5:00 PM",
@@ -1630,7 +1640,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379496"
   },
   {
-    "id": 164,
+    "id": 165,
     "iso": "2026-11-09",
     "date": "Nov 9",
     "time": "6:00 PM",
@@ -1640,7 +1650,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379376"
   },
   {
-    "id": 165,
+    "id": 166,
     "iso": "2026-11-10",
     "date": "Nov 10",
     "time": "12:00 PM",
@@ -1650,7 +1660,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379333"
   },
   {
-    "id": 166,
+    "id": 167,
     "iso": "2026-11-10",
     "date": "Nov 10",
     "time": "6:00 PM",
@@ -1660,7 +1670,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379309"
   },
   {
-    "id": 167,
+    "id": 168,
     "iso": "2026-11-11",
     "date": "Nov 11",
     "time": "6:00 PM",
@@ -1670,7 +1680,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379355"
   },
   {
-    "id": 168,
+    "id": 169,
     "iso": "2026-11-12",
     "date": "Nov 12",
     "time": "12:30 PM",
@@ -1680,7 +1690,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379860"
   },
   {
-    "id": 169,
+    "id": 170,
     "iso": "2026-11-12",
     "date": "Nov 12",
     "time": "1:00 PM",
@@ -1690,7 +1700,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379394"
   },
   {
-    "id": 170,
+    "id": 171,
     "iso": "2026-11-13",
     "date": "Nov 13",
     "time": "10:00 AM",
@@ -1700,7 +1710,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379295"
   },
   {
-    "id": 171,
+    "id": 172,
     "iso": "2026-11-16",
     "date": "Nov 16",
     "time": "8:00 AM",
@@ -1710,7 +1720,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379466"
   },
   {
-    "id": 172,
+    "id": 173,
     "iso": "2026-11-16",
     "date": "Nov 16",
     "time": "5:00 PM",
@@ -1720,7 +1730,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379497"
   },
   {
-    "id": 173,
+    "id": 174,
     "iso": "2026-11-16",
     "date": "Nov 16",
     "time": "6:00 PM",
@@ -1730,7 +1740,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379377"
   },
   {
-    "id": 174,
+    "id": 175,
     "iso": "2026-11-16",
     "date": "Nov 16",
     "time": "6:00 PM",
@@ -1740,7 +1750,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379467"
   },
   {
-    "id": 175,
+    "id": 176,
     "iso": "2026-11-17",
     "date": "Nov 17",
     "time": "11:00 AM",
@@ -1750,7 +1760,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379468"
   },
   {
-    "id": 176,
+    "id": 177,
     "iso": "2026-11-17",
     "date": "Nov 17",
     "time": "12:00 PM",
@@ -1760,7 +1770,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379334"
   },
   {
-    "id": 177,
+    "id": 178,
     "iso": "2026-11-17",
     "date": "Nov 17",
     "time": "12:30 PM",
@@ -1770,7 +1780,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379861"
   },
   {
-    "id": 178,
+    "id": 179,
     "iso": "2026-11-17",
     "date": "Nov 17",
     "time": "6:00 PM",
@@ -1780,7 +1790,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379310"
   },
   {
-    "id": 179,
+    "id": 180,
     "iso": "2026-11-18",
     "date": "Nov 18",
     "time": "12:00 PM",
@@ -1790,7 +1800,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379447"
   },
   {
-    "id": 180,
+    "id": 181,
     "iso": "2026-11-18",
     "date": "Nov 18",
     "time": "5:30 PM",
@@ -1800,7 +1810,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379469"
   },
   {
-    "id": 181,
+    "id": 182,
     "iso": "2026-11-18",
     "date": "Nov 18",
     "time": "6:00 PM",
@@ -1810,7 +1820,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379356"
   },
   {
-    "id": 182,
+    "id": 183,
     "iso": "2026-11-19",
     "date": "Nov 19",
     "time": "11:00 AM",
@@ -1820,7 +1830,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379470"
   },
   {
-    "id": 183,
+    "id": 184,
     "iso": "2026-11-19",
     "date": "Nov 19",
     "time": "1:00 PM",
@@ -1830,7 +1840,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379436"
   },
   {
-    "id": 184,
+    "id": 185,
     "iso": "2027-01-11",
     "date": "Jan 11",
     "time": "5:00 PM",
@@ -1840,7 +1850,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379498"
   },
   {
-    "id": 185,
+    "id": 186,
     "iso": "2027-01-11",
     "date": "Jan 11",
     "time": "6:00 PM",
@@ -1850,7 +1860,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379378"
   },
   {
-    "id": 186,
+    "id": 187,
     "iso": "2027-01-12",
     "date": "Jan 12",
     "time": "12:00 PM",
@@ -1860,7 +1870,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379335"
   },
   {
-    "id": 187,
+    "id": 188,
     "iso": "2027-01-12",
     "date": "Jan 12",
     "time": "6:00 PM",
@@ -1870,7 +1880,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379311"
   },
   {
-    "id": 188,
+    "id": 189,
     "iso": "2027-01-13",
     "date": "Jan 13",
     "time": "5:00 PM",
@@ -1880,7 +1890,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379510"
   },
   {
-    "id": 189,
+    "id": 190,
     "iso": "2027-01-13",
     "date": "Jan 13",
     "time": "6:00 PM",
@@ -1890,7 +1900,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379357"
   },
   {
-    "id": 190,
+    "id": 191,
     "iso": "2027-01-14",
     "date": "Jan 14",
     "time": "1:00 PM",
@@ -1900,7 +1910,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379395"
   },
   {
-    "id": 191,
+    "id": 192,
     "iso": "2027-01-19",
     "date": "Jan 19",
     "time": "12:00 PM",
@@ -1910,7 +1920,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379336"
   },
   {
-    "id": 192,
+    "id": 193,
     "iso": "2027-01-19",
     "date": "Jan 19",
     "time": "6:00 PM",
@@ -1920,7 +1930,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379312"
   },
   {
-    "id": 193,
+    "id": 194,
     "iso": "2027-01-20",
     "date": "Jan 20",
     "time": "6:00 PM",
