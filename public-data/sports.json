@@ -295,8 +295,8 @@
     "sport": "Volleyball",
     "opponent": "Livingstone College",
     "site": "Away",
-    "outcome": "",
-    "score": "",
+    "outcome": "L",
+    "score": "0-3",
     "note": ""
   },
   {
@@ -319,8 +319,8 @@
     "sport": "Volleyball",
     "opponent": "Claflin University",
     "site": "Away",
-    "outcome": "",
-    "score": "",
+    "outcome": "L",
+    "score": "0-3",
     "note": ""
   },
   {
@@ -331,8 +331,8 @@
     "sport": "Volleyball",
     "opponent": "Winston-Salem State University",
     "site": "Away",
-    "outcome": "",
-    "score": "",
+    "outcome": "L",
+    "score": "0-3",
     "note": ""
   },
   {
@@ -343,8 +343,8 @@
     "sport": "Football",
     "opponent": "Virginia State University",
     "site": "Away",
-    "outcome": "",
-    "score": "",
+    "outcome": "L",
+    "score": "32-42",
     "note": ""
   },
   {
