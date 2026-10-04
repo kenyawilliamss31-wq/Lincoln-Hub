@@ -367,8 +367,8 @@
     "sport": "Volleyball",
     "opponent": "Bluefield State University",
     "site": "Away",
-    "outcome": "",
-    "score": "",
+    "outcome": "L",
+    "score": "0-3",
     "note": ""
   },
   {
@@ -555,6 +555,18 @@
     "id": 47,
     "iso": "2026-10-17",
     "date": "Oct 17",
+    "time": "12:00 PM",
+    "sport": "Men's Basketball",
+    "opponent": "Coppin State University",
+    "site": "Away",
+    "outcome": "",
+    "score": "",
+    "note": ""
+  },
+  {
+    "id": 48,
+    "iso": "2026-10-17",
+    "date": "Oct 17",
     "time": "1:00 PM",
     "sport": "Volleyball",
     "opponent": "Livingstone College",
@@ -564,7 +576,7 @@
     "note": ""
   },
   {
-    "id": 48,
+    "id": 49,
     "iso": "2026-10-17",
     "date": "Oct 17",
     "time": "1:00 PM",
@@ -576,7 +588,7 @@
     "note": ""
   },
   {
-    "id": 49,
+    "id": 50,
     "iso": "2026-10-17",
     "date": "Oct 17",
     "time": "2:00 PM",
@@ -588,7 +600,7 @@
     "note": ""
   },
   {
-    "id": 50,
+    "id": 51,
     "iso": "2026-10-17",
     "date": "Oct 17",
     "time": "7:00 PM",
@@ -600,7 +612,7 @@
     "note": ""
   },
   {
-    "id": 51,
+    "id": 52,
     "iso": "2026-10-18",
     "date": "Oct 18",
     "time": "1:00 PM",
@@ -612,7 +624,7 @@
     "note": ""
   },
   {
-    "id": 52,
+    "id": 53,
     "iso": "2026-10-18",
     "date": "Oct 18",
     "time": "5:00 PM",
@@ -624,24 +636,12 @@
     "note": ""
   },
   {
-    "id": 53,
+    "id": 54,
     "iso": "2026-10-20",
     "date": "Oct 20",
     "time": "3:00 PM",
     "sport": "Women's Soccer",
     "opponent": "Goldey-Beacom College",
-    "site": "Away",
-    "outcome": "",
-    "score": "",
-    "note": ""
-  },
-  {
-    "id": 54,
-    "iso": "2026-10-22",
-    "date": "Oct 22",
-    "time": "11:00 AM",
-    "sport": "Cross Country",
-    "opponent": "CIAA XC Championships",
     "site": "Away",
     "outcome": "",
     "score": "",
@@ -663,6 +663,18 @@
     "id": 56,
     "iso": "2026-10-22",
     "date": "Oct 22",
+    "time": "11:00 AM",
+    "sport": "Cross Country",
+    "opponent": "CIAA XC Championships",
+    "site": "Away",
+    "outcome": "",
+    "score": "",
+    "note": ""
+  },
+  {
+    "id": 57,
+    "iso": "2026-10-22",
+    "date": "Oct 22",
     "time": "6:00 PM",
     "sport": "Volleyball",
     "opponent": "Bowie State University",
@@ -672,7 +684,7 @@
     "note": ""
   },
   {
-    "id": 57,
+    "id": 58,
     "iso": "2026-10-23",
     "date": "Oct 23",
     "time": "12:00 PM",
@@ -684,7 +696,7 @@
     "note": ""
   },
   {
-    "id": 58,
+    "id": 59,
     "iso": "2026-10-24",
     "date": "Oct 24",
     "time": "1:00 PM",
@@ -696,7 +708,7 @@
     "note": ""
   },
   {
-    "id": 59,
+    "id": 60,
     "iso": "2026-10-26",
     "date": "Oct 26",
     "time": "6:00 PM",
@@ -708,7 +720,7 @@
     "note": ""
   },
   {
-    "id": 60,
+    "id": 61,
     "iso": "2026-10-28",
     "date": "Oct 28",
     "time": "4:00 PM",
@@ -720,7 +732,7 @@
     "note": ""
   },
   {
-    "id": 61,
+    "id": 62,
     "iso": "2026-10-29",
     "date": "Oct 29",
     "time": "6:00 PM",
@@ -732,7 +744,7 @@
     "note": ""
   },
   {
-    "id": 62,
+    "id": 63,
     "iso": "2026-10-30",
     "date": "Oct 30",
     "time": "7:00 PM",
@@ -744,7 +756,7 @@
     "note": ""
   },
   {
-    "id": 63,
+    "id": 64,
     "iso": "2026-11-02",
     "date": "Nov 2",
     "time": "6:00 PM",
@@ -756,7 +768,19 @@
     "note": ""
   },
   {
-    "id": 64,
+    "id": 65,
+    "iso": "2026-11-04",
+    "date": "Nov 4",
+    "time": "7:00 PM",
+    "sport": "Men's Basketball",
+    "opponent": "West Chester University of Pennsylvania",
+    "site": "Away",
+    "outcome": "",
+    "score": "",
+    "note": ""
+  },
+  {
+    "id": 66,
     "iso": "2026-11-05",
     "date": "Nov 5",
     "time": "6:00 PM",
@@ -768,7 +792,7 @@
     "note": ""
   },
   {
-    "id": 65,
+    "id": 67,
     "iso": "2026-11-07",
     "date": "Nov 7",
     "time": "1:00 PM",
@@ -780,7 +804,31 @@
     "note": ""
   },
   {
-    "id": 66,
+    "id": 68,
+    "iso": "2026-11-08",
+    "date": "Nov 8",
+    "time": "7:00 PM",
+    "sport": "Men's Basketball",
+    "opponent": "Slippery Rock University",
+    "site": "Away",
+    "outcome": "",
+    "score": "",
+    "note": ""
+  },
+  {
+    "id": 69,
+    "iso": "2026-11-10",
+    "date": "Nov 10",
+    "time": "7:00 PM",
+    "sport": "Men's Basketball",
+    "opponent": "Cheyney University of Pennsylvania",
+    "site": "Away",
+    "outcome": "",
+    "score": "",
+    "note": ""
+  },
+  {
+    "id": 70,
     "iso": "2026-11-11",
     "date": "Nov 11",
     "time": "5:30 PM",
@@ -792,7 +840,7 @@
     "note": ""
   },
   {
-    "id": 67,
+    "id": 71,
     "iso": "2026-11-13",
     "date": "Nov 13",
     "time": "5:30 PM",
@@ -804,7 +852,19 @@
     "note": ""
   },
   {
-    "id": 68,
+    "id": 72,
+    "iso": "2026-11-13",
+    "date": "Nov 13",
+    "time": "7:00 PM",
+    "sport": "Men's Basketball",
+    "opponent": "Goldey-Beacom College",
+    "site": "Away",
+    "outcome": "",
+    "score": "",
+    "note": ""
+  },
+  {
+    "id": 73,
     "iso": "2026-11-14",
     "date": "Nov 14",
     "time": "5:30 PM",
@@ -816,7 +876,19 @@
     "note": ""
   },
   {
-    "id": 69,
+    "id": 74,
+    "iso": "2026-11-14",
+    "date": "Nov 14",
+    "time": "7:00 PM",
+    "sport": "Men's Basketball",
+    "opponent": "Wilmington University (Del.)",
+    "site": "Away",
+    "outcome": "",
+    "score": "",
+    "note": ""
+  },
+  {
+    "id": 75,
     "iso": "2026-11-19",
     "date": "Nov 19",
     "time": "5:30 PM",
@@ -828,7 +900,7 @@
     "note": ""
   },
   {
-    "id": 70,
+    "id": 76,
     "iso": "2026-11-21",
     "date": "Nov 21",
     "time": "10:00 AM",
@@ -840,7 +912,7 @@
     "note": ""
   },
   {
-    "id": 71,
+    "id": 77,
     "iso": "2026-11-21",
     "date": "Nov 21",
     "time": "10:00 AM",
@@ -852,7 +924,7 @@
     "note": ""
   },
   {
-    "id": 72,
+    "id": 78,
     "iso": "2026-11-21",
     "date": "Nov 21",
     "time": "2:00 PM",
@@ -864,7 +936,7 @@
     "note": ""
   },
   {
-    "id": 73,
+    "id": 79,
     "iso": "2026-12-03",
     "date": "Dec 3",
     "time": "5:30 PM",
@@ -876,7 +948,7 @@
     "note": ""
   },
   {
-    "id": 74,
+    "id": 80,
     "iso": "2026-12-05",
     "date": "Dec 5",
     "time": "2:00 PM",
@@ -888,7 +960,7 @@
     "note": ""
   },
   {
-    "id": 75,
+    "id": 81,
     "iso": "2026-12-10",
     "date": "Dec 10",
     "time": "5:30 PM",
@@ -900,7 +972,7 @@
     "note": ""
   },
   {
-    "id": 76,
+    "id": 82,
     "iso": "2026-12-12",
     "date": "Dec 12",
     "time": "2:00 PM",
@@ -912,7 +984,7 @@
     "note": ""
   },
   {
-    "id": 77,
+    "id": 83,
     "iso": "2026-12-17",
     "date": "Dec 17",
     "time": "5:30 PM",
@@ -924,7 +996,7 @@
     "note": ""
   },
   {
-    "id": 78,
+    "id": 84,
     "iso": "2026-12-19",
     "date": "Dec 19",
     "time": "2:00 PM",
@@ -936,7 +1008,7 @@
     "note": ""
   },
   {
-    "id": 79,
+    "id": 85,
     "iso": "2026-12-31",
     "date": "Dec 31",
     "time": "1:00 PM",
@@ -948,7 +1020,7 @@
     "note": ""
   },
   {
-    "id": 80,
+    "id": 86,
     "iso": "2027-01-04",
     "date": "Jan 4",
     "time": "5:30 PM",
@@ -960,7 +1032,7 @@
     "note": ""
   },
   {
-    "id": 81,
+    "id": 87,
     "iso": "2027-01-07",
     "date": "Jan 7",
     "time": "5:30 PM",
@@ -972,7 +1044,7 @@
     "note": ""
   },
   {
-    "id": 82,
+    "id": 88,
     "iso": "2027-01-09",
     "date": "Jan 9",
     "time": "2:00 PM",
@@ -984,7 +1056,7 @@
     "note": ""
   },
   {
-    "id": 83,
+    "id": 89,
     "iso": "2027-01-12",
     "date": "Jan 12",
     "time": "6:00 PM",
@@ -996,7 +1068,7 @@
     "note": ""
   },
   {
-    "id": 84,
+    "id": 90,
     "iso": "2027-01-14",
     "date": "Jan 14",
     "time": "5:30 PM",
@@ -1008,7 +1080,7 @@
     "note": ""
   },
   {
-    "id": 85,
+    "id": 91,
     "iso": "2027-01-16",
     "date": "Jan 16",
     "time": "2:00 PM",
@@ -1020,7 +1092,7 @@
     "note": ""
   },
   {
-    "id": 86,
+    "id": 92,
     "iso": "2027-01-20",
     "date": "Jan 20",
     "time": "5:30 PM",
@@ -1032,7 +1104,7 @@
     "note": ""
   },
   {
-    "id": 87,
+    "id": 93,
     "iso": "2027-01-23",
     "date": "Jan 23",
     "time": "2:00 PM",
@@ -1044,7 +1116,7 @@
     "note": ""
   },
   {
-    "id": 88,
+    "id": 94,
     "iso": "2027-01-28",
     "date": "Jan 28",
     "time": "5:30 PM",
@@ -1056,7 +1128,7 @@
     "note": ""
   },
   {
-    "id": 89,
+    "id": 95,
     "iso": "2027-01-30",
     "date": "Jan 30",
     "time": "2:00 PM",
@@ -1068,7 +1140,7 @@
     "note": ""
   },
   {
-    "id": 90,
+    "id": 96,
     "iso": "2027-02-04",
     "date": "Feb 4",
     "time": "5:30 PM",
@@ -1080,7 +1152,7 @@
     "note": ""
   },
   {
-    "id": 91,
+    "id": 97,
     "iso": "2027-02-06",
     "date": "Feb 6",
     "time": "2:00 PM",
@@ -1092,7 +1164,7 @@
     "note": ""
   },
   {
-    "id": 92,
+    "id": 98,
     "iso": "2027-02-11",
     "date": "Feb 11",
     "time": "5:30 PM",
@@ -1104,7 +1176,7 @@
     "note": ""
   },
   {
-    "id": 93,
+    "id": 99,
     "iso": "2027-02-13",
     "date": "Feb 13",
     "time": "2:00 PM",
@@ -1116,7 +1188,7 @@
     "note": ""
   },
   {
-    "id": 94,
+    "id": 100,
     "iso": "2027-02-16",
     "date": "Feb 16",
     "time": "5:30 PM",
@@ -1128,7 +1200,7 @@
     "note": ""
   },
   {
-    "id": 95,
+    "id": 101,
     "iso": "2027-02-19",
     "date": "Feb 19",
     "time": "5:30 PM",
