@@ -1788,5 +1788,25 @@
     "place": "See Lions Connect",
     "host": "Counseling Services",
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379439"
+  },
+  {
+    "id": 180,
+    "iso": "2027-02-01",
+    "date": "Feb 1",
+    "time": "5:00 PM",
+    "title": "Rustin's Chat",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379500"
+  },
+  {
+    "id": 181,
+    "iso": "2027-02-01",
+    "date": "Feb 1",
+    "time": "6:00 PM",
+    "title": "Brother Circle",
+    "place": "See Lions Connect",
+    "host": "Counseling Services",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379380"
   }
 ]
