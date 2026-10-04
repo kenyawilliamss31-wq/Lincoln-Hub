@@ -901,11 +901,11 @@
   },
   {
     "id": 76,
-    "iso": "2026-11-21",
-    "date": "Nov 21",
-    "time": "10:00 AM",
-    "sport": "Cross Country",
-    "opponent": "NCAA Regional Championships",
+    "iso": "2026-11-19",
+    "date": "Nov 19",
+    "time": "7:30 PM",
+    "sport": "Men's Basketball",
+    "opponent": "Johnson C. Smith University",
     "site": "Away",
     "outcome": "",
     "score": "",
@@ -927,6 +927,18 @@
     "id": 78,
     "iso": "2026-11-21",
     "date": "Nov 21",
+    "time": "10:00 AM",
+    "sport": "Cross Country",
+    "opponent": "NCAA Regional Championships",
+    "site": "Away",
+    "outcome": "",
+    "score": "",
+    "note": ""
+  },
+  {
+    "id": 79,
+    "iso": "2026-11-21",
+    "date": "Nov 21",
     "time": "2:00 PM",
     "sport": "Women's Basketball",
     "opponent": "Claflin University",
@@ -936,7 +948,43 @@
     "note": ""
   },
   {
-    "id": 79,
+    "id": 80,
+    "iso": "2026-11-21",
+    "date": "Nov 21",
+    "time": "4:00 PM",
+    "sport": "Men's Basketball",
+    "opponent": "Claflin University",
+    "site": "Away",
+    "outcome": "",
+    "score": "",
+    "note": ""
+  },
+  {
+    "id": 81,
+    "iso": "2026-11-27",
+    "date": "Nov 27",
+    "time": "7:00 PM",
+    "sport": "Men's Basketball",
+    "opponent": "Queens College",
+    "site": "Away",
+    "outcome": "",
+    "score": "",
+    "note": ""
+  },
+  {
+    "id": 82,
+    "iso": "2026-11-28",
+    "date": "Nov 28",
+    "time": "7:00 PM",
+    "sport": "Men's Basketball",
+    "opponent": "Felician University",
+    "site": "Away",
+    "outcome": "",
+    "score": "",
+    "note": ""
+  },
+  {
+    "id": 83,
     "iso": "2026-12-03",
     "date": "Dec 3",
     "time": "5:30 PM",
@@ -948,7 +996,19 @@
     "note": ""
   },
   {
-    "id": 80,
+    "id": 84,
+    "iso": "2026-12-03",
+    "date": "Dec 3",
+    "time": "7:30 PM",
+    "sport": "Men's Basketball",
+    "opponent": "Fayetteville State University",
+    "site": "Away",
+    "outcome": "",
+    "score": "",
+    "note": ""
+  },
+  {
+    "id": 85,
     "iso": "2026-12-05",
     "date": "Dec 5",
     "time": "2:00 PM",
@@ -960,7 +1020,19 @@
     "note": ""
   },
   {
-    "id": 81,
+    "id": 86,
+    "iso": "2026-12-05",
+    "date": "Dec 5",
+    "time": "4:00 PM",
+    "sport": "Men's Basketball",
+    "opponent": "Livingstone College",
+    "site": "Away",
+    "outcome": "",
+    "score": "",
+    "note": ""
+  },
+  {
+    "id": 87,
     "iso": "2026-12-10",
     "date": "Dec 10",
     "time": "5:30 PM",
@@ -972,7 +1044,19 @@
     "note": ""
   },
   {
-    "id": 82,
+    "id": 88,
+    "iso": "2026-12-10",
+    "date": "Dec 10",
+    "time": "7:30 PM",
+    "sport": "Men's Basketball",
+    "opponent": "Bluefield State University",
+    "site": "Away",
+    "outcome": "",
+    "score": "",
+    "note": ""
+  },
+  {
+    "id": 89,
     "iso": "2026-12-12",
     "date": "Dec 12",
     "time": "2:00 PM",
@@ -984,7 +1068,19 @@
     "note": ""
   },
   {
-    "id": 83,
+    "id": 90,
+    "iso": "2026-12-12",
+    "date": "Dec 12",
+    "time": "4:00 PM",
+    "sport": "Men's Basketball",
+    "opponent": "Winston-Salem State University",
+    "site": "Away",
+    "outcome": "",
+    "score": "",
+    "note": ""
+  },
+  {
+    "id": 91,
     "iso": "2026-12-17",
     "date": "Dec 17",
     "time": "5:30 PM",
@@ -996,7 +1092,19 @@
     "note": ""
   },
   {
-    "id": 84,
+    "id": 92,
+    "iso": "2026-12-17",
+    "date": "Dec 17",
+    "time": "7:30 PM",
+    "sport": "Men's Basketball",
+    "opponent": "Virginia Union University",
+    "site": "Away",
+    "outcome": "",
+    "score": "",
+    "note": ""
+  },
+  {
+    "id": 93,
     "iso": "2026-12-19",
     "date": "Dec 19",
     "time": "2:00 PM",
@@ -1008,7 +1116,7 @@
     "note": ""
   },
   {
-    "id": 85,
+    "id": 94,
     "iso": "2026-12-31",
     "date": "Dec 31",
     "time": "1:00 PM",
@@ -1020,7 +1128,7 @@
     "note": ""
   },
   {
-    "id": 86,
+    "id": 95,
     "iso": "2027-01-04",
     "date": "Jan 4",
     "time": "5:30 PM",
@@ -1032,7 +1140,7 @@
     "note": ""
   },
   {
-    "id": 87,
+    "id": 96,
     "iso": "2027-01-07",
     "date": "Jan 7",
     "time": "5:30 PM",
@@ -1044,7 +1152,7 @@
     "note": ""
   },
   {
-    "id": 88,
+    "id": 97,
     "iso": "2027-01-09",
     "date": "Jan 9",
     "time": "2:00 PM",
@@ -1056,7 +1164,7 @@
     "note": ""
   },
   {
-    "id": 89,
+    "id": 98,
     "iso": "2027-01-12",
     "date": "Jan 12",
     "time": "6:00 PM",
@@ -1068,7 +1176,7 @@
     "note": ""
   },
   {
-    "id": 90,
+    "id": 99,
     "iso": "2027-01-14",
     "date": "Jan 14",
     "time": "5:30 PM",
@@ -1080,7 +1188,7 @@
     "note": ""
   },
   {
-    "id": 91,
+    "id": 100,
     "iso": "2027-01-16",
     "date": "Jan 16",
     "time": "2:00 PM",
@@ -1092,7 +1200,7 @@
     "note": ""
   },
   {
-    "id": 92,
+    "id": 101,
     "iso": "2027-01-20",
     "date": "Jan 20",
     "time": "5:30 PM",
@@ -1104,7 +1212,7 @@
     "note": ""
   },
   {
-    "id": 93,
+    "id": 102,
     "iso": "2027-01-23",
     "date": "Jan 23",
     "time": "2:00 PM",
@@ -1116,7 +1224,7 @@
     "note": ""
   },
   {
-    "id": 94,
+    "id": 103,
     "iso": "2027-01-28",
     "date": "Jan 28",
     "time": "5:30 PM",
@@ -1128,7 +1236,7 @@
     "note": ""
   },
   {
-    "id": 95,
+    "id": 104,
     "iso": "2027-01-30",
     "date": "Jan 30",
     "time": "2:00 PM",
@@ -1140,7 +1248,7 @@
     "note": ""
   },
   {
-    "id": 96,
+    "id": 105,
     "iso": "2027-02-04",
     "date": "Feb 4",
     "time": "5:30 PM",
@@ -1152,7 +1260,7 @@
     "note": ""
   },
   {
-    "id": 97,
+    "id": 106,
     "iso": "2027-02-06",
     "date": "Feb 6",
     "time": "2:00 PM",
@@ -1164,7 +1272,7 @@
     "note": ""
   },
   {
-    "id": 98,
+    "id": 107,
     "iso": "2027-02-11",
     "date": "Feb 11",
     "time": "5:30 PM",
@@ -1176,7 +1284,7 @@
     "note": ""
   },
   {
-    "id": 99,
+    "id": 108,
     "iso": "2027-02-13",
     "date": "Feb 13",
     "time": "2:00 PM",
@@ -1188,7 +1296,7 @@
     "note": ""
   },
   {
-    "id": 100,
+    "id": 109,
     "iso": "2027-02-16",
     "date": "Feb 16",
     "time": "5:30 PM",
@@ -1200,7 +1308,7 @@
     "note": ""
   },
   {
-    "id": 101,
+    "id": 110,
     "iso": "2027-02-19",
     "date": "Feb 19",
     "time": "5:30 PM",
