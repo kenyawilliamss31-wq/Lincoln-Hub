@@ -1033,30 +1033,6 @@
   },
   {
     "id": 87,
-    "iso": "2026-12-10",
-    "date": "Dec 10",
-    "time": "5:30 PM",
-    "sport": "Women's Basketball",
-    "opponent": "Bluefield State University",
-    "site": "Away",
-    "outcome": "",
-    "score": "",
-    "note": ""
-  },
-  {
-    "id": 88,
-    "iso": "2026-12-10",
-    "date": "Dec 10",
-    "time": "7:30 PM",
-    "sport": "Men's Basketball",
-    "opponent": "Bluefield State University",
-    "site": "Away",
-    "outcome": "",
-    "score": "",
-    "note": ""
-  },
-  {
-    "id": 89,
     "iso": "2026-12-12",
     "date": "Dec 12",
     "time": "2:00 PM",
@@ -1068,12 +1044,36 @@
     "note": ""
   },
   {
-    "id": 90,
+    "id": 88,
     "iso": "2026-12-12",
     "date": "Dec 12",
     "time": "4:00 PM",
     "sport": "Men's Basketball",
     "opponent": "Winston-Salem State University",
+    "site": "Away",
+    "outcome": "",
+    "score": "",
+    "note": ""
+  },
+  {
+    "id": 89,
+    "iso": "2026-12-14",
+    "date": "Dec 14",
+    "time": "5:30 PM",
+    "sport": "Women's Basketball",
+    "opponent": "Bluefield State University",
+    "site": "Away",
+    "outcome": "",
+    "score": "",
+    "note": ""
+  },
+  {
+    "id": 90,
+    "iso": "2026-12-14",
+    "date": "Dec 14",
+    "time": "7:30 PM",
+    "sport": "Men's Basketball",
+    "opponent": "Bluefield State University",
     "site": "Away",
     "outcome": "",
     "score": "",
