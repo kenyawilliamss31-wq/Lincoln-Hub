@@ -15,10 +15,11 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 const links = [
   { id: 1, emoji: "🎓", title: "LU Self-Service", note: "Grades, schedule, academic plan, billing", url: "https://lincoln-ss.colleague.elluciancloud.com/Student" },
   { id: 2, emoji: "📧", title: "Outlook Email",   note: "Your student email",                       url: "https://outlook.office.com/" },
-  { id: 3, emoji: "📚", title: "Knack Tutoring",  note: "Peer tutoring on demand",                  url: "https://lionsconnect.lincoln.edu/family/academic-support/" },
-  { id: 4, emoji: "🦁", title: "Lions Connect",   note: "Campus organizations and resources",        url: "https://lionsconnect.lincoln.edu/web_app?id=24040&menu_id=56483&if=0&" },
-  { id: 5, emoji: "🚨", title: "SaferWatch",      note: "Campus safety and incident reporting",      url: "https://www.saferwatchapp.com/" },
-  { id: 6, emoji: "💼", title: "Handshake",       note: "Internships and jobs",                     url: "https://lincoln.joinhandshake.com/home" },
+  { id: 3, emoji: "📝", title: "Canvas", note: "Assignments, grades, and class materials", url: "https://lincolnu.instructure.com//" },
+  { id: 4, emoji: "📚", title: "Knack Tutoring",  note: "Peer tutoring on demand",                  url: "https://lionsconnect.lincoln.edu/family/academic-support/" },
+  { id: 5, emoji: "🦁", title: "Lions Connect",   note: "Campus organizations and resources",        url: "https://lionsconnect.lincoln.edu/web_app?id=24040&menu_id=56483&if=0&" },
+  { id: 6, emoji: "🚨", title: "SaferWatch",      note: "Campus safety and incident reporting",      url: "https://www.saferwatchapp.com/" },
+  { id: 7, emoji: "💼", title: "Handshake",       note: "Internships and jobs",                     url: "https://lincoln.joinhandshake.com/home" },
 ];
 
 export default function QuickLinksScreen() {
