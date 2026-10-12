@@ -589,18 +589,6 @@
   },
   {
     "id": 50,
-    "iso": "2026-10-22",
-    "date": "Oct 22",
-    "time": "6:00 PM",
-    "sport": "Volleyball",
-    "opponent": "Bowie State University",
-    "site": "Away",
-    "outcome": "",
-    "score": "",
-    "note": ""
-  },
-  {
-    "id": 51,
     "iso": "2026-10-23",
     "date": "Oct 23",
     "time": "12:00 PM",
@@ -612,7 +600,7 @@
     "note": ""
   },
   {
-    "id": 52,
+    "id": 51,
     "iso": "2026-10-24",
     "date": "Oct 24",
     "time": "1:00 PM",
@@ -624,12 +612,24 @@
     "note": ""
   },
   {
-    "id": 53,
+    "id": 52,
     "iso": "2026-10-26",
     "date": "Oct 26",
     "time": "6:00 PM",
     "sport": "Volleyball",
     "opponent": "Elizabeth City State University",
+    "site": "Away",
+    "outcome": "",
+    "score": "",
+    "note": ""
+  },
+  {
+    "id": 53,
+    "iso": "2026-10-27",
+    "date": "Oct 27",
+    "time": "6:00 PM",
+    "sport": "Volleyball",
+    "opponent": "Bowie State University",
     "site": "Away",
     "outcome": "",
     "score": "",
