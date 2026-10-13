@@ -906,7 +906,7 @@
     "time": "2:00 PM",
     "sport": "Women's Basketball",
     "opponent": "Livingstone College",
-    "site": "Home",
+    "site": "Away",
     "outcome": "",
     "score": "",
     "note": ""
@@ -1002,7 +1002,7 @@
     "time": "2:00 PM",
     "sport": "Women's Basketball",
     "opponent": "Virginia State University",
-    "site": "Home",
+    "site": "Away",
     "outcome": "",
     "score": "",
     "note": ""
@@ -1050,7 +1050,7 @@
     "time": "5:30 PM",
     "sport": "Women's Basketball",
     "opponent": "Elizabeth City State University",
-    "site": "Home",
+    "site": "Away",
     "outcome": "",
     "score": "",
     "note": ""
@@ -1074,7 +1074,7 @@
     "time": "2:00 PM",
     "sport": "Women's Basketball",
     "opponent": "Shaw University",
-    "site": "Home",
+    "site": "Away",
     "outcome": "",
     "score": "",
     "note": ""
@@ -1097,7 +1097,7 @@
     "date": "Jan 12",
     "time": "6:00 PM",
     "sport": "Women's Basketball",
-    "opponent": "Coppin State University",
+    "opponent": "Coppin State University - Exhbition",
     "site": "Away",
     "outcome": "",
     "score": "",
@@ -1110,7 +1110,7 @@
     "time": "5:30 PM",
     "sport": "Women's Basketball",
     "opponent": "Johnson C. Smith University",
-    "site": "Home",
+    "site": "Away",
     "outcome": "",
     "score": "",
     "note": ""
@@ -1134,7 +1134,7 @@
     "time": "2:00 PM",
     "sport": "Women's Basketball",
     "opponent": "Claflin University",
-    "site": "Home",
+    "site": "Away",
     "outcome": "",
     "score": "",
     "note": ""
@@ -1158,7 +1158,7 @@
     "time": "5:30 PM",
     "sport": "Women's Basketball",
     "opponent": "Bowie State University",
-    "site": "Home",
+    "site": "Away",
     "outcome": "",
     "score": "",
     "note": ""
@@ -1230,7 +1230,7 @@
     "time": "2:00 PM",
     "sport": "Women's Basketball",
     "opponent": "Bluefield State University",
-    "site": "Home",
+    "site": "Away",
     "outcome": "",
     "score": "",
     "note": ""
@@ -1254,7 +1254,7 @@
     "time": "5:30 PM",
     "sport": "Women's Basketball",
     "opponent": "Winston-Salem State University",
-    "site": "Home",
+    "site": "Away",
     "outcome": "",
     "score": "",
     "note": ""
@@ -1302,7 +1302,7 @@
     "time": "5:30 PM",
     "sport": "Women's Basketball",
     "opponent": "Virginia Union University",
-    "site": "Home",
+    "site": "Away",
     "outcome": "",
     "score": "",
     "note": ""
