@@ -1,5 +1,4 @@
-// HOME - saved-event banner, greeting, fun fact, sections, then your saved
-// events today, next game, and Public Safety at the bottom.
+// Home - saved-event banner, greeting, fun fact, and sections.
 
 import { colors } from "@/constants/colors";
 import { events as bundledEvents } from "@/data/events";
@@ -16,8 +15,6 @@ import { Linking, Pressable, ScrollView, StyleSheet, Text, View } from "react-na
 // Public Safety, digits only so the tel: link can use the value directly.
 const SAFETY_PHONE = "4843657211";
 
-// The shape of one event. Declared here so this file doesn't depend on what
-// src/data/events.ts names its type.
 type CampusEvent = {
   id: number;
   iso: string;
@@ -40,9 +37,8 @@ const sections = [
   { id: 8, title: "Quick Links", href: "/quick-links", icon: "link-outline" },
 ] as const;
 
-// Today as "2026-09-22". Built from the local date parts on purpose:
-// toISOString() converts to UTC first, so after 8 PM Eastern it returns
-// TOMORROW's date, and today's events would vanish in the evening.
+// Local date - toISOString() returns tomorrow after 8 PM Eastern, so
+// today's events would vanish in the evening.
 function todayIso() {
   const d = new Date();
   return (
@@ -67,40 +63,35 @@ export default function HomeScreen() {
     day: "numeric",
   });
 
-  // LIVE DATA. Both files download in parallel, each with its own saved copy on
-  // the phone, so the home screen can never disagree with the other screens.
+  // Live data. Both files download in parallel with their own cached copy, so
+  // the home screen can't disagree with the other screens.
   const { data: events } = useRemote<CampusEvent[]>(
     "events.json",
     bundledEvents as CampusEvent[]
   );
   const { data: games } = useRemote<Game[]>("sports.json", bundledGames);
 
-  // Which events you bookmarked. The home screen only surfaces saved ones, so
-  // it stays quiet unless you asked to be reminded about something.
+  // Saved events only, so Home stays quiet unless you asked for a reminder.
   const { isSaved } = useSavedEvents();
-    // Your own schedule, and whichever class comes next from right now.
+  // Which class comes next from right now.
   const { classes } = useClasses();
   const upNext = nextClass(classes);
 
   const today = todayIso();
 
-  // Every saved event from today onward. Filtering the LIVE data rather than
-  // stored copies means a moved event shows its current time here.
-  // iso strings compare correctly as plain text, so >= is all "upcoming" needs.
+  // Saved events from today onward, on the live data so a moved event
+  // shows its current time here. iso strings sort as plain text.
   const savedUpcoming = events.filter((e) => e.iso >= today && isSaved(e));
 
-  // The banner shows the soonest one. [0] is the first item, or undefined when
-  // the list is empty - which the && guard in the JSX below handles.
+  // The banner shows the soonest one.
   const nextSaved = savedUpcoming[0];
 
-  // Saved events happening today, capped at three. slice() never errors on a
-  // short array - asking for three from a one-item list just returns the one.
+  // Saved events happening today, capped at three.
   const savedToday = savedUpcoming.filter((e) => e.iso === today).slice(0, 3);
 
   const nextGame = games.find((g) => g.iso >= today && g.note !== "Canceled");
 
-  // Fact of the day reads the real clock, so it rotates on its own - no server,
-  // no internet.
+  // Fact of the day reads the real clock, so it rotates on its own.
   const fact = factOfTheDay();
 
   return (
@@ -234,12 +225,8 @@ export default function HomeScreen() {
       {/* ---------- Public Safety ---------- */}
       <Pressable
         style={styles.safety}
-        // tel: hands the number to the phone's dialer. It does NOT place the
-        // call - the user still has to press call, so an accidental tap is
-        // harmless. Linking is React Native's way to open something outside
-        // the app.
+        // tel: hands the number to the dialer. It does not place the call.
         onPress={() => Linking.openURL(`tel:${SAFETY_PHONE}`)}
-        // Read aloud by a screen reader so the button is usable without sight.
         accessibilityLabel="Call Public Safety, available 24 hours"
       >
         <View style={styles.safetyIcon}>

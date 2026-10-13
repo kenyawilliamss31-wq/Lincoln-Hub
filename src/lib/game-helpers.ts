@@ -1,8 +1,6 @@
-// GAME HELPERS - filtering and record math that works on ANY list of games.
-//
-// The old versions in src/data/sports.ts read the hardcoded array directly,
-// which meant they could only ever describe that array. Passing the list in as
-// an argument is what lets the same functions work on downloaded data.
+// Game helpers - filtering and record math that works on any list of games.
+// Passing the list in as an argument is what lets the same functions work on
+// downloaded data, not just the bundled array.
 
 import type { Game } from "@/data/sports";
 
@@ -14,9 +12,8 @@ export const sportFilters = [
   "Cross Country",
 ];
 
-// Today as "2026-09-22". Built from the local date parts on purpose:
-// toISOString() converts to UTC first, so after 8 PM Eastern it returns
-// TOMORROW's date and games would drop off the schedule a day early.
+// Local date, not UTC - toISOString() returns tomorrow's date after 8 PM
+// Eastern and games would drop off the schedule a day early.
 function todayIso() {
   const d = new Date();
   return (
@@ -33,8 +30,7 @@ function bySport(games: Game[], sport: string) {
   return sport === "All" ? games : games.filter((g) => g.sport === sport);
 }
 
-// Played games, newest first - reverse() because the data is stored oldest
-// first, and the most recent result is what someone opening the app wants.
+// Played games, newest first.
 export function pastGames(games: Game[], sport: string) {
   const today = todayIso();
   return bySport(games, sport)
@@ -47,8 +43,8 @@ export function upcomingGames(games: Game[], sport: string) {
   return bySport(games, sport).filter((g) => g.iso > today);
 }
 
-// Counts W / L / T. A canceled game has no outcome, so it's excluded
-// automatically without needing its own check.
+// Counts W / L / T. Canceled games have no outcome, so they're excluded
+// without needing their own check.
 export function record(games: Game[], sport: string) {
   const played = bySport(games, sport);
   return {
