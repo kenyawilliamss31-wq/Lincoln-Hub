@@ -1,14 +1,13 @@
-﻿# Lincoln Hub
+# Lincoln Hub
 
-A mobile app that puts Lincoln University campus information in one place — events,
-dining, athletics, the academic calendar, campus directory, and quick links to the
-services students actually use.
+A mobile app that puts Lincoln University campus information in one place —
+events, dining, athletics, the academic calendar, campus directory, and quick
+links to the services students actually use.
 
 Built with React Native, Expo, and TypeScript.
 
-> **Not an official Lincoln University app.** This is an independent student project.
-> It is not affiliated with or endorsed by Lincoln University, and the Digital ID
-> screen is a display mockup, not a valid credential.
+> Not affiliated with Lincoln University. Independent student project.
+> The Digital ID screen is a mockup, not a real credential.
 
 ## Screens
 
@@ -24,11 +23,6 @@ Built with React Native, Expo, and TypeScript.
 | Digital ID | Student ID card mockup |
 | Quick Links | One-tap access to LU Self-Service, email, tutoring, and the registrar |
 
-## Screenshots
-
-<!-- Add screenshots here. On GitHub you can drag images straight into this
-     file while editing and it will upload them for you. -->
-
 ## Tech
 
 - **React Native** with **Expo** (SDK 57)
@@ -37,7 +31,7 @@ Built with React Native, Expo, and TypeScript.
 - **expo-web-browser** for outbound links
 - **@expo/vector-icons** (Ionicons)
 
-## Running it locally
+## Run it locally
 
 ```bash
 git clone https://github.com/kenyawilliamss31-wq/lincoln-hub.git
@@ -46,24 +40,14 @@ npm install
 npx expo start
 ```
 
-Scan the QR code with the Expo Go app, or press `w` to open it in a browser.
+Scan the QR code with Expo Go, or press `w` to open it in a browser.
 
-## How it is organized
+## Structure
 
+`ScreenShell` and `InfoCard` do most of the layout work, so all eight screens
+share their padding, heading, and card style. Change one file, everything
+updates.
 
-Two components do most of the work. `ScreenShell` provides the scrollable page
-frame, heading, and padding that every screen shares. `InfoCard` renders a list
-row with an optional left column, a title, and detail lines. Eight screens use
-them, so a change to spacing or corner radius happens in one file.
+---
 
-## What is next
-
-- [ ] Replace placeholder data with verified information from Lincoln
-- [ ] Real dining hours and directory phone numbers
-- [ ] Actual athletics results and schedule
-- [ ] Push notifications for upcoming events
-- [ ] Accessibility pass on color contrast and touch target sizes
-
-## About
-
-Built by Kenya Williams, computer science student at Lincoln University.
+Built by Kenya Williams. Reach me at [kenyawilliamss31@gmail.com](mailto:kenyawilliamss31@gmail.com).
