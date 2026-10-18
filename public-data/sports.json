@@ -487,8 +487,8 @@
     "sport": "Volleyball",
     "opponent": "Winston-Salem State University",
     "site": "Away",
-    "outcome": "",
-    "score": "",
+    "outcome": "L",
+    "score": "0-3",
     "note": ""
   },
   {
@@ -499,8 +499,8 @@
     "sport": "Volleyball",
     "opponent": "Johnson C. Smith University",
     "site": "Away",
-    "outcome": "",
-    "score": "",
+    "outcome": "W",
+    "score": "3-1",
     "note": ""
   },
   {
