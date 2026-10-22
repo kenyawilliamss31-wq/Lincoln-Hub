@@ -801,16 +801,6 @@
   },
   {
     "id": 81,
-    "iso": "2026-10-21",
-    "date": "Oct 21",
-    "time": "1:00 PM",
-    "title": "Apply to be a Peer Mentor for the 27-28 Academic Year",
-    "place": "See Lions Connect",
-    "host": "LU Peer Mentors",
-    "url": "https://lionsconnect.lincoln.edu/rsvp?id=380546"
-  },
-  {
-    "id": 82,
     "iso": "2026-10-22",
     "date": "Oct 22",
     "time": "12:30 PM",
@@ -820,7 +810,7 @@
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=379475"
   },
   {
-    "id": 83,
+    "id": 82,
     "iso": "2026-10-22",
     "date": "Oct 22",
     "time": "5:00 PM",
@@ -828,6 +818,16 @@
     "place": "See Lions Connect",
     "host": "Student Government Association",
     "url": "https://lionsconnect.lincoln.edu/rsvp?id=380408"
+  },
+  {
+    "id": 83,
+    "iso": "2026-10-23",
+    "date": "Oct 23",
+    "time": "10:00 AM",
+    "title": "Career Readiness Workshop - Talks w/ Docs",
+    "place": "Wright Hall 314, Lincoln University",
+    "host": "Office of Career Success",
+    "url": "https://lionsconnect.lincoln.edu/rsvp?id=379292"
   },
   {
     "id": 84,
