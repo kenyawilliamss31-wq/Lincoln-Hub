@@ -463,8 +463,8 @@
     "sport": "Volleyball",
     "opponent": "Bowie State University",
     "site": "Away",
-    "outcome": "",
-    "score": "",
+    "outcome": "L",
+    "score": "0-3",
     "note": ""
   },
   {
@@ -505,6 +505,18 @@
   },
   {
     "id": 43,
+    "iso": "2026-10-31",
+    "date": "Oct 31",
+    "time": "4:00 PM",
+    "sport": "Volleyball",
+    "opponent": "Virginia State University",
+    "site": "Away",
+    "outcome": "",
+    "score": "",
+    "note": ""
+  },
+  {
+    "id": 44,
     "iso": "2026-11-02",
     "date": "Nov 2",
     "time": "6:00 PM",
@@ -516,7 +528,7 @@
     "note": ""
   },
   {
-    "id": 44,
+    "id": 45,
     "iso": "2026-11-05",
     "date": "Nov 5",
     "time": "6:00 PM",
@@ -528,7 +540,7 @@
     "note": ""
   },
   {
-    "id": 45,
+    "id": 46,
     "iso": "2026-11-07",
     "date": "Nov 7",
     "time": "1:00 PM",
@@ -540,7 +552,7 @@
     "note": ""
   },
   {
-    "id": 46,
+    "id": 47,
     "iso": "2026-11-09",
     "date": "Nov 9",
     "time": "6:00 PM",
@@ -552,7 +564,7 @@
     "note": ""
   },
   {
-    "id": 47,
+    "id": 48,
     "iso": "2026-11-11",
     "date": "Nov 11",
     "time": "5:30 PM",
@@ -564,7 +576,7 @@
     "note": ""
   },
   {
-    "id": 48,
+    "id": 49,
     "iso": "2026-11-11",
     "date": "Nov 11",
     "time": "7:00 PM",
@@ -576,7 +588,7 @@
     "note": ""
   },
   {
-    "id": 49,
+    "id": 50,
     "iso": "2026-11-13",
     "date": "Nov 13",
     "time": "5:30 PM",
@@ -588,7 +600,7 @@
     "note": ""
   },
   {
-    "id": 50,
+    "id": 51,
     "iso": "2026-11-14",
     "date": "Nov 14",
     "time": "1:00 PM",
@@ -600,7 +612,7 @@
     "note": ""
   },
   {
-    "id": 51,
+    "id": 52,
     "iso": "2026-11-14",
     "date": "Nov 14",
     "time": "5:30 PM",
@@ -612,7 +624,7 @@
     "note": ""
   },
   {
-    "id": 52,
+    "id": 53,
     "iso": "2026-11-15",
     "date": "Nov 15",
     "time": "1:00 PM",
@@ -624,7 +636,7 @@
     "note": ""
   },
   {
-    "id": 53,
+    "id": 54,
     "iso": "2026-11-19",
     "date": "Nov 19",
     "time": "5:30 PM",
@@ -636,24 +648,12 @@
     "note": ""
   },
   {
-    "id": 54,
+    "id": 55,
     "iso": "2026-11-19",
     "date": "Nov 19",
     "time": "7:30 PM",
     "sport": "Men's Basketball",
     "opponent": "Johnson C. Smith University",
-    "site": "Away",
-    "outcome": "",
-    "score": "",
-    "note": ""
-  },
-  {
-    "id": 55,
-    "iso": "2026-11-21",
-    "date": "Nov 21",
-    "time": "10:00 AM",
-    "sport": "Cross Country",
-    "opponent": "NCAA Regional Championships",
     "site": "Away",
     "outcome": "",
     "score": "",
@@ -675,6 +675,18 @@
     "id": 57,
     "iso": "2026-11-21",
     "date": "Nov 21",
+    "time": "10:00 AM",
+    "sport": "Cross Country",
+    "opponent": "NCAA Regional Championships",
+    "site": "Away",
+    "outcome": "",
+    "score": "",
+    "note": ""
+  },
+  {
+    "id": 58,
+    "iso": "2026-11-21",
+    "date": "Nov 21",
     "time": "2:00 PM",
     "sport": "Women's Basketball",
     "opponent": "Claflin University",
@@ -684,7 +696,7 @@
     "note": ""
   },
   {
-    "id": 58,
+    "id": 59,
     "iso": "2026-11-21",
     "date": "Nov 21",
     "time": "4:00 PM",
@@ -696,7 +708,7 @@
     "note": ""
   },
   {
-    "id": 59,
+    "id": 60,
     "iso": "2026-11-28",
     "date": "Nov 28",
     "time": "5:30 PM",
@@ -708,7 +720,7 @@
     "note": ""
   },
   {
-    "id": 60,
+    "id": 61,
     "iso": "2026-11-28",
     "date": "Nov 28",
     "time": "7:00 PM",
@@ -720,7 +732,7 @@
     "note": ""
   },
   {
-    "id": 61,
+    "id": 62,
     "iso": "2026-12-03",
     "date": "Dec 3",
     "time": "5:30 PM",
@@ -732,24 +744,12 @@
     "note": ""
   },
   {
-    "id": 62,
+    "id": 63,
     "iso": "2026-12-03",
     "date": "Dec 3",
     "time": "7:30 PM",
     "sport": "Men's Basketball",
     "opponent": "Fayetteville State University",
-    "site": "Away",
-    "outcome": "",
-    "score": "",
-    "note": ""
-  },
-  {
-    "id": 63,
-    "iso": "2026-12-05",
-    "date": "Dec 5",
-    "time": "2:00 PM",
-    "sport": "Women's Basketball",
-    "opponent": "Livingstone College",
     "site": "Away",
     "outcome": "",
     "score": "",
@@ -759,6 +759,18 @@
     "id": 64,
     "iso": "2026-12-05",
     "date": "Dec 5",
+    "time": "2:00 PM",
+    "sport": "Women's Basketball",
+    "opponent": "Livingstone College",
+    "site": "Away",
+    "outcome": "",
+    "score": "",
+    "note": ""
+  },
+  {
+    "id": 65,
+    "iso": "2026-12-05",
+    "date": "Dec 5",
     "time": "4:00 PM",
     "sport": "Men's Basketball",
     "opponent": "Livingstone College",
@@ -768,7 +780,7 @@
     "note": ""
   },
   {
-    "id": 65,
+    "id": 66,
     "iso": "2026-12-12",
     "date": "Dec 12",
     "time": "2:00 PM",
@@ -780,24 +792,12 @@
     "note": ""
   },
   {
-    "id": 66,
+    "id": 67,
     "iso": "2026-12-12",
     "date": "Dec 12",
     "time": "4:00 PM",
     "sport": "Men's Basketball",
     "opponent": "Winston-Salem State University",
-    "site": "Away",
-    "outcome": "",
-    "score": "",
-    "note": ""
-  },
-  {
-    "id": 67,
-    "iso": "2026-12-14",
-    "date": "Dec 14",
-    "time": "5:30 PM",
-    "sport": "Women's Basketball",
-    "opponent": "Bluefield State University",
     "site": "Away",
     "outcome": "",
     "score": "",
@@ -807,6 +807,18 @@
     "id": 68,
     "iso": "2026-12-14",
     "date": "Dec 14",
+    "time": "5:30 PM",
+    "sport": "Women's Basketball",
+    "opponent": "Bluefield State University",
+    "site": "Away",
+    "outcome": "",
+    "score": "",
+    "note": ""
+  },
+  {
+    "id": 69,
+    "iso": "2026-12-14",
+    "date": "Dec 14",
     "time": "7:30 PM",
     "sport": "Men's Basketball",
     "opponent": "Bluefield State University",
@@ -816,7 +828,7 @@
     "note": ""
   },
   {
-    "id": 69,
+    "id": 70,
     "iso": "2026-12-17",
     "date": "Dec 17",
     "time": "5:30 PM",
@@ -828,7 +840,7 @@
     "note": ""
   },
   {
-    "id": 70,
+    "id": 71,
     "iso": "2026-12-17",
     "date": "Dec 17",
     "time": "7:30 PM",
@@ -840,7 +852,7 @@
     "note": ""
   },
   {
-    "id": 71,
+    "id": 72,
     "iso": "2026-12-19",
     "date": "Dec 19",
     "time": "2:00 PM",
@@ -852,7 +864,7 @@
     "note": ""
   },
   {
-    "id": 72,
+    "id": 73,
     "iso": "2026-12-19",
     "date": "Dec 19",
     "time": "4:00 PM",
@@ -864,7 +876,7 @@
     "note": ""
   },
   {
-    "id": 73,
+    "id": 74,
     "iso": "2026-12-31",
     "date": "Dec 31",
     "time": "1:00 PM",
@@ -876,7 +888,7 @@
     "note": ""
   },
   {
-    "id": 74,
+    "id": 75,
     "iso": "2027-01-04",
     "date": "Jan 4",
     "time": "5:30 PM",
@@ -888,7 +900,7 @@
     "note": ""
   },
   {
-    "id": 75,
+    "id": 76,
     "iso": "2027-01-07",
     "date": "Jan 7",
     "time": "5:30 PM",
@@ -900,7 +912,7 @@
     "note": ""
   },
   {
-    "id": 76,
+    "id": 77,
     "iso": "2027-01-07",
     "date": "Jan 7",
     "time": "7:30 PM",
@@ -912,7 +924,7 @@
     "note": ""
   },
   {
-    "id": 77,
+    "id": 78,
     "iso": "2027-01-09",
     "date": "Jan 9",
     "time": "2:00 PM",
@@ -924,7 +936,7 @@
     "note": ""
   },
   {
-    "id": 78,
+    "id": 79,
     "iso": "2027-01-09",
     "date": "Jan 9",
     "time": "4:00 PM",
@@ -936,7 +948,7 @@
     "note": ""
   },
   {
-    "id": 79,
+    "id": 80,
     "iso": "2027-01-12",
     "date": "Jan 12",
     "time": "6:00 PM",
@@ -948,7 +960,7 @@
     "note": ""
   },
   {
-    "id": 80,
+    "id": 81,
     "iso": "2027-01-14",
     "date": "Jan 14",
     "time": "5:30 PM",
@@ -960,24 +972,12 @@
     "note": ""
   },
   {
-    "id": 81,
+    "id": 82,
     "iso": "2027-01-14",
     "date": "Jan 14",
     "time": "7:30 PM",
     "sport": "Men's Basketball",
     "opponent": "Johnson C. Smith University",
-    "site": "Away",
-    "outcome": "",
-    "score": "",
-    "note": ""
-  },
-  {
-    "id": 82,
-    "iso": "2027-01-16",
-    "date": "Jan 16",
-    "time": "2:00 PM",
-    "sport": "Women's Basketball",
-    "opponent": "Claflin University",
     "site": "Away",
     "outcome": "",
     "score": "",
@@ -987,6 +987,18 @@
     "id": 83,
     "iso": "2027-01-16",
     "date": "Jan 16",
+    "time": "2:00 PM",
+    "sport": "Women's Basketball",
+    "opponent": "Claflin University",
+    "site": "Away",
+    "outcome": "",
+    "score": "",
+    "note": ""
+  },
+  {
+    "id": 84,
+    "iso": "2027-01-16",
+    "date": "Jan 16",
     "time": "4:00 PM",
     "sport": "Men's Basketball",
     "opponent": "Claflin University",
@@ -996,7 +1008,7 @@
     "note": ""
   },
   {
-    "id": 84,
+    "id": 85,
     "iso": "2027-01-20",
     "date": "Jan 20",
     "time": "5:30 PM",
@@ -1008,24 +1020,12 @@
     "note": ""
   },
   {
-    "id": 85,
+    "id": 86,
     "iso": "2027-01-20",
     "date": "Jan 20",
     "time": "7:30 PM",
     "sport": "Men's Basketball",
     "opponent": "Bowie State University",
-    "site": "Away",
-    "outcome": "",
-    "score": "",
-    "note": ""
-  },
-  {
-    "id": 86,
-    "iso": "2027-01-23",
-    "date": "Jan 23",
-    "time": "2:00 PM",
-    "sport": "Women's Basketball",
-    "opponent": "Fayetteville State University",
     "site": "Away",
     "outcome": "",
     "score": "",
@@ -1035,6 +1035,18 @@
     "id": 87,
     "iso": "2027-01-23",
     "date": "Jan 23",
+    "time": "2:00 PM",
+    "sport": "Women's Basketball",
+    "opponent": "Fayetteville State University",
+    "site": "Away",
+    "outcome": "",
+    "score": "",
+    "note": ""
+  },
+  {
+    "id": 88,
+    "iso": "2027-01-23",
+    "date": "Jan 23",
     "time": "4:00 PM",
     "sport": "Men's Basketball",
     "opponent": "Fayetteville State University",
@@ -1044,7 +1056,7 @@
     "note": ""
   },
   {
-    "id": 88,
+    "id": 89,
     "iso": "2027-01-28",
     "date": "Jan 28",
     "time": "5:30 PM",
@@ -1056,24 +1068,12 @@
     "note": ""
   },
   {
-    "id": 89,
+    "id": 90,
     "iso": "2027-01-28",
     "date": "Jan 28",
     "time": "7:30 PM",
     "sport": "Men's Basketball",
     "opponent": "Livingstone College",
-    "site": "Away",
-    "outcome": "",
-    "score": "",
-    "note": ""
-  },
-  {
-    "id": 90,
-    "iso": "2027-01-30",
-    "date": "Jan 30",
-    "time": "2:00 PM",
-    "sport": "Women's Basketball",
-    "opponent": "Bluefield State University",
     "site": "Away",
     "outcome": "",
     "score": "",
@@ -1083,6 +1083,18 @@
     "id": 91,
     "iso": "2027-01-30",
     "date": "Jan 30",
+    "time": "2:00 PM",
+    "sport": "Women's Basketball",
+    "opponent": "Bluefield State University",
+    "site": "Away",
+    "outcome": "",
+    "score": "",
+    "note": ""
+  },
+  {
+    "id": 92,
+    "iso": "2027-01-30",
+    "date": "Jan 30",
     "time": "4:00 PM",
     "sport": "Men's Basketball",
     "opponent": "Bluefield State University",
@@ -1092,7 +1104,7 @@
     "note": ""
   },
   {
-    "id": 92,
+    "id": 93,
     "iso": "2027-02-04",
     "date": "Feb 4",
     "time": "5:30 PM",
@@ -1104,24 +1116,12 @@
     "note": ""
   },
   {
-    "id": 93,
+    "id": 94,
     "iso": "2027-02-04",
     "date": "Feb 4",
     "time": "7:30 PM",
     "sport": "Men's Basketball",
     "opponent": "Winston-Salem State University",
-    "site": "Away",
-    "outcome": "",
-    "score": "",
-    "note": ""
-  },
-  {
-    "id": 94,
-    "iso": "2027-02-06",
-    "date": "Feb 6",
-    "time": "2:00 PM",
-    "sport": "Women's Basketball",
-    "opponent": "Virginia State University",
     "site": "Away",
     "outcome": "",
     "score": "",
@@ -1131,6 +1131,18 @@
     "id": 95,
     "iso": "2027-02-06",
     "date": "Feb 6",
+    "time": "2:00 PM",
+    "sport": "Women's Basketball",
+    "opponent": "Virginia State University",
+    "site": "Away",
+    "outcome": "",
+    "score": "",
+    "note": ""
+  },
+  {
+    "id": 96,
+    "iso": "2027-02-06",
+    "date": "Feb 6",
     "time": "4:00 PM",
     "sport": "Men's Basketball",
     "opponent": "Virginia State University",
@@ -1140,7 +1152,7 @@
     "note": ""
   },
   {
-    "id": 96,
+    "id": 97,
     "iso": "2027-02-11",
     "date": "Feb 11",
     "time": "5:30 PM",
@@ -1152,7 +1164,7 @@
     "note": ""
   },
   {
-    "id": 97,
+    "id": 98,
     "iso": "2027-02-11",
     "date": "Feb 11",
     "time": "7:30 PM",
@@ -1164,7 +1176,7 @@
     "note": ""
   },
   {
-    "id": 98,
+    "id": 99,
     "iso": "2027-02-13",
     "date": "Feb 13",
     "time": "2:00 PM",
@@ -1176,7 +1188,7 @@
     "note": ""
   },
   {
-    "id": 99,
+    "id": 100,
     "iso": "2027-02-13",
     "date": "Feb 13",
     "time": "4:00 PM",
@@ -1188,23 +1200,11 @@
     "note": ""
   },
   {
-    "id": 100,
+    "id": 101,
     "iso": "2027-02-16",
     "date": "Feb 16",
     "time": "5:30 PM",
     "sport": "Women's Basketball",
-    "opponent": "Shaw University",
-    "site": "Away",
-    "outcome": "",
-    "score": "",
-    "note": ""
-  },
-  {
-    "id": 101,
-    "iso": "2027-02-16",
-    "date": "Feb 16",
-    "time": "7:30 PM",
-    "sport": "Men's Basketball",
     "opponent": "Shaw University",
     "site": "Away",
     "outcome": "",
@@ -1213,11 +1213,11 @@
   },
   {
     "id": 102,
-    "iso": "2027-02-19",
-    "date": "Feb 19",
-    "time": "5:30 PM",
-    "sport": "Women's Basketball",
-    "opponent": "Bowie State University",
+    "iso": "2027-02-16",
+    "date": "Feb 16",
+    "time": "7:30 PM",
+    "sport": "Men's Basketball",
+    "opponent": "Shaw University",
     "site": "Away",
     "outcome": "",
     "score": "",
@@ -1227,6 +1227,18 @@
     "id": 103,
     "iso": "2027-02-19",
     "date": "Feb 19",
+    "time": "5:30 PM",
+    "sport": "Women's Basketball",
+    "opponent": "Bowie State University",
+    "site": "Away",
+    "outcome": "",
+    "score": "",
+    "note": ""
+  },
+  {
+    "id": 104,
+    "iso": "2027-02-19",
+    "date": "Feb 19",
     "time": "7:30 PM",
     "sport": "Men's Basketball",
     "opponent": "Bowie State University",
@@ -1236,7 +1248,7 @@
     "note": ""
   },
   {
-    "id": 104,
+    "id": 105,
     "iso": "2027-02-22",
     "date": "Feb 22",
     "time": "7:00 PM",
